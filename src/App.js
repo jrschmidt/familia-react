@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import TreeDisplay3Gen from './TreeDisplay3Gen';
+
 
 class App extends Component {
   render() {
@@ -20,6 +22,7 @@ class App extends Component {
             Learn React
           </a>
         </header>
+        <TreeDisplay3Gen/>
       </div>
     );
   }
