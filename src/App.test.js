@@ -11,8 +11,9 @@ it('renders without crashing', () => {
 });
 
 it('renders TreeDisplay3Gen component', () => {
+  const people = [ {id: 'JS1', firstname: 'Joe', surname: 'Smith'} ];
   const div = document.createElement('div');
-  ReactDOM.render(<TreeDisplay3Gen />, div);
+  ReactDOM.render(<TreeDisplay3Gen people={people} />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
 
