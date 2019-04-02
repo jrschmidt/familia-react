@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './TreeDisplay3Gen.css';
-// import KidName from './KidName.js';
+import PersonMini from './PersonMini.js';
 
 class TreeDisplay3Gen extends Component {
 
@@ -57,11 +57,12 @@ class TreeDisplay3Gen extends Component {
         <h2>TreeDisplay3Gen Component</h2>
         <p>Sample Text for TreeDisplay3Gen Component</p>
         <ul>
-          {this.state.people.map( (person, key) => <li key={person.id}>{person.firstname} {person.surname}</li>)}
+          {this.state.people.map( (person, key) => <PersonMini person={person} key={person.id} /> )}
         </ul>
       </div>
     )
-        }
+  }
+
 }
 
 export default TreeDisplay3Gen;
