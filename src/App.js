@@ -4,11 +4,25 @@ import getData from './dataService';
 import TreeDisplay3Gen from './TreeDisplay3Gen';
 
 class App extends Component {
+  _isMounted = false;
 
   constructor (props) {
     super(props);
-    let peopleData = getData().people;
-    this.state = { people: peopleData };
+    this.state = {
+      people: []
+    };
+  }
+
+  async componentDidMount () {
+    this._isMounted = true;
+    const peopleData = await getData().people;
+    if (this._isMounted) {
+      this.setState( {people: peopleData} );
+    }
+  }
+
+  componentWillUnmount () {
+    this._isMounted = false;
   }
 
   render () {
