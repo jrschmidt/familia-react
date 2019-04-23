@@ -31,7 +31,7 @@ class App extends Component {
         <header className="App-header">
           <h1>Familia-React</h1>
           <h2>React client for Familia genealogy API</h2>
-          <h5>familia-react v0.1.7</h5>
+          <h5>familia-react v0.1.8</h5>
         </header>
         <TreeDisplay3Gen people={this.state.people}/>
       </div>
