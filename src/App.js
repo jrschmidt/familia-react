@@ -4,7 +4,7 @@ import getData from './dataService';
 import TreeDisplay3Gen from './TreeDisplay3Gen';
 
 class App extends Component {
-  _isMounted = false;
+  // _isMounted = false;
 
   constructor (props) {
     super(props);
@@ -14,16 +14,14 @@ class App extends Component {
   }
 
   async componentDidMount () {
-    this._isMounted = true;
-    const peopleData = await getData().people;
-    if (this._isMounted) {
-      this.setState( {people: peopleData} );
-    }
+    fetch('/persons')
+    .then( (response) => response.json() )
+    .then( (peopleData) =>  this.setState( {people: peopleData} ) )
   }
 
-  componentWillUnmount () {
-    this._isMounted = false;
-  }
+  // componentWillUnmount () {
+  //   this._isMounted = false;
+  // }
 
   render () {
     return (
@@ -31,7 +29,7 @@ class App extends Component {
         <header className="App-header">
           <h1>Familia-React</h1>
           <h2>React client for Familia genealogy API</h2>
-          <h5>familia-react v0.1.8</h5>
+          <h5>familia-react v0.2.0</h5>
         </header>
         <TreeDisplay3Gen people={this.state.people}/>
       </div>
