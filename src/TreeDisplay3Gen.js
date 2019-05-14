@@ -10,7 +10,7 @@ class TreeDisplay3Gen extends Component {
         <h2>TreeDisplay3Gen Component</h2>
         <p>Sample Text for TreeDisplay3Gen Component</p>
         <ul>
-          {this.props.people.map( (person, key) => <PersonMini person={person} key={person.id} /> )}
+          {this.props.people.map( (person, key) => <PersonMini person={person} key={person._id} /> )}
         </ul>
       </div>
     )
