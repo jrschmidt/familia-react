@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import getData from './dataService';
 import TreeDisplay3Gen from './TreeDisplay3Gen';
 
 class App extends Component {
-  // _isMounted = false;
 
   constructor (props) {
     super(props);
@@ -18,10 +16,6 @@ class App extends Component {
     .then( (response) => response.json() )
     .then( (peopleData) =>  this.setState( {people: peopleData} ) )
   }
-
-  // componentWillUnmount () {
-  //   this._isMounted = false;
-  // }
 
   render () {
     return (
