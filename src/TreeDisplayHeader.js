@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import './TreeDisplayHeader.css';
 
 class TreeDisplayHeader extends Component {
 
   render () {
     return (
-      <div>
-        <h2>TreeDisplayHeader Component</h2>
+      <div className="TreeDisplayHeader">
+        <h3>TreeDisplayHeader Component</h3>
       </div>
     )
   }
