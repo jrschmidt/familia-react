@@ -8,12 +8,16 @@ import PersonMini from './PersonMini.js';
 class TreeDisplay3Gen extends Component {
 
   render() {
-    const samplePerson = {firstname: 'Adam', surname: 'Zimmerman'};
     return (
       <div className="TreeDisplay3Gen">
         <TreeDisplayHeader />
-        <PersonDisplayTile person={samplePerson} />
-        {this.props.people.map( (person, key) => <PersonMini person={person} key={person._id} /> )}
+        {this.props.people.map( (person, key) => {
+          if (person._id === '5b0ef6074896a175634c115b')
+            return <PersonDisplayTile person={person} />
+          else
+            return <PersonMini person={person} key={person._id} />
+        })}
+
       </div>
     )
   }
