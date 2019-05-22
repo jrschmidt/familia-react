@@ -45,7 +45,7 @@ setDisplayProps (peopleData) {
         <header className="App-header">
           <h2>Familia-React</h2>
           <h3>React client for Familia genealogy API</h3>
-          <h5>familia-react v0.2.11</h5>
+          <h5>familia-react v0.2.12</h5>
         </header>
         <TreeDisplay3Gen people={this.state.people}/>
       </div>

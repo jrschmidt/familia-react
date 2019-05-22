@@ -1,0 +1,6 @@
+.PersonDisplayTile {
+  grid-column-start: 4;
+  grid-column-end: 9;
+  grid-row-start: 5;
+  grid-row-end: 7;
+}
