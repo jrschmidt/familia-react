@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './PersonMini.css';
 
 class PersonMini extends Component {
 
