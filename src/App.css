@@ -1,12 +1,12 @@
 .App {
   text-align: center;
-  color: white;
+  color: #666666;
 }
 
 .App-header {
-  background-color: #669966;
+  background-color: #cccccc;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: white;
+  color: #666666;
 }
