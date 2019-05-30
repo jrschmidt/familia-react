@@ -1,10 +1,66 @@
 .TreeDisplayCore {
 
-  /* display: grid;
-  grid-template-columns: 40px 160px 80px 80px 80px 80px 80px 80px 80px 160px 40px;
-  grid-template-rows: 80px 40px 80px 80px 80px 120px 120px 80px 40px 80px 20px;
+  display: grid;
+  grid-template-columns: 40px 160px 80px 160px 80px 160px 80px 160px 40px;
+  grid-template-rows: 40px 80px 80px 80px 120px;
 
-  background-color: #e8e0c0;
-  color: #666666; */
+  background-color: #52cccc;
+  color: #666666;
 
+}
+
+ .focus-m {
+  grid-column-start: 2;
+  grid-column-end: 5;
+  grid-row-start: 4;
+  grid-row-end: 6;
+}
+
+ .focus-f {
+  grid-column-start: 6;
+  grid-column-end: 9;
+  grid-row-start: 4;
+  grid-row-end: 6;
+}
+
+.father-m {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.mother-m {
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+
+.father-f{
+  grid-column-start: 6;
+  grid-column-end: 7;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.mother-f {
+  grid-column-start: 8;
+  grid-column-end: 9;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+.husband {
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+
+.wife {
+  grid-column-start: 6;
+  grid-column-end: 7;
+  grid-row-start: 4;
+  grid-row-end: 5;
 }

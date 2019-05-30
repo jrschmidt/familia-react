@@ -10,34 +10,3 @@
 .PersonMini p {
   padding: 6px;
 }
-
-.father {
-  grid-column-start: 3;
-  grid-column-end: 5;
-  grid-row-start: 3;
-  grid-row-end: 4;
-}
-.mother {
-  grid-column-start: 8;
-  grid-column-end: 10;
-  grid-row-start: 3;
-  grid-row-end: 4;
-}
-.husband {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 5;
-  grid-row-end: 6;
-}
-.wife {
-  grid-column-start: 10;
-  grid-column-end: 11;
-  grid-row-start: 5;
-  grid-row-end: 6;
-}
-.child {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 8;
-  grid-row-end: 9;
-}

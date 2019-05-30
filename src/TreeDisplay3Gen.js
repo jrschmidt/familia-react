@@ -4,8 +4,6 @@ import TreeDisplayCore from './TreeDisplayCore';
 import ChildView from './ChildView';
 
 import TreeDisplayHeader from './TreeDisplayHeader';
-import PersonDisplayTile from './PersonDisplayTile.js';
-import PersonMini from './PersonMini.js';
 
 class TreeDisplay3Gen extends Component {
 
@@ -34,7 +32,7 @@ class TreeDisplay3Gen extends Component {
 
   render() {
     let list = this.state.focus ?
-    <div>
+    <>
     <TreeDisplayHeader />
     <TreeDisplayCore
       focus={this.state.focus}
@@ -44,7 +42,7 @@ class TreeDisplay3Gen extends Component {
       wife={this.state.wife}
     />
     <ChildView children={this.state.children} />
-    </div>
+    </>
     :
     'empty list';
 
