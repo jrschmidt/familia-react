@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './TreeDisplay3Gen.css';
+import TreeDisplayCore from './TreeDisplayCore';
+import ChildView from './ChildView';
 
 import TreeDisplayHeader from './TreeDisplayHeader';
 import PersonDisplayTile from './PersonDisplayTile.js';
@@ -33,18 +35,21 @@ class TreeDisplay3Gen extends Component {
   render() {
     let list = this.state.focus ?
     <div>
-    <p>focus {this.state.focus.firstname}</p>
-    <p>father {this.state.father.firstname}</p>
-    <p>mother {this.state.mother.firstname}</p>
-    <p>wife {this.state.wife.firstname}</p>
-    <p>child {this.state.children[0].firstname}</p>
+    <TreeDisplayHeader />
+    <TreeDisplayCore
+      focus={this.state.focus}
+      father={this.state.father}
+      mother={this.state.mother}
+      husband={this.state.husband}
+      wife={this.state.wife}
+    />
+    <ChildView children={this.state.children} />
     </div>
     :
     'empty list';
 
     return (
       <div className="TreeDisplay3Gen">
-        <TreeDisplayHeader />
         {list}
       </div>
     )

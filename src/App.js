@@ -22,7 +22,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h4>familia-react v0.2.12</h4>
+          <h4>familia-react v0.3.1</h4>
         </header>
         <TreeDisplay3Gen people={this.state.people} rootId={this.state.rootPersonId}/>
       </div>

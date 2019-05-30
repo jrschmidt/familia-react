@@ -9,13 +9,11 @@ class TreeDisplayCore extends Component {
   render() {
     return (
       <div className="TreeDisplayCore">
-
-        // {this.props.people.map( (person) =>
-        //   person.role === 'focus' ?
-        //   <PersonDisplayTile person={person} key={person._id} /> :
-        //   <PersonMini person={person} key={person._id} />
-        //   )}
-
+      <h5>TreeDisplayCore</h5>
+      <PersonDisplayTile person={this.props.focus}/>
+      <PersonMini person={this.props.father}/>
+      <PersonMini person={this.props.mother}/>
+      <PersonMini person={this.props.wife}/>
       </div>
     )
   }

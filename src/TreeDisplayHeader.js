@@ -6,7 +6,7 @@ class TreeDisplayHeader extends Component {
   render () {
     return (
       <div className="TreeDisplayHeader">
-        <h3>TreeDisplayHeader Component</h3>
+        <h5>TreeDisplayHeader</h5>
       </div>
     )
   }
