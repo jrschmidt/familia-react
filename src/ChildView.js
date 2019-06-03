@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './ChildView.css';
 
-import PersonMini from './PersonMini.js';
+import ChildRow from './ChildRow.js';
 
 class ChildView extends Component {
 
@@ -9,10 +9,7 @@ class ChildView extends Component {
     return (
       <div className="ChildView">
       <h5>ChildView</h5>
-        {this.props.children.map( (person) =>
-          <PersonMini person={person} key={person._id} />
-        )}
-
+          <ChildRow people={this.props.children} />
       </div>
     )
   }
