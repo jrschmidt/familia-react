@@ -16,23 +16,23 @@ class ChildView extends Component {
     let kidsToAdd = Array.from(people);
 
     if (kidsToAdd.length === 1)
-      return [ <ChildRow people={[ kidsToAdd[0] ]} /> ];
+      return [ <ChildRow extend='false' people={[ kidsToAdd[0] ]} /> ];
 
     while (kidsToAdd.length > 4) {
-      rows.push( <ChildRow people={[kidsToAdd.shift(), kidsToAdd.shift(), kidsToAdd.shift()]} /> );
+      rows.push( <ChildRow extend='true' people={[kidsToAdd.shift(), kidsToAdd.shift(), kidsToAdd.shift()]} /> );
     }
 
     if (kidsToAdd.length === 2) {
-      rows.push( <ChildRow people={[kidsToAdd.shift(), kidsToAdd.shift()]} /> );
+      rows.push( <ChildRow extend='false' people={[kidsToAdd.shift(), kidsToAdd.shift()]} /> );
     }
 
     if (kidsToAdd.length === 3) {
-      rows.push( <ChildRow people={[kidsToAdd.shift(), kidsToAdd.shift(), kidsToAdd.shift()]} /> );
+      rows.push( <ChildRow extend='false' people={[kidsToAdd.shift(), kidsToAdd.shift(), kidsToAdd.shift()]} /> );
     }
 
     if (kidsToAdd.length === 4) {
-      rows.push( <ChildRow people={[kidsToAdd.shift(), kidsToAdd.shift()]} /> );
-      rows.push( <ChildRow people={[kidsToAdd.shift(), kidsToAdd.shift()]} /> );
+      rows.push( <ChildRow extend='true' people={[kidsToAdd.shift(), kidsToAdd.shift()]} /> );
+      rows.push( <ChildRow extend='false' people={[kidsToAdd.shift(), kidsToAdd.shift()]} /> );
     }
 
     return rows;

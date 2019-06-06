@@ -38,42 +38,42 @@ class TreeDisplay3Gen extends Component {
         //   surname: 'Green',
         //   firstname: 'Babby'
         // },
-        //
-        // {
-        //   _id: 'p03',
-        //   surname: 'Green',
-        //   firstname: 'Crabby'
-        // },
-        //
-        // {
-        //   _id: 'p04',
-        //   surname: 'Green',
-        //   firstname: 'Dabby'
-        // },
-        //
+
+        {
+          _id: 'p03',
+          surname: 'Green',
+          firstname: 'Crabby'
+        },
+
+        {
+          _id: 'p04',
+          surname: 'Green',
+          firstname: 'Dabby'
+        },
+
         // {
         //   _id: 'p05',
         //   surname: 'Green',
         //   firstname: 'Ebby'
         // },
-        //
-        // {
-        //   _id: 'p06',
-        //   surname: 'Green',
-        //   firstname: 'Febby'
-        // },
+
+        {
+          _id: 'p06',
+          surname: 'Green',
+          firstname: 'Febby'
+        },
 
         // {
         //   _id: 'p07',
         //   surname: 'Green',
         //   firstname: 'Gabby'
         // },
-        //
-        // {
-        //   _id: 'p08',
-        //   surname: 'Green',
-        //   firstname: 'Habby'
-        // },
+
+        {
+          _id: 'p08',
+          surname: 'Green',
+          firstname: 'Habby'
+        },
 
         // {
         //   _id: 'p09',
@@ -93,29 +93,29 @@ class TreeDisplay3Gen extends Component {
         //   firstname: 'Kibby'
         // },
 
-        // {
-        //   _id: 'p12',
-        //   surname: 'Green',
-        //   firstname: 'Libby'
-        // },
+        {
+          _id: 'p12',
+          surname: 'Green',
+          firstname: 'Libby'
+        },
 
         // {
         //   _id: 'p13',
         //   surname: 'Green',
         //   firstname: 'Mobby'
         // },
-        //
-        // {
-        //   _id: 'p15',
-        //   surname: 'Green',
-        //   firstname: 'Nobby'
-        // },
+        
+        {
+          _id: 'p15',
+          surname: 'Green',
+          firstname: 'Nobby'
+        },
 
-        // {
-        //   _id: 'p16',
-        //   surname: 'Green',
-        //   firstname: 'Obby'
-        // },
+        {
+          _id: 'p16',
+          surname: 'Green',
+          firstname: 'Obby'
+        },
 
       ]
     };

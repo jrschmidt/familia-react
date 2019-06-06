@@ -1,6 +1,6 @@
 {
   "name": "familia-react",
-  "version": "0.3.4",
+  "version": "0.3.8",
   "private": true,
   "dependencies": {
     "react": "^16.8.4",
