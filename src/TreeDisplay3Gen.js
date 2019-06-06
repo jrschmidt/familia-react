@@ -27,41 +27,41 @@ class TreeDisplay3Gen extends Component {
       mother: props.people.find((person) => person._id === '5b0f02694896a175634c115c'),
       wife: props.people.find((person) => person._id === '5b10442ea064560004bb6b6c'),
       children: [
-        {
-          _id: 'p01',
-          surname: 'Green',
-          firstname: 'Abby'
-        },
-
-        {
-          _id: 'p02',
-          surname: 'Green',
-          firstname: 'Babby'
-        },
-
-        {
-          _id: 'p03',
-          surname: 'Green',
-          firstname: 'Crabby'
-        },
-
-        {
-          _id: 'p04',
-          surname: 'Green',
-          firstname: 'Dabby'
-        },
-
-        {
-          _id: 'p05',
-          surname: 'Green',
-          firstname: 'Ebby'
-        },
-
-        {
-          _id: 'p06',
-          surname: 'Green',
-          firstname: 'Febby'
-        },
+        // {
+        //   _id: 'p01',
+        //   surname: 'Green',
+        //   firstname: 'Abby'
+        // },
+        //
+        // {
+        //   _id: 'p02',
+        //   surname: 'Green',
+        //   firstname: 'Babby'
+        // },
+        //
+        // {
+        //   _id: 'p03',
+        //   surname: 'Green',
+        //   firstname: 'Crabby'
+        // },
+        //
+        // {
+        //   _id: 'p04',
+        //   surname: 'Green',
+        //   firstname: 'Dabby'
+        // },
+        //
+        // {
+        //   _id: 'p05',
+        //   surname: 'Green',
+        //   firstname: 'Ebby'
+        // },
+        //
+        // {
+        //   _id: 'p06',
+        //   surname: 'Green',
+        //   firstname: 'Febby'
+        // },
 
         // {
         //   _id: 'p07',
@@ -75,11 +75,11 @@ class TreeDisplay3Gen extends Component {
         //   firstname: 'Habby'
         // },
 
-        {
-          _id: 'p09',
-          surname: 'Green',
-          firstname: 'Ibby'
-        },
+        // {
+        //   _id: 'p09',
+        //   surname: 'Green',
+        //   firstname: 'Ibby'
+        // },
 
         {
           _id: 'p10',
@@ -87,11 +87,11 @@ class TreeDisplay3Gen extends Component {
           firstname: 'Jibby'
         },
 
-        {
-          _id: 'p11',
-          surname: 'Green',
-          firstname: 'Kibby'
-        },
+        // {
+        //   _id: 'p11',
+        //   surname: 'Green',
+        //   firstname: 'Kibby'
+        // },
 
         // {
         //   _id: 'p12',
@@ -99,23 +99,23 @@ class TreeDisplay3Gen extends Component {
         //   firstname: 'Libby'
         // },
 
-        {
-          _id: 'p13',
-          surname: 'Green',
-          firstname: 'Mobby'
-        },
+        // {
+        //   _id: 'p13',
+        //   surname: 'Green',
+        //   firstname: 'Mobby'
+        // },
+        //
+        // {
+        //   _id: 'p15',
+        //   surname: 'Green',
+        //   firstname: 'Nobby'
+        // },
 
-        {
-          _id: 'p15',
-          surname: 'Green',
-          firstname: 'Nobby'
-        },
-
-        {
-          _id: 'p16',
-          surname: 'Green',
-          firstname: 'Obby'
-        },
+        // {
+        //   _id: 'p16',
+        //   surname: 'Green',
+        //   firstname: 'Obby'
+        // },
 
       ]
     };
