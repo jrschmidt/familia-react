@@ -16,23 +16,23 @@ class ChildView extends Component {
     let kidsToAdd = Array.from(people);
 
     if (kidsToAdd.length === 1)
-      return [ <ChildRow extend='false' people={[ kidsToAdd[0] ]} /> ];
+      return [ <ChildRow key={'CR-' + kidsToAdd[0]._id} leftRight={this.props.leftRight} extend='false' people={[ kidsToAdd[0] ]} /> ];
 
     while (kidsToAdd.length > 4) {
-      rows.push( <ChildRow extend='true' people={[kidsToAdd.shift(), kidsToAdd.shift(), kidsToAdd.shift()]} /> );
+      rows.push( <ChildRow key={'CR-' + kidsToAdd[0]._id} leftRight={this.props.leftRight} extend='true' people={[kidsToAdd.shift(), kidsToAdd.shift(), kidsToAdd.shift()]} /> );
     }
 
     if (kidsToAdd.length === 2) {
-      rows.push( <ChildRow extend='false' people={[kidsToAdd.shift(), kidsToAdd.shift()]} /> );
+      rows.push( <ChildRow key={'CR-' + kidsToAdd[0]._id} leftRight={this.props.leftRight} extend='false' people={[kidsToAdd.shift(), kidsToAdd.shift()]} /> );
     }
 
     if (kidsToAdd.length === 3) {
-      rows.push( <ChildRow extend='false' people={[kidsToAdd.shift(), kidsToAdd.shift(), kidsToAdd.shift()]} /> );
+      rows.push( <ChildRow key={'CR-' + kidsToAdd[0]._id} leftRight={this.props.leftRight} extend='false' people={[kidsToAdd.shift(), kidsToAdd.shift(), kidsToAdd.shift()]} /> );
     }
 
     if (kidsToAdd.length === 4) {
-      rows.push( <ChildRow extend='true' people={[kidsToAdd.shift(), kidsToAdd.shift()]} /> );
-      rows.push( <ChildRow extend='false' people={[kidsToAdd.shift(), kidsToAdd.shift()]} /> );
+      rows.push( <ChildRow key={'CR-' + kidsToAdd[0]._id} leftRight={this.props.leftRight} extend='true' people={[kidsToAdd.shift(), kidsToAdd.shift()]} /> );
+      rows.push( <ChildRow key={'CR-' + kidsToAdd[0]._id} leftRight={this.props.leftRight} extend='false' people={[kidsToAdd.shift(), kidsToAdd.shift()]} /> );
     }
 
     return rows;
@@ -41,7 +41,6 @@ class ChildView extends Component {
   render() {
     return (
       <div className="ChildView">
-      <h5>ChildView</h5>
       {this.getChildRows(this.props.children)}
       </div>
     )

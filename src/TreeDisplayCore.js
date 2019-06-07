@@ -24,10 +24,10 @@ class TreeDisplayCore extends Component {
   render() {
     return (
       <div className="TreeDisplayCore">
-      <PersonDisplayTile person={this.props.focus} role="focus-m" />
-      <PersonMini person={this.props.father} role="father-m" />
-      <PersonMini person={this.props.mother} role="mother-m" />
-      <PersonMini person={this.props.wife} role="wife" />
+      <PersonDisplayTile person={this.props.focus} role="focus-m" key={this.props.focus._id} />
+      <PersonMini person={this.props.father} role="father-m" key={this.props.father._id} />
+      <PersonMini person={this.props.mother} role="mother-m" key={this.props.mother._id} />
+      <PersonMini person={this.props.wife} role="wife" key={this.props.wife._id} />
       {this.getConnectors()}
       </div>
     )
