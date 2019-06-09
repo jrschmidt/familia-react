@@ -4,7 +4,7 @@
   grid-template-columns: 40px 40px 120px 80px 40px 80px 40px 80px 120px 40px 40px;
   grid-template-rows: 40px 80px 80px 80px 80px;
 
-  background-color: #52cccc;
+  background-color: #bbd7ff;
   color: #666666;
 
 }
@@ -65,28 +65,28 @@
   grid-row-end: 5;
 }
 
-.connect-father-mother-m {
+.connect-father-mother-left {
   grid-column-start: 4;
   grid-column-end: 5;
   grid-row-start: 2;
   grid-row-end: 4;
 }
 
-.connect-father-mother-f {
+.connect-father-mother-right {
   grid-column-start: 8;
   grid-column-end: 9;
   grid-row-start: 2;
   grid-row-end: 4;
 }
 
-.connect-spouse-m {
+.connect-spouse-left {
   grid-column-start: 7;
   grid-column-end: 9;
   grid-row-start: 4;
   grid-row-end: 6;
 }
 
-.connect-spouse-f {
+.connect-spouse-right {
   grid-column-start: 4;
   grid-column-end: 6;
   grid-row-start: 4;

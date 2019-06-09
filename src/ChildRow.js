@@ -1,104 +1,89 @@
 import React, { Component } from 'react';
 import './ChildRow.css';
-
 import PersonMini from './PersonMini.js';
 
 class ChildRow extends Component {
 
-  constructor (props) {
-    super(props);
-    this.state = {
-      persons: [],
-      connector: null
-    }
-  }
-  // Lines to connect siblings to parents
   svgs = {
 
     svg1Left:
-    <svg className='connect' width='720' height='160'>
-      <line x1='480' y1='0' x2='480' y2='80' stroke='#666666' strokeWidth='5' />
-    </svg>,
+      <svg className='connect' width='720' height='160'>
+        <line x1='480' y1='0' x2='480' y2='80' stroke='#666666' strokeWidth='5' />
+      </svg>,
 
     svg1right:
-    <svg className='connect' width='720' height='160'>
-      <line x1='240' y1='0' x2='240' y2='80' stroke='#666666' strokeWidth='5' />
-    </svg>,
+      <svg className='connect' width='720' height='160'>
+        <line x1='240' y1='0' x2='240' y2='80' stroke='#666666' strokeWidth='5' />
+      </svg>,
 
     svg2Left:
-    <svg className='connect' width='720' height='160'>
-      <line x1='480' y1='0' x2='480' y2='40' stroke='#666666' strokeWidth='5' />
-      <line x1='360' y1='40' x2='600' y2='40' stroke='#666666' strokeWidth='5' />
-      <line x1='360' y1='40' x2='360' y2='80' stroke='#666666' strokeWidth='5' />
-      <line x1='600' y1='40' x2='600' y2='80' stroke='#666666' strokeWidth='5' />
-    </svg>,
+      <svg className='connect' width='720' height='160'>
+        <line x1='480' y1='0' x2='480' y2='40' stroke='#666666' strokeWidth='5' />
+        <line x1='360' y1='40' x2='600' y2='40' stroke='#666666' strokeWidth='5' />
+        <line x1='360' y1='40' x2='360' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='600' y1='40' x2='600' y2='80' stroke='#666666' strokeWidth='5' />
+      </svg>,
 
     svg2LeftExtend:
-    <svg className='connect' width='720' height='160'>
-      <line x1='480' y1='0' x2='480' y2='160' stroke='#666666' strokeWidth='5' />
-      <line x1='360' y1='40' x2='600' y2='40' stroke='#666666' strokeWidth='5' />
-      <line x1='360' y1='40' x2='360' y2='80' stroke='#666666' strokeWidth='5' />
-      <line x1='600' y1='40' x2='600' y2='80' stroke='#666666' strokeWidth='5' />
-    </svg>,
+      <svg className='connect' width='720' height='160'>
+        <line x1='480' y1='0' x2='480' y2='160' stroke='#666666' strokeWidth='5' />
+        <line x1='360' y1='40' x2='600' y2='40' stroke='#666666' strokeWidth='5' />
+        <line x1='360' y1='40' x2='360' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='600' y1='40' x2='600' y2='80' stroke='#666666' strokeWidth='5' />
+      </svg>,
 
     svg2Right:
-    <svg className='connect' width='720' height='160'>
-    <line x1='240' y1='0' x2='240' y2='40' stroke='#666666' strokeWidth='5' />
-    <line x1='120' y1='40' x2='360' y2='40' stroke='#666666' strokeWidth='5' />
-    <line x1='120' y1='40' x2='120' y2='80' stroke='#666666' strokeWidth='5' />
-    <line x1='360' y1='40' x2='360' y2='80' stroke='#666666' strokeWidth='5' />
-    </svg>,
+      <svg className='connect' width='720' height='160'>
+        <line x1='240' y1='0' x2='240' y2='40' stroke='#666666' strokeWidth='5' />
+        <line x1='120' y1='40' x2='360' y2='40' stroke='#666666' strokeWidth='5' />
+        <line x1='120' y1='40' x2='120' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='360' y1='40' x2='360' y2='80' stroke='#666666' strokeWidth='5' />
+      </svg>,
 
     svg2RightExtend:
-    <svg className='connect' width='720' height='160'>
-    <line x1='240' y1='0' x2='240' y2='160' stroke='#666666' strokeWidth='5' />
-    <line x1='120' y1='40' x2='360' y2='40' stroke='#666666' strokeWidth='5' />
-    <line x1='120' y1='40' x2='120' y2='80' stroke='#666666' strokeWidth='5' />
-    <line x1='360' y1='40' x2='360' y2='80' stroke='#666666' strokeWidth='5' />
-    </svg>,
+      <svg className='connect' width='720' height='160'>
+        <line x1='240' y1='0' x2='240' y2='160' stroke='#666666' strokeWidth='5' />
+        <line x1='120' y1='40' x2='360' y2='40' stroke='#666666' strokeWidth='5' />
+        <line x1='120' y1='40' x2='120' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='360' y1='40' x2='360' y2='80' stroke='#666666' strokeWidth='5' />
+      </svg>,
 
     svg3Left:
-    <svg className='connect' width='720' height='160'>
-      <line x1='480' y1='0' x2='480' y2='40' stroke='#666666' strokeWidth='5' />
-      <line x1='120' y1='40' x2='600' y2='40' stroke='#666666' strokeWidth='5' />
-      <line x1='120' y1='40' x2='120' y2='80' stroke='#666666' strokeWidth='5' />
-      <line x1='360' y1='40' x2='360' y2='80' stroke='#666666' strokeWidth='5' />
-      <line x1='600' y1='40' x2='600' y2='80' stroke='#666666' strokeWidth='5' />
-    </svg>,
+      <svg className='connect' width='720' height='160'>
+        <line x1='480' y1='0' x2='480' y2='40' stroke='#666666' strokeWidth='5' />
+        <line x1='120' y1='40' x2='600' y2='40' stroke='#666666' strokeWidth='5' />
+        <line x1='120' y1='40' x2='120' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='360' y1='40' x2='360' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='600' y1='40' x2='600' y2='80' stroke='#666666' strokeWidth='5' />
+      </svg>,
 
     svg3LeftExtend:
-    <svg className='connect' width='720' height='160'>
-      <line x1='480' y1='0' x2='480' y2='160' stroke='#666666' strokeWidth='5' />
-      <line x1='120' y1='40' x2='600' y2='40' stroke='#666666' strokeWidth='5' />
-      <line x1='120' y1='40' x2='120' y2='80' stroke='#666666' strokeWidth='5' />
-      <line x1='360' y1='40' x2='360' y2='80' stroke='#666666' strokeWidth='5' />
-      <line x1='600' y1='40' x2='600' y2='80' stroke='#666666' strokeWidth='5' />
-    </svg>,
+      <svg className='connect' width='720' height='160'>
+        <line x1='480' y1='0' x2='480' y2='160' stroke='#666666' strokeWidth='5' />
+        <line x1='120' y1='40' x2='600' y2='40' stroke='#666666' strokeWidth='5' />
+        <line x1='120' y1='40' x2='120' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='360' y1='40' x2='360' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='600' y1='40' x2='600' y2='80' stroke='#666666' strokeWidth='5' />
+      </svg>,
 
     svg3Right:
-    <svg className='connect' width='720' height='160'>
-    <line x1='240' y1='0' x2='240' y2='40' stroke='#666666' strokeWidth='5' />
-    <line x1='120' y1='40' x2='600' y2='40' stroke='#666666' strokeWidth='5' />
-    <line x1='120' y1='40' x2='120' y2='80' stroke='#666666' strokeWidth='5' />
-    <line x1='360' y1='40' x2='360' y2='80' stroke='#666666' strokeWidth='5' />
-    <line x1='600' y1='40' x2='600' y2='80' stroke='#666666' strokeWidth='5' />
-    </svg>,
+      <svg className='connect' width='720' height='160'>
+        <line x1='240' y1='0' x2='240' y2='40' stroke='#666666' strokeWidth='5' />
+        <line x1='120' y1='40' x2='600' y2='40' stroke='#666666' strokeWidth='5' />
+        <line x1='120' y1='40' x2='120' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='360' y1='40' x2='360' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='600' y1='40' x2='600' y2='80' stroke='#666666' strokeWidth='5' />
+      </svg>,
 
     svg3RightExtend:
-    <svg className='connect' width='720' height='160'>
-    <line x1='240' y1='0' x2='240' y2='160' stroke='#666666' strokeWidth='5' />
-    <line x1='120' y1='40' x2='600' y2='40' stroke='#666666' strokeWidth='5' />
-    <line x1='120' y1='40' x2='120' y2='80' stroke='#666666' strokeWidth='5' />
-    <line x1='360' y1='40' x2='360' y2='80' stroke='#666666' strokeWidth='5' />
-    <line x1='600' y1='40' x2='600' y2='80' stroke='#666666' strokeWidth='5' />
-    </svg>
+      <svg className='connect' width='720' height='160'>
+        <line x1='240' y1='0' x2='240' y2='160' stroke='#666666' strokeWidth='5' />
+        <line x1='120' y1='40' x2='600' y2='40' stroke='#666666' strokeWidth='5' />
+        <line x1='120' y1='40' x2='120' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='360' y1='40' x2='360' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='600' y1='40' x2='600' y2='80' stroke='#666666' strokeWidth='5' />
+      </svg>
   };
-
-  static getDerivedStateFromProps (props, state) {
-    return {
-      persons: [],
-    };
-  }
 
   generateRowTags () {
     let person1, person2, person3;
@@ -147,7 +132,7 @@ class ChildRow extends Component {
   render() {
     return (
       <div className='ChildRow'>
-      {this.generateRowTags()}
+        {this.generateRowTags()}
       </div>
     )
   }
