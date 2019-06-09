@@ -71,24 +71,24 @@ class TreeDisplay3Gen extends Component {
           firstname: 'Gabby'
         },
 
-        {
-          _id: 'p08',
-          surname: 'Green',
-          firstname: 'Habby'
-        },
+        // {
+        //   _id: 'p08',
+        //   surname: 'Green',
+        //   firstname: 'Habby'
+        // },
 
         // {
         //   _id: 'p09',
         //   surname: 'Green',
         //   firstname: 'Ibby'
         // },
-        //
+
         // {
         //   _id: 'p10',
         //   surname: 'Green',
         //   firstname: 'Jibby'
         // },
-        //
+
         // {
         //   _id: 'p11',
         //   surname: 'Green',
