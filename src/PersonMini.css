@@ -1,6 +1,7 @@
 .PersonMini {
   background-color: #aacccc;
   padding: 8px;
+  font-size: 0.9em;
 }
 
 .PersonMini * {
