@@ -6,94 +6,59 @@ class ChildRow extends Component {
 
   svgs = {
 
-    svg1Left:
+    svgSingle1:
       <svg className='connect' width='720' height='160'>
-        <line x1='480' y1='0' x2='480' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='400' y1='0' x2='400' y2='80' stroke='#666666' strokeWidth='5' />
       </svg>,
 
-    svg1right:
+    svgSingle2:
       <svg className='connect' width='720' height='160'>
-        <line x1='240' y1='0' x2='240' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='400' y1='0' x2='400' y2='40' stroke='#666666' strokeWidth='5' />
+        <line x1='300' y1='40' x2='500' y2='40' stroke='#666666' strokeWidth='5' />
+        <line x1='300' y1='40' x2='300' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='500' y1='40' x2='500' y2='80' stroke='#666666' strokeWidth='5' />
       </svg>,
 
-    svg2Left:
+    svgSingle3:
       <svg className='connect' width='720' height='160'>
-        <line x1='480' y1='0' x2='480' y2='40' stroke='#666666' strokeWidth='5' />
-        <line x1='360' y1='40' x2='600' y2='40' stroke='#666666' strokeWidth='5' />
-        <line x1='360' y1='40' x2='360' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='400' y1='0' x2='400' y2='40' stroke='#666666' strokeWidth='5' />
+        <line x1='200' y1='40' x2='600' y2='40' stroke='#666666' strokeWidth='5' />
+        <line x1='200' y1='40' x2='200' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='400' y1='40' x2='400' y2='80' stroke='#666666' strokeWidth='5' />
         <line x1='600' y1='40' x2='600' y2='80' stroke='#666666' strokeWidth='5' />
       </svg>,
 
-    svg2LeftExtend:
+    svgLast4:
       <svg className='connect' width='720' height='160'>
-        <line x1='480' y1='0' x2='480' y2='160' stroke='#666666' strokeWidth='5' />
-        <line x1='360' y1='40' x2='600' y2='40' stroke='#666666' strokeWidth='5' />
-        <line x1='360' y1='40' x2='360' y2='80' stroke='#666666' strokeWidth='5' />
-        <line x1='600' y1='40' x2='600' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='400' y1='0' x2='400' y2='40' stroke='#666666' strokeWidth='5' />
+        <line x1='100' y1='40' x2='700' y2='40' stroke='#666666' strokeWidth='5' />
+        <line x1='100' y1='40' x2='100' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='300' y1='40' x2='300' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='500' y1='40' x2='500' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='700' y1='40' x2='700' y2='80' stroke='#666666' strokeWidth='5' />
       </svg>,
 
-    svg2Right:
+    svgExtend4:
       <svg className='connect' width='720' height='160'>
-        <line x1='240' y1='0' x2='240' y2='40' stroke='#666666' strokeWidth='5' />
-        <line x1='120' y1='40' x2='360' y2='40' stroke='#666666' strokeWidth='5' />
-        <line x1='120' y1='40' x2='120' y2='80' stroke='#666666' strokeWidth='5' />
-        <line x1='360' y1='40' x2='360' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='400' y1='0' x2='400' y2='160' stroke='#666666' strokeWidth='5' />
+        <line x1='100' y1='40' x2='700' y2='40' stroke='#666666' strokeWidth='5' />
+        <line x1='100' y1='40' x2='100' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='300' y1='40' x2='300' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='500' y1='40' x2='500' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='700' y1='40' x2='700' y2='80' stroke='#666666' strokeWidth='5' />
       </svg>,
 
-    svg2RightExtend:
-      <svg className='connect' width='720' height='160'>
-        <line x1='240' y1='0' x2='240' y2='160' stroke='#666666' strokeWidth='5' />
-        <line x1='120' y1='40' x2='360' y2='40' stroke='#666666' strokeWidth='5' />
-        <line x1='120' y1='40' x2='120' y2='80' stroke='#666666' strokeWidth='5' />
-        <line x1='360' y1='40' x2='360' y2='80' stroke='#666666' strokeWidth='5' />
-      </svg>,
-
-    svg3Left:
-      <svg className='connect' width='720' height='160'>
-        <line x1='480' y1='0' x2='480' y2='40' stroke='#666666' strokeWidth='5' />
-        <line x1='120' y1='40' x2='600' y2='40' stroke='#666666' strokeWidth='5' />
-        <line x1='120' y1='40' x2='120' y2='80' stroke='#666666' strokeWidth='5' />
-        <line x1='360' y1='40' x2='360' y2='80' stroke='#666666' strokeWidth='5' />
-        <line x1='600' y1='40' x2='600' y2='80' stroke='#666666' strokeWidth='5' />
-      </svg>,
-
-    svg3LeftExtend:
-      <svg className='connect' width='720' height='160'>
-        <line x1='480' y1='0' x2='480' y2='160' stroke='#666666' strokeWidth='5' />
-        <line x1='120' y1='40' x2='600' y2='40' stroke='#666666' strokeWidth='5' />
-        <line x1='120' y1='40' x2='120' y2='80' stroke='#666666' strokeWidth='5' />
-        <line x1='360' y1='40' x2='360' y2='80' stroke='#666666' strokeWidth='5' />
-        <line x1='600' y1='40' x2='600' y2='80' stroke='#666666' strokeWidth='5' />
-      </svg>,
-
-    svg3Right:
-      <svg className='connect' width='720' height='160'>
-        <line x1='240' y1='0' x2='240' y2='40' stroke='#666666' strokeWidth='5' />
-        <line x1='120' y1='40' x2='600' y2='40' stroke='#666666' strokeWidth='5' />
-        <line x1='120' y1='40' x2='120' y2='80' stroke='#666666' strokeWidth='5' />
-        <line x1='360' y1='40' x2='360' y2='80' stroke='#666666' strokeWidth='5' />
-        <line x1='600' y1='40' x2='600' y2='80' stroke='#666666' strokeWidth='5' />
-      </svg>,
-
-    svg3RightExtend:
-      <svg className='connect' width='720' height='160'>
-        <line x1='240' y1='0' x2='240' y2='160' stroke='#666666' strokeWidth='5' />
-        <line x1='120' y1='40' x2='600' y2='40' stroke='#666666' strokeWidth='5' />
-        <line x1='120' y1='40' x2='120' y2='80' stroke='#666666' strokeWidth='5' />
-        <line x1='360' y1='40' x2='360' y2='80' stroke='#666666' strokeWidth='5' />
-        <line x1='600' y1='40' x2='600' y2='80' stroke='#666666' strokeWidth='5' />
-      </svg>
   };
 
   generateRowTags () {
-    let person1, person2, person3;
+    let person1, person2, person3, person4;
 
     if (this.props.people.length === 1) {
       person1 = this.props.people.shift();
       return (
         <>
-        <PersonMini person={person1} key={person1._id} role={this.props.leftRight === 'left' ? 'single-left' : 'single-right'} />
-        {this.props.leftRight === 'left' ? this.svgs.svg1Left : this.svgs.svg1right}
+          <PersonMini person={person1} key={person1._id} role='child-middle' />
+          {this.svgs.svgSingle1}
         </>
       );
     }
@@ -103,11 +68,9 @@ class ChildRow extends Component {
       person2 = this.props.people.shift();
       return (
         <>
-        <PersonMini person={person1} key={person1._id} role={this.props.leftRight === 'left' ? 'child2' : 'child1'} />
-        <PersonMini person={person2} key={person2._id} role={this.props.leftRight === 'left' ? 'child3' : 'child2'} />
-        {this.props.leftRight === 'left' ?
-          (this.props.extend === 'true' ? this.svgs.svg2LeftExtend : this.svgs.svg2Left) :
-          (this.props.extend === 'true' ? this.svgs.svg2RightExtend : this.svgs.svg2Right) }
+          <PersonMini person={person1} key={person1._id} role='child-2' />
+          <PersonMini person={person2} key={person2._id} role='child-3' />
+          {this.svgs.svgSingle2}
         </>
       );
     }
@@ -118,12 +81,26 @@ class ChildRow extends Component {
       person3 = this.props.people.shift();
       return (
         <>
-        <PersonMini person={person1} key={person1._id} role='child1' />
-        <PersonMini person={person2} key={person2._id} role='child2' />
-        <PersonMini person={person3} key={person3._id} role='child3' />
-        {this.props.leftRight === 'left' ?
-        (this.props.extend === 'true' ? this.svgs.svg3LeftExtend : this.svgs.svg3Left) :
-        (this.props.extend === 'true' ? this.svgs.svg3RightExtend : this.svgs.svg3Right) }
+          <PersonMini person={person1} key={person1._id} role='child-left' />
+          <PersonMini person={person2} key={person2._id} role='child-middle' />
+          <PersonMini person={person3} key={person3._id} role='child-right' />
+          {this.svgs.svgSingle3}
+        </>
+      );
+    }
+
+    else if (this.props.people.length === 4) {
+      person1 = this.props.people.shift();
+      person2 = this.props.people.shift();
+      person3 = this.props.people.shift();
+      person4 = this.props.people.shift();
+      return (
+        <>
+          <PersonMini person={person1} key={person1._id} role='child-1' />
+          <PersonMini person={person2} key={person2._id} role='child-2' />
+          <PersonMini person={person3} key={person3._id} role='child-3' />
+          <PersonMini person={person4} key={person4._id} role='child-4' />
+          {this.props.extend === 'true' ? this.svgs.svgExtend4 : this.svgs.svgLast4}
         </>
       );
     }
