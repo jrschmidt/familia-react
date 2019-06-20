@@ -150,7 +150,7 @@ class TreeDisplay3Gen extends Component {
       husband={this.state.husband}
       wife={this.state.wife}
     />
-    <ChildView children={this.state.children} leftRight={this.state.leftRight} />
+    <ChildView children={this.state.children} />
     </>
     :
     'empty list';

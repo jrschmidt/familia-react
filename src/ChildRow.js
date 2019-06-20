@@ -28,7 +28,31 @@ class ChildRow extends Component {
         <line x1='600' y1='40' x2='600' y2='80' stroke='#666666' strokeWidth='5' />
       </svg>,
 
-    svgLast4:
+    svgFinal1:
+      <svg className='connect' width='720' height='160'>
+        <line x1='400' y1='0' x2='400' y2='40' stroke='#666666' strokeWidth='5' />
+        <line x1='100' y1='40' x2='400' y2='40' stroke='#666666' strokeWidth='5' />
+        <line x1='100' y1='40' x2='100' y2='80' stroke='#666666' strokeWidth='5' />
+      </svg>,
+
+    svgFinal2:
+      <svg className='connect' width='720' height='160'>
+        <line x1='400' y1='0' x2='400' y2='40' stroke='#666666' strokeWidth='5' />
+        <line x1='100' y1='40' x2='400' y2='40' stroke='#666666' strokeWidth='5' />
+        <line x1='100' y1='40' x2='100' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='300' y1='40' x2='300' y2='80' stroke='#666666' strokeWidth='5' />
+      </svg>,
+
+    svgFinal3:
+      <svg className='connect' width='720' height='160'>
+        <line x1='400' y1='0' x2='400' y2='40' stroke='#666666' strokeWidth='5' />
+        <line x1='100' y1='40' x2='500' y2='40' stroke='#666666' strokeWidth='5' />
+        <line x1='100' y1='40' x2='100' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='300' y1='40' x2='300' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='500' y1='40' x2='500' y2='80' stroke='#666666' strokeWidth='5' />
+      </svg>,
+
+    svgFinal4:
       <svg className='connect' width='720' height='160'>
         <line x1='400' y1='0' x2='400' y2='40' stroke='#666666' strokeWidth='5' />
         <line x1='100' y1='40' x2='700' y2='40' stroke='#666666' strokeWidth='5' />
@@ -100,7 +124,7 @@ class ChildRow extends Component {
           <PersonMini person={person2} key={person2._id} role='child-2' />
           <PersonMini person={person3} key={person3._id} role='child-3' />
           <PersonMini person={person4} key={person4._id} role='child-4' />
-          {this.props.extend === 'true' ? this.svgs.svgExtend4 : this.svgs.svgLast4}
+          {this.props.extend === 'true' ? this.svgs.svgExtend4 : this.svgs.svgFinal4}
         </>
       );
     }
