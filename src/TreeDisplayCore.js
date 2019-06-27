@@ -44,12 +44,12 @@ class TreeDisplayCore extends Component {
   render() {
     return (
       <div className='TreeDisplayCore'>
-        <PersonDisplayTile person={this.props.focus} role='focus-f' key={this.props.focus._id} />
-        <PersonMini person={this.props.husband} role='husband' key={this.props.husband._id} />
-        <PersonMini person={this.props.fatherMale} role='father-m' key={this.props.fatherMale._id} />
-        <PersonMini person={this.props.motherMale} role='mother-m' key={this.props.motherMale._id} />
-        <PersonMini person={this.props.fatherFemale} role='father-f' key={this.props.fatherFemale._id} />
-        <PersonMini person={this.props.motherFemale} role='mother-f' key={this.props.motherFemale._id} />
+        <PersonDisplayTile person={this.props.focus} viewRole='focus-f' key={this.props.focus._id} />
+        <PersonMini person={this.props.husband} viewRole='husband' key={this.props.husband._id} />
+        <PersonMini person={this.props.fatherMale} viewRole='father-m' key={this.props.fatherMale._id} />
+        <PersonMini person={this.props.motherMale} viewRole='mother-m' key={this.props.motherMale._id} />
+        <PersonMini person={this.props.fatherFemale} viewRole='father-f' key={this.props.fatherFemale._id} />
+        <PersonMini person={this.props.motherFemale} viewRole='mother-f' key={this.props.motherFemale._id} />
         {this.svgs.svgFatherMotherMale}
         {this.svgs.svgFatherMotherFemale}
         {this.props.leftRight === 'left' ? this.svgs.svgChildrenMale : this.svgs.svgChildrenFemale}
