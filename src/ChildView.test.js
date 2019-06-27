@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 
-import App from './App';
 import ChildRow from './ChildRow.js';
 import ChildView from './ChildView.js';
 
