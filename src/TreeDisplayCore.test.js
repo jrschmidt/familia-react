@@ -6,5 +6,5 @@ import TreeDisplayCore from './TreeDisplayCore.js';
 
 it('renders TreeDisplayCore component', () => {
     let props = {};
-    let shallow = (<TreeDisplayCore {...props}/>);
+    const wrapper = shallow(<TreeDisplayCore {...props}/>);
 });

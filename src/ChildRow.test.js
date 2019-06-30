@@ -6,5 +6,5 @@ import ChildRow from './ChildRow.js';
 
 it('renders ChildRow component', () => {
     let props = {};
-    let shallow = (<ChildRow {...props}/>);
+    const wrapper = shallow(<ChildRow {...props}/>);
 });

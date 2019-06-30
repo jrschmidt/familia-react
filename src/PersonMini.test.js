@@ -5,6 +5,8 @@ import { shallow } from 'enzyme';
 import PersonMini from './PersonMini.js';
 
 it('renders PersonMini component', () => {
-    let props = {};
-    let shallow = (<PersonMini {...props}/>);
+    let props = {
+      person: {firstname: 'Albert', surname: 'Adams'}
+    };
+    const wrapper = shallow(<PersonMini {...props}/>);
 });

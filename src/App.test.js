@@ -5,5 +5,5 @@ import { shallow } from 'enzyme';
 import App from './App';
 
 it('renders App component', () => {
-    let shallow = (<App />);
+    const wrapper = shallow(<App />);
 });

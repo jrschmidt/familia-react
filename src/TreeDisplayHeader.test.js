@@ -6,5 +6,5 @@ import TreeDisplayHeader from './TreeDisplayHeader.js';
 
 it('renders TreeDisplayHeader component', () => {
     let props = {};
-    let shallow = (<TreeDisplayHeader {...props}/>);
+    const wrapper = shallow(<TreeDisplayHeader {...props}/>);
 });

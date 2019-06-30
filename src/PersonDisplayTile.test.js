@@ -5,6 +5,8 @@ import { shallow } from 'enzyme';
 import PersonDisplayTile from './PersonDisplayTile.js';
 
 it('renders PersonDisplayTile component', () => {
-    let props = {};
-    let shallow = (<PersonDisplayTile {...props}/>);
+  let props = {
+    person: {firstname: 'Albert', surname: 'Adams'}
+  };
+    const wrapper = shallow(<PersonDisplayTile {...props}/>);
 });

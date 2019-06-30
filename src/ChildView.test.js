@@ -26,7 +26,7 @@ const peopleSource = [
 it('renders ChildView component', () => {
   for (let i=0; i<15; i++) {
     let props = {children: peopleSource.slice(0,i + 1)};
-    let shallow = (<ChildView {...props}/>);
+    let wrapper = shallow(<ChildView {...props}/>);
   }
 });
 
