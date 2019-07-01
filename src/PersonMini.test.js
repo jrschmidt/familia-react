@@ -8,5 +8,7 @@ it('renders PersonMini component', () => {
     let props = {
       person: {firstname: 'Albert', surname: 'Adams'}
     };
+    const tag1 = <h4>Albert Adams</h4>
     const wrapper = shallow(<PersonMini {...props}/>);
+    expect(wrapper.contains(tag1)).toEqual(true);
 });
