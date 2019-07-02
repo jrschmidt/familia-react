@@ -5,6 +5,6 @@ import { shallow } from 'enzyme';
 import TreeDisplayHeader from './TreeDisplayHeader.js';
 
 it('renders TreeDisplayHeader component', () => {
-    let props = {};
+    const props = {};
     const wrapper = shallow(<TreeDisplayHeader {...props}/>);
 });

@@ -41,18 +41,39 @@ class TreeDisplayCore extends Component {
       </svg>
   };
 
+  getTags() {
+    const tags = [];
+    if (this.props.focusPerson) tags.push(
+      <PersonDisplayTile person={this.props.focusPerson} />
+    );
+    if (this.props.husband) tags.push(
+      <PersonMini person={this.props.husband} viewRole='husband' key={this.props.husband._id} />
+    );
+    if (this.props.wife) tags.push(
+      <PersonMini person={this.props.wife} viewRole='wife' key={this.props.wife._id} />
+    );
+    if (this.props.fatherMale) tags.push(
+      <PersonMini person={this.props.fatherMale} viewRole='father-m' key={this.props.fatherMale._id} />
+    );
+    if (this.props.motherMale) tags.push(
+      <PersonMini person={this.props.motherMale} viewRole='mother-m' key={this.props.motherMale._id} />
+    );
+    if (this.props.fatherFemale) tags.push(
+      <PersonMini person={this.props.fatherFemale} viewRole='father-f' key={this.props.fatherFemale._id} />
+    );
+    if (this.props.motherFemale) tags.push(
+      <PersonMini person={this.props.motherFemale} viewRole='mother-f' key={this.props.motherFemale._id} />
+    );
+    return tags;
+  }
+
   render() {
     return (
       <div className='TreeDisplayCore'>
+        {this.getTags()}
       </div>
     )
 
-    // <PersonDisplayTile person={this.props.focus} viewRole='focus-f' key={this.props.focus._id} />
-    // <PersonMini person={this.props.husband} viewRole='husband' key={this.props.husband._id} />
-    // <PersonMini person={this.props.fatherMale} viewRole='father-m' key={this.props.fatherMale._id} />
-    // <PersonMini person={this.props.motherMale} viewRole='mother-m' key={this.props.motherMale._id} />
-    // <PersonMini person={this.props.fatherFemale} viewRole='father-f' key={this.props.fatherFemale._id} />
-    // <PersonMini person={this.props.motherFemale} viewRole='mother-f' key={this.props.motherFemale._id} />
     // {this.svgs.svgFatherMotherMale}
     // {this.svgs.svgFatherMotherFemale}
     // {this.props.leftRight === 'left' ? this.svgs.svgChildrenMale : this.svgs.svgChildrenFemale}
