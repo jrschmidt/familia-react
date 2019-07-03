@@ -8,7 +8,7 @@ class TreeDisplayCore extends Component {
 
   svgs = {
 
-    svgFatherMotherMale:
+    svgFatherMotherOfMale:
       <svg className='connect-father-mother-male' width='280' height='80'>
         <line x1='40' y1='0' x2='40' y2='40' stroke='#666666' strokeWidth='5' />
         <line x1='240' y1='0' x2='240' y2='40' stroke='#666666' strokeWidth='5' />
@@ -16,7 +16,7 @@ class TreeDisplayCore extends Component {
         <line x1='140' y1='40' x2='140' y2='80' stroke='#666666' strokeWidth='5' />
       </svg>,
 
-    svgFatherMotherFemale:
+    svgFatherMotherOfFemale:
       <svg className='connect-father-mother-female' width='280' height='80'>
         <line x1='40' y1='0' x2='40' y2='40' stroke='#666666' strokeWidth='5' />
         <line x1='240' y1='0' x2='240' y2='40' stroke='#666666' strokeWidth='5' />
@@ -24,7 +24,7 @@ class TreeDisplayCore extends Component {
         <line x1='140' y1='40' x2='140' y2='80' stroke='#666666' strokeWidth='5' />
       </svg>,
 
-    svgChildrenMale:
+    svgChildrenOfMale:
       <svg className='connect-children-male' width='440' height='120'>
         <line x1='20' y1='40' x2='20' y2='80' stroke='#666666' strokeWidth='5' />
         <line x1='420' y1='0' x2='420' y2='80' stroke='#666666' strokeWidth='5' />
@@ -32,7 +32,7 @@ class TreeDisplayCore extends Component {
         <line x1='220' y1='80' x2='220' y2='120' stroke='#666666' strokeWidth='5' />
       </svg>,
 
-    svgChildrenFemale:
+    svgChildrenOfFemale:
       <svg className='connect-children-female' width='440' height='120'>
         <line x1='20' y1='0' x2='20' y2='80' stroke='#666666' strokeWidth='5' />
         <line x1='420' y1='40' x2='420' y2='80' stroke='#666666' strokeWidth='5' />
@@ -52,17 +52,17 @@ class TreeDisplayCore extends Component {
     if (this.props.wife) tags.push(
       <PersonMini person={this.props.wife} viewRole='wife' key={this.props.wife._id} />
     );
-    if (this.props.fatherMale) tags.push(
-      <PersonMini person={this.props.fatherMale} viewRole='father-m' key={this.props.fatherMale._id} />
+    if (this.props.fatherOfMale) tags.push(
+      <PersonMini person={this.props.fatherOfMale} viewRole='father-m' key={this.props.fatherOfMale._id} />
     );
-    if (this.props.motherMale) tags.push(
-      <PersonMini person={this.props.motherMale} viewRole='mother-m' key={this.props.motherMale._id} />
+    if (this.props.motherOfMale) tags.push(
+      <PersonMini person={this.props.motherOfMale} viewRole='mother-m' key={this.props.motherOfMale._id} />
     );
-    if (this.props.fatherFemale) tags.push(
-      <PersonMini person={this.props.fatherFemale} viewRole='father-f' key={this.props.fatherFemale._id} />
+    if (this.props.fatherOfFemale) tags.push(
+      <PersonMini person={this.props.fatherOfFemale} viewRole='father-f' key={this.props.fatherOfFemale._id} />
     );
-    if (this.props.motherFemale) tags.push(
-      <PersonMini person={this.props.motherFemale} viewRole='mother-f' key={this.props.motherFemale._id} />
+    if (this.props.motherOfFemale) tags.push(
+      <PersonMini person={this.props.motherOfFemale} viewRole='mother-f' key={this.props.motherOfFemale._id} />
     );
     return tags;
   }
@@ -74,9 +74,9 @@ class TreeDisplayCore extends Component {
       </div>
     )
 
-    // {this.svgs.svgFatherMotherMale}
-    // {this.svgs.svgFatherMotherFemale}
-    // {this.props.leftRight === 'left' ? this.svgs.svgChildrenMale : this.svgs.svgChildrenFemale}
+    // {this.svgs.svgFatherMotherOfMale}
+    // {this.svgs.svgFatherMotherOfFemale}
+    // {this.props.leftRight === 'left' ? this.svgs.svgChildrenOfMale : this.svgs.svgChildrenOfFemale}
 
   }
 

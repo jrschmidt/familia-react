@@ -1,53 +1,58 @@
 import React, { Component } from 'react';
 import './TreeDisplay3Gen.css';
-import TreeDisplayCore from './TreeDisplayCore';
-import ChildView from './ChildView';
 
 import TreeDisplayHeader from './TreeDisplayHeader';
+import TreeDisplayCore from './TreeDisplayCore';
+import ChildView from './ChildView';
 
 class TreeDisplay3Gen extends Component {
 
   constructor (props) {
     super(props);
+    const focusPerson = this.props.people.find( person => person._id === this.props.focusPersonId );
+    const viewGender = focusPerson.gender;
+
+    const spouse = viewGender === 'male' ?
+    this.props.people.find( person => person._id === focusPerson.wife ) :
+    this.props.people.find( person => person._id === focusPerson.husband );
+
+    let male, female;
+    if (viewGender === 'male')
+      {
+        male = focusPerson;
+        female = spouse;
+      }
+    else
+      {
+        female = focusPerson;
+        male = spouse;
+      }
+
     this.state = {
-      readyToDisplay: 'no',
-      leftRight: '',
-      focus: {},
-      fatherMale: null,
-      motherMale: null,
-      husband: null,
-      wife: null,
-      children: []
+      focusPerson: focusPerson,
+      focusPersonGender: viewGender,
+      fatherOfMale: this.props.people.find( person => person._id === male.father ),
+      motherOfMale: this.props.people.find( person => person._id === male.mother ),
+      fatherOfFemale: this.props.people.find( person => person._id === female.father ),
+      motherOfFemale: this.props.people.find( person => person._id === female.mother ),
+      husband: viewGender === 'male' ? null : spouse,
+      wife: viewGender === 'female' ? null : spouse,
+      children: focusPerson.children.map( childId =>  this.props.people.find( person => person._id === childId ))
     }
   }
 
-  static getDerivedStateFromProps (props, state) {
-    return {
-    };
-  }
-
   render() {
-    let list = this.state.focus ?
-    <>
-    <TreeDisplayHeader />
-    <TreeDisplayCore
-      leftRight={this.state.leftRight}
-      focus={this.state.focus}
-      fatherMale={this.state.fatherMale}
-      motherMale={this.state.motherMale}
-      fatherFemale={this.state.fatherFemale}
-      motherFemale={this.state.motherFemale}
-      husband={this.state.husband}
-      wife={this.state.wife}
-    />
-    <ChildView children={this.state.children} />
-    </>
-    :
-    'empty list';
+    const tags =
+      <>
+      <TreeDisplayHeader />
+      <TreeDisplayCore
+      />
+      <ChildView children={this.state.children} />
+      </>
 
     return (
       <div className="TreeDisplay3Gen">
-        {list}
+        {tags}
       </div>
     )
   }
