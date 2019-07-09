@@ -64,6 +64,9 @@ class TreeDisplayCore extends Component {
     if (this.props.motherOfFemale) tags.push(
       <PersonMini person={this.props.motherOfFemale} viewRole='mother-f' key={this.props.motherOfFemale._id} />
     );
+    tags.push(this.svgs.svgFatherMotherOfMale);
+    tags.push(this.svgs.svgFatherMotherOfFemale);
+    tags.push(this.props.focusPerson.gender === 'male' ? this.svgs.svgChildrenOfMale : this.svgs.svgChildrenOfFemale);
     return tags;
   }
 

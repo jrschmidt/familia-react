@@ -19,6 +19,7 @@ it('renders TreeDisplayCore component with male focus person', () => {
     const wrapper = shallow(<TreeDisplayCore {...props}/>);
     expect(wrapper.find(PersonDisplayTile)).toHaveLength(1);
     expect(wrapper.find(PersonMini)).toHaveLength(5);
+    expect(wrapper.find('svg')).toHaveLength(3);
 });
 
 it('renders TreeDisplayCore component with female focus person', () => {
@@ -34,4 +35,5 @@ it('renders TreeDisplayCore component with female focus person', () => {
     const wrapper = shallow(<TreeDisplayCore {...props}/>);
     expect(wrapper.find(PersonDisplayTile)).toHaveLength(1);
     expect(wrapper.find(PersonMini)).toHaveLength(5);
+    expect(wrapper.find('svg')).toHaveLength(3);
 });
