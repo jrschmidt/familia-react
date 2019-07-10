@@ -46,6 +46,13 @@ class TreeDisplay3Gen extends Component {
       <>
       <TreeDisplayHeader />
       <TreeDisplayCore
+        focusPerson={this.state.focusPerson}
+        husband={this.state.husband}
+        wife={this.state.wife}
+        fatherOfMale={this.state.fatherOfMale}
+        motherOfMale={this.state.motherOfMale}
+        fatherOfFemale={this.state.fatherOfFemale}
+        motherOfFemale={this.state.motherOfFemale}
       />
       <ChildView children={this.state.children} />
       </>

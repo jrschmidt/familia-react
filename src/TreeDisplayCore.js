@@ -76,11 +76,6 @@ class TreeDisplayCore extends Component {
         {this.getTags()}
       </div>
     )
-
-    // {this.svgs.svgFatherMotherOfMale}
-    // {this.svgs.svgFatherMotherOfFemale}
-    // {this.props.leftRight === 'left' ? this.svgs.svgChildrenOfMale : this.svgs.svgChildrenOfFemale}
-
   }
 
 }

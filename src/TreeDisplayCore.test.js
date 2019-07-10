@@ -8,7 +8,7 @@ import PersonMini from './PersonMini.js';
 
 it('renders TreeDisplayCore component with male focus person', () => {
     const props = {
-      focusPerson: {_id: 'p01', firstname: 'Robert', surname: 'Green', birthdate: 'aug-07-1958', birthPlaceName: 'Mt Vernon, Illinois'},
+      focusPerson: {_id: 'p01', gender: 'male', firstname: 'Robert', surname: 'Green', birthdate: 'aug-07-1958', birthPlaceName: 'Mt Vernon, Illinois'},
       husband: null,
       wife: {_id: 'p03', firstname: 'Anne', surname: 'Adams'},
       fatherOfMale: {_id: 'p04', firstname: 'Thomas', surname: 'Green'},
@@ -20,11 +20,12 @@ it('renders TreeDisplayCore component with male focus person', () => {
     expect(wrapper.find(PersonDisplayTile)).toHaveLength(1);
     expect(wrapper.find(PersonMini)).toHaveLength(5);
     expect(wrapper.find('svg')).toHaveLength(3);
+    expect(wrapper.find('svg').last().hasClass('connect-children-male')).toEqual(true);
 });
 
 it('renders TreeDisplayCore component with female focus person', () => {
     const props = {
-      focusPerson: {_id: 'p03', firstname: 'Anne', surname: 'Adams', birthdate: 'may-26-1959', birthPlaceName: 'Lenexa, Kansas'},
+      focusPerson: {_id: 'p03', gender: 'female', firstname: 'Anne', surname: 'Adams', birthdate: 'may-26-1959', birthPlaceName: 'Lenexa, Kansas'},
       husband: {_id: 'p01', firstname: 'Robert', surname: 'Green'},
       wife: null,
       fatherOfMale: {_id: 'p04', firstname: 'Thomas', surname: 'Green'},
@@ -36,4 +37,5 @@ it('renders TreeDisplayCore component with female focus person', () => {
     expect(wrapper.find(PersonDisplayTile)).toHaveLength(1);
     expect(wrapper.find(PersonMini)).toHaveLength(5);
     expect(wrapper.find('svg')).toHaveLength(3);
+    expect(wrapper.find('svg').last().hasClass('connect-children-female')).toEqual(true);
 });
