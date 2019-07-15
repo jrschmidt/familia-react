@@ -5,11 +5,21 @@ import ChildRow from './ChildRow.js';
 
 class ChildView extends Component {
 
+  constructor (props) {
+    super(props);
+    this.numberOfRows = 0;
+  }
+
+  getRowNumber () {
+    this.numberOfRows += 1;
+    return this.numberOfRows;
+  }
+
   makeChildRow (persons, positionTags, svgConnectorTag) {
     // A full row of 4 persons has positions designated by tags child-1, child-2,
     // child-3, child-4. The tags child-left, child-middle, and child-right
     // designate positions in between these 4.
-    let row = <ChildRow people="[]"/>
+    let row = <ChildRow key={this.getRowNumber()} people="[]"/>
     return row;
   }
 

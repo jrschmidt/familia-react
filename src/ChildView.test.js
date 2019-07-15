@@ -23,15 +23,19 @@ const peopleSource = [
   {key: 'p15', surname: 'Green', firstname: 'Obby'}
 ];
 
-it('renders ChildView component', () => {
-  for (let i=0; i<15; i++) {
+for (let i=0; i<15; i++) {
+  let numberOfPersons = i<1 ? '1 person' : `${String(i + 1)} persons`;
+  it(`renders ChildView component with ${numberOfPersons}`, () => {
     const props = {children: peopleSource.slice(0,i + 1)};
     const wrapper = shallow(<ChildView {...props}/>);
-  }
-});
+    expect(wrapper.find(ChildRow)).toHaveLength(Math.floor(i/4) + 1);
+  });
+}
 
 
 
+// it('renders ChildView component', () => {
+// });
 
 
   // Test that for any number of children between 1 and 15:
