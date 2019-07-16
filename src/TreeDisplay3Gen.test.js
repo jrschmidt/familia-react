@@ -108,37 +108,39 @@ it('correctly generates state for TreeDisplay3Gen component with female focus pe
 it('correctly passes props to TreeDisplayCore when focus person is male', () => {
   props.focusPersonId = 'p01';
   const wrapper = shallow(<TreeDisplay3Gen {...props}/>);
+  const tdcWrapper = wrapper.find(TreeDisplayCore);
 
-  expect(wrapper.find(TreeDisplayCore).prop('focusPerson')._id).toEqual('p01');
-  expect(wrapper.find(TreeDisplayCore).prop('focusPerson').firstname).toEqual('Andrew');
-  expect(wrapper.find(TreeDisplayCore).prop('husband')).toEqual(null);
-  expect(wrapper.find(TreeDisplayCore).prop('wife')._id).toEqual('p02');
-  expect(wrapper.find(TreeDisplayCore).prop('wife').firstname).toEqual('Barbara');
-  expect(wrapper.find(TreeDisplayCore).prop('fatherOfMale')._id).toEqual('p03');
-  expect(wrapper.find(TreeDisplayCore).prop('fatherOfMale').firstname).toEqual('Charles');
-  expect(wrapper.find(TreeDisplayCore).prop('motherOfMale')._id).toEqual('p04');
-  expect(wrapper.find(TreeDisplayCore).prop('motherOfMale').firstname).toEqual('Debby');
-  expect(wrapper.find(TreeDisplayCore).prop('fatherOfFemale')._id).toEqual('p05');
-  expect(wrapper.find(TreeDisplayCore).prop('fatherOfFemale').firstname).toEqual('Edward');
-  expect(wrapper.find(TreeDisplayCore).prop('motherOfFemale')._id).toEqual('p06');
-  expect(wrapper.find(TreeDisplayCore).prop('motherOfFemale').firstname).toEqual('Flora');
+  expect(tdcWrapper.prop('focusPerson')._id).toEqual('p01');
+  expect(tdcWrapper.prop('focusPerson').firstname).toEqual('Andrew');
+  expect(tdcWrapper.prop('husband')).toEqual(null);
+  expect(tdcWrapper.prop('wife')._id).toEqual('p02');
+  expect(tdcWrapper.prop('wife').firstname).toEqual('Barbara');
+  expect(tdcWrapper.prop('fatherOfMale')._id).toEqual('p03');
+  expect(tdcWrapper.prop('fatherOfMale').firstname).toEqual('Charles');
+  expect(tdcWrapper.prop('motherOfMale')._id).toEqual('p04');
+  expect(tdcWrapper.prop('motherOfMale').firstname).toEqual('Debby');
+  expect(tdcWrapper.prop('fatherOfFemale')._id).toEqual('p05');
+  expect(tdcWrapper.prop('fatherOfFemale').firstname).toEqual('Edward');
+  expect(tdcWrapper.prop('motherOfFemale')._id).toEqual('p06');
+  expect(tdcWrapper.prop('motherOfFemale').firstname).toEqual('Flora');
 });
 
 it('correctly passes props to TreeDisplayCore when focus person is female', () => {
   props.focusPersonId = 'p02';
   const wrapper = shallow(<TreeDisplay3Gen {...props}/>);
+  const tdcWrapper = wrapper.find(TreeDisplayCore);
 
-  expect(wrapper.find(TreeDisplayCore).prop('focusPerson')._id).toEqual('p02');
-  expect(wrapper.find(TreeDisplayCore).prop('focusPerson').firstname).toEqual('Barbara');
-  expect(wrapper.find(TreeDisplayCore).prop('husband')._id).toEqual('p01');
-  expect(wrapper.find(TreeDisplayCore).prop('husband').firstname).toEqual('Andrew');
-  expect(wrapper.find(TreeDisplayCore).prop('wife')).toEqual(null);
-  expect(wrapper.find(TreeDisplayCore).prop('fatherOfMale')._id).toEqual('p03');
-  expect(wrapper.find(TreeDisplayCore).prop('fatherOfMale').firstname).toEqual('Charles');
-  expect(wrapper.find(TreeDisplayCore).prop('motherOfMale')._id).toEqual('p04');
-  expect(wrapper.find(TreeDisplayCore).prop('motherOfMale').firstname).toEqual('Debby');
-  expect(wrapper.find(TreeDisplayCore).prop('fatherOfFemale')._id).toEqual('p05');
-  expect(wrapper.find(TreeDisplayCore).prop('fatherOfFemale').firstname).toEqual('Edward');
-  expect(wrapper.find(TreeDisplayCore).prop('motherOfFemale')._id).toEqual('p06');
-  expect(wrapper.find(TreeDisplayCore).prop('motherOfFemale').firstname).toEqual('Flora');
+  expect(tdcWrapper.prop('focusPerson')._id).toEqual('p02');
+  expect(tdcWrapper.prop('focusPerson').firstname).toEqual('Barbara');
+  expect(tdcWrapper.prop('husband')._id).toEqual('p01');
+  expect(tdcWrapper.prop('husband').firstname).toEqual('Andrew');
+  expect(tdcWrapper.prop('wife')).toEqual(null);
+  expect(tdcWrapper.prop('fatherOfMale')._id).toEqual('p03');
+  expect(tdcWrapper.prop('fatherOfMale').firstname).toEqual('Charles');
+  expect(tdcWrapper.prop('motherOfMale')._id).toEqual('p04');
+  expect(tdcWrapper.prop('motherOfMale').firstname).toEqual('Debby');
+  expect(tdcWrapper.prop('fatherOfFemale')._id).toEqual('p05');
+  expect(tdcWrapper.prop('fatherOfFemale').firstname).toEqual('Edward');
+  expect(tdcWrapper.prop('motherOfFemale')._id).toEqual('p06');
+  expect(tdcWrapper.prop('motherOfFemale').firstname).toEqual('Flora');
 });
