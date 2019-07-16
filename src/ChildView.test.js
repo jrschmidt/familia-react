@@ -28,27 +28,26 @@ for (let i=0; i<15; i++) {
   it(`renders ChildView component with ${numberOfPersons}`, () => {
     const props = {children: peopleSource.slice(0,i + 1)};
     const wrapper = shallow(<ChildView {...props}/>);
-    expect(wrapper.find(ChildRow)).toHaveLength(Math.floor(i/4) + 1);
+    const wrapperChildRow = wrapper.find(ChildRow);
+    expect(wrapperChildRow).toHaveLength(Math.floor(i/4) + 1);
+
+    for (let n=0; n<i; n++) {
+      expect(wrapperChildRow.at(Math.floor(n/4)).prop('people')[n%4].firstname)
+      .toEqual(peopleSource[n].firstname);
+    }
+
+    if (i === 0) expect(wrapperChildRow.first().prop('rowType')).toEqual('single-1');
+    if (i === 1) expect(wrapperChildRow.first().prop('rowType')).toEqual('single-2');
+    if (i === 2) expect(wrapperChildRow.first().prop('rowType')).toEqual('single-3');
+
+    expect(wrapperChildRow.find( {rowType: 'extend-4'} )).toHaveLength(Math.floor(i/4));
+
+    if (i > 2) {
+      if ( 0 === i % 4 ) expect(wrapperChildRow.last().prop('rowType')).toEqual('final-1');
+      if ( 1 === i % 4 ) expect(wrapperChildRow.last().prop('rowType')).toEqual('final-2');
+      if ( 2 === i % 4 ) expect(wrapperChildRow.last().prop('rowType')).toEqual('final-3');
+      if ( 3 === i % 4 ) expect(wrapperChildRow.last().prop('rowType')).toEqual('final-4');
+    }
+
   });
 }
-
-
-
-// it('renders ChildView component', () => {
-// });
-
-
-  // Test that for any number of children between 1 and 15:
-  //   the correct number of rows is generated,
-  //   the last row contains the correct number of children,
-  //   any other rows each contain 4 children.
-
-  // for (let i=0; i<15; i++) {
-  //   console.log(`i = ${i}`);
-  //   const cv = new ChildView();
-  //   let people = peopleSource.slice(0,i+1);
-  //   const cvRows = cv.getChildRows(people);
-  //   expect(cvRows.length).toEqual( Math.floor(i/4) + 1 );
-  //   expect(cvRows.pop().props.people.length).toEqual(i % 4);
-  //   expect(cvRows.every( (row) => row.length === 4 )).toEqual(true);
-  // }

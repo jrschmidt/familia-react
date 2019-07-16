@@ -19,7 +19,12 @@ class ChildView extends Component {
     // A full row of 4 persons has positions designated by tags child-1, child-2,
     // child-3, child-4. The tags child-left, child-middle, and child-right
     // designate positions in between these 4.
-    let row = <ChildRow key={this.getRowNumber()} people="[]"/>
+    let row = <ChildRow
+      key={this.getRowNumber()}
+      people={persons}
+      viewRoleTags={positionTags}
+      rowType={svgConnectorTag}
+    />
     return row;
   }
 
