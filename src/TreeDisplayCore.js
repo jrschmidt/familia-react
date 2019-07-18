@@ -9,7 +9,7 @@ class TreeDisplayCore extends Component {
   svgs = {
 
     svgFatherMotherOfMale:
-      <svg className='connect-father-mother-male' width='280' height='80'>
+      <svg className='connect-father-mother-male' key='c-fmm' width='280' height='80'>
         <line x1='40' y1='0' x2='40' y2='40' stroke='#666666' strokeWidth='5' />
         <line x1='240' y1='0' x2='240' y2='40' stroke='#666666' strokeWidth='5' />
         <line x1='40' y1='40' x2='240' y2='40' stroke='#666666' strokeWidth='5' />
@@ -17,7 +17,7 @@ class TreeDisplayCore extends Component {
       </svg>,
 
     svgFatherMotherOfFemale:
-      <svg className='connect-father-mother-female' width='280' height='80'>
+      <svg className='connect-father-mother-female' key='c-fmf' width='280' height='80'>
         <line x1='40' y1='0' x2='40' y2='40' stroke='#666666' strokeWidth='5' />
         <line x1='240' y1='0' x2='240' y2='40' stroke='#666666' strokeWidth='5' />
         <line x1='40' y1='40' x2='240' y2='40' stroke='#666666' strokeWidth='5' />
@@ -25,7 +25,7 @@ class TreeDisplayCore extends Component {
       </svg>,
 
     svgChildrenOfMale:
-      <svg className='connect-children-male' width='440' height='120'>
+      <svg className='connect-children-male' key='c-cm' width='440' height='120'>
         <line x1='20' y1='40' x2='20' y2='80' stroke='#666666' strokeWidth='5' />
         <line x1='420' y1='0' x2='420' y2='80' stroke='#666666' strokeWidth='5' />
         <line x1='20' y1='80' x2='420' y2='80' stroke='#666666' strokeWidth='5' />
@@ -33,7 +33,7 @@ class TreeDisplayCore extends Component {
       </svg>,
 
     svgChildrenOfFemale:
-      <svg className='connect-children-female' width='440' height='120'>
+      <svg className='connect-children-female' key='c-cf' width='440' height='120'>
         <line x1='20' y1='0' x2='20' y2='80' stroke='#666666' strokeWidth='5' />
         <line x1='420' y1='40' x2='420' y2='80' stroke='#666666' strokeWidth='5' />
         <line x1='20' y1='80' x2='420' y2='80' stroke='#666666' strokeWidth='5' />
@@ -44,7 +44,7 @@ class TreeDisplayCore extends Component {
   getTags() {
     const tags = [];
     if (this.props.focusPerson) tags.push(
-      <PersonDisplayTile person={this.props.focusPerson} />
+      <PersonDisplayTile person={this.props.focusPerson} viewRole={this.props.focusPerson.gender === 'male' ? 'focus-m' : 'focus-f'} key={this.props.focusPerson._id} />
     );
     if (this.props.husband) tags.push(
       <PersonMini person={this.props.husband} viewRole='husband' key={this.props.husband._id} />

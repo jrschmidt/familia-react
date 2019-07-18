@@ -77,10 +77,12 @@ class ChildRow extends Component {
   generateRowTags() {
     if ( this.props.people.length === this.props.viewRoleTags.length ) {
       const tags = [];
-      while (this.props.viewRoleTags.length > 0) {
-        let person = this.props.people.shift();
+      const people = Array.from(this.props.people);
+      const viewRoleTags = Array.from(this.props.viewRoleTags);
+      while (viewRoleTags.length > 0) {
+        let person = people.shift();
         let key = person._id;
-        let tag = this.props.viewRoleTags.shift();
+        let tag = viewRoleTags.shift();
         tags.push( <PersonMini person={person} key={key} viewRole={tag} /> );
       }
       tags.push(this.svgs[this.props.rowType]);
