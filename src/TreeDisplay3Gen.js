@@ -9,13 +9,19 @@ class TreeDisplay3Gen extends Component {
 
   constructor (props) {
     super(props);
+    this.state = this.getViewState();
+  }
+
+  findPersonById (id) {
+    return this.props.people.find( person => person._id === id );
+  }
+
+  getViewState () {
     const focusPerson = this.findPersonById( this.props.focusPersonId );
     const viewGender = focusPerson.gender;
-
     let male = viewGender === 'male' ? focusPerson : this.findPersonById( focusPerson.husband );
     let female = viewGender === 'female' ? focusPerson : this.findPersonById( focusPerson.wife );
-
-    this.state = {
+    return {
       focusPerson: focusPerson,
       focusPersonGender: viewGender,
       fatherOfMale: this.findPersonById( male.father ),
@@ -25,11 +31,7 @@ class TreeDisplay3Gen extends Component {
       husband: viewGender === 'female' ? male : null,
       wife: viewGender === 'male' ? female: null,
       children: focusPerson.children.map( childId => this.findPersonById( childId ))
-    }
-  }
-
-  findPersonById (id) {
-    return this.props.people.find( person => person._id === id );
+    };
   }
 
   render() {
