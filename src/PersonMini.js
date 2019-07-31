@@ -6,7 +6,7 @@ class PersonMini extends Component {
   render () {
     return (
       <div className={'PersonMini ' + this.props.viewRole}>
-        <h4>{this.props.person.firstname} {this.props.person.surname}</h4>
+        <span>{this.props.person.firstname} {this.props.person.surname}</span>
         <p>b1917 d1997</p>
       </div>
     )

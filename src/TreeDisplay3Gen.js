@@ -9,12 +9,12 @@ class TreeDisplay3Gen extends Component {
 
   constructor (props) {
     super(props);
-    const focusPerson = this.props.people.find( person => person._id === this.props.focusPersonId );
+    const focusPerson = this.findPersonById( this.props.focusPersonId );
     const viewGender = focusPerson.gender;
 
     const spouse = viewGender === 'male' ?
-    this.props.people.find( person => person._id === focusPerson.wife ) :
-    this.props.people.find( person => person._id === focusPerson.husband );
+      this.findPersonById( focusPerson.wife ) :
+      this.findPersonById( focusPerson.husband );
 
     let male, female;
     if (viewGender === 'male')
@@ -31,14 +31,18 @@ class TreeDisplay3Gen extends Component {
     this.state = {
       focusPerson: focusPerson,
       focusPersonGender: viewGender,
-      fatherOfMale: this.props.people.find( person => person._id === male.father ),
-      motherOfMale: this.props.people.find( person => person._id === male.mother ),
-      fatherOfFemale: this.props.people.find( person => person._id === female.father ),
-      motherOfFemale: this.props.people.find( person => person._id === female.mother ),
+      fatherOfMale: this.findPersonById( male.father ),
+      motherOfMale: this.findPersonById( male.mother ),
+      fatherOfFemale: this.findPersonById( female.father ),
+      motherOfFemale: this.findPersonById( female.mother ),
       husband: viewGender === 'male' ? null : spouse,
       wife: viewGender === 'female' ? null : spouse,
-      children: focusPerson.children.map( childId =>  this.props.people.find( person => person._id === childId ))
+      children: focusPerson.children.map( childId => this.findPersonById( childId ))
     }
+  }
+
+  findPersonById (id) {
+    return this.props.people.find( person => person._id === id );
   }
 
   render() {
