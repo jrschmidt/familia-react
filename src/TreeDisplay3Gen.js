@@ -9,15 +9,15 @@ class TreeDisplay3Gen extends Component {
 
   constructor (props) {
     super(props);
-    this.state = this.getViewState();
+    this.state = this.getViewState(this.props.focusPersonId);
   }
 
   findPersonById (id) {
     return this.props.people.find( person => person._id === id );
   }
 
-  getViewState () {
-    const focusPerson = this.findPersonById( this.props.focusPersonId );
+  getViewState (focusPersonId) {
+    const focusPerson = this.findPersonById( focusPersonId );
     const viewGender = focusPerson.gender;
     let male = viewGender === 'male' ? focusPerson : this.findPersonById( focusPerson.husband );
     let female = viewGender === 'female' ? focusPerson : this.findPersonById( focusPerson.wife );

@@ -55,54 +55,77 @@ it('renders TreeDisplay3Gen component', () => {
   expect(wrapper.find(ChildView)).toHaveLength(1);
 });
 
-it('correctly generates state for TreeDisplay3Gen component with male focus person', () => {
-  props.focusPersonId = 'p01';
+it('getViewState() generates correct state data for male focus person', () => {
   const wrapper = shallow(<TreeDisplay3Gen {...props}/>);
+  const instance = wrapper.instance();
+  const results = instance.getViewState('p01');
 
-  expect(wrapper.state().focusPerson._id).toEqual('p01');
-  expect(wrapper.state().focusPerson.firstname).toEqual('Andrew');
-  expect(wrapper.state().focusPersonGender).toEqual('male');
-  expect(wrapper.state().husband).toBeFalsy();
-  expect(wrapper.state().wife._id).toEqual('p02');
-  expect(wrapper.state().wife.firstname).toEqual('Barbara');
-  expect(wrapper.state().fatherOfMale._id).toEqual('p03');
-  expect(wrapper.state().fatherOfMale.firstname).toEqual('Charles');
-  expect(wrapper.state().motherOfMale._id).toEqual('p04');
-  expect(wrapper.state().motherOfMale.firstname).toEqual('Debby');
-  expect(wrapper.state().fatherOfFemale._id).toEqual('p05');
-  expect(wrapper.state().fatherOfFemale.firstname).toEqual('Edward');
-  expect(wrapper.state().motherOfFemale._id).toEqual('p06');
-  expect(wrapper.state().motherOfFemale.firstname).toEqual('Flora');
-  expect(wrapper.state().children.length).toEqual(4);
-  expect(wrapper.state().children[0].firstname).toEqual('Gabby');
-  expect(wrapper.state().children[1].firstname).toEqual('Habby');
-  expect(wrapper.state().children[2].firstname).toEqual('Ibby');
-  expect(wrapper.state().children[3].firstname).toEqual('Jibby');
+  expect(results.focusPerson._id).toEqual('p01');
+  expect(results.focusPerson.firstname).toEqual('Andrew');
+  expect(results.focusPersonGender).toEqual('male');
+  expect(results.husband).toBeFalsy();
+  expect(results.wife._id).toEqual('p02');
+  expect(results.wife.firstname).toEqual('Barbara');
+  expect(results.fatherOfMale._id).toEqual('p03');
+  expect(results.fatherOfMale.firstname).toEqual('Charles');
+  expect(results.motherOfMale._id).toEqual('p04');
+  expect(results.motherOfMale.firstname).toEqual('Debby');
+  expect(results.fatherOfFemale._id).toEqual('p05');
+  expect(results.fatherOfFemale.firstname).toEqual('Edward');
+  expect(results.motherOfFemale._id).toEqual('p06');
+  expect(results.motherOfFemale.firstname).toEqual('Flora');
+  expect(results.children.length).toEqual(4);
+  expect(results.children[0].firstname).toEqual('Gabby');
+  expect(results.children[1].firstname).toEqual('Habby');
+  expect(results.children[2].firstname).toEqual('Ibby');
+  expect(results.children[3].firstname).toEqual('Jibby');
 });
 
-it('correctly generates state for TreeDisplay3Gen component with female focus person', () => {
-  props.focusPersonId = 'p02';
+it('getViewState() generates correct state data for female focus person', () => {
   const wrapper = shallow(<TreeDisplay3Gen {...props}/>);
+  const instance = wrapper.instance();
+  const results = instance.getViewState('p02');
 
-  expect(wrapper.state().focusPerson._id).toEqual('p02');
-  expect(wrapper.state().focusPerson.firstname).toEqual('Barbara');
-  expect(wrapper.state().focusPersonGender).toEqual('female');
-  expect(wrapper.state().wife).toBeFalsy();
-  expect(wrapper.state().husband._id).toEqual('p01');
-  expect(wrapper.state().husband.firstname).toEqual('Andrew');
-  expect(wrapper.state().fatherOfMale._id).toEqual('p03');
-  expect(wrapper.state().fatherOfMale.firstname).toEqual('Charles');
-  expect(wrapper.state().motherOfMale._id).toEqual('p04');
-  expect(wrapper.state().motherOfMale.firstname).toEqual('Debby');
-  expect(wrapper.state().fatherOfFemale._id).toEqual('p05');
-  expect(wrapper.state().fatherOfFemale.firstname).toEqual('Edward');
-  expect(wrapper.state().motherOfFemale._id).toEqual('p06');
-  expect(wrapper.state().motherOfFemale.firstname).toEqual('Flora');
-  expect(wrapper.state().children.length).toEqual(4);
-  expect(wrapper.state().children[0].firstname).toEqual('Gabby');
-  expect(wrapper.state().children[1].firstname).toEqual('Habby');
-  expect(wrapper.state().children[2].firstname).toEqual('Ibby');
-  expect(wrapper.state().children[3].firstname).toEqual('Jibby');
+  expect(results.focusPerson._id).toEqual('p02');
+  expect(results.focusPerson.firstname).toEqual('Barbara');
+  expect(results.focusPersonGender).toEqual('female');
+  expect(results.wife).toBeFalsy();
+  expect(results.husband._id).toEqual('p01');
+  expect(results.husband.firstname).toEqual('Andrew');
+  expect(results.fatherOfMale._id).toEqual('p03');
+  expect(results.fatherOfMale.firstname).toEqual('Charles');
+  expect(results.motherOfMale._id).toEqual('p04');
+  expect(results.motherOfMale.firstname).toEqual('Debby');
+  expect(results.fatherOfFemale._id).toEqual('p05');
+  expect(results.fatherOfFemale.firstname).toEqual('Edward');
+  expect(results.motherOfFemale._id).toEqual('p06');
+  expect(results.motherOfFemale.firstname).toEqual('Flora');
+  expect(results.children.length).toEqual(4);
+  expect(results.children[0].firstname).toEqual('Gabby');
+  expect(results.children[1].firstname).toEqual('Habby');
+  expect(results.children[2].firstname).toEqual('Ibby');
+  expect(results.children[3].firstname).toEqual('Jibby');
+});
+
+it('getViewState() generates correct state data when switching between multiple focus persons', () => {
+  const wrapper = shallow(<TreeDisplay3Gen {...props}/>);
+  const instance = wrapper.instance();
+  let results;
+
+  results = instance.getViewState('p02');
+  expect(results.focusPerson.firstname).toEqual('Barbara');
+  expect(results.wife).toBeFalsy();
+  expect(results.husband.firstname).toEqual('Andrew');
+
+  results = instance.getViewState('p01');
+  expect(results.focusPerson.firstname).toEqual('Andrew');
+  expect(results.husband).toBeFalsy();
+  expect(results.wife.firstname).toEqual('Barbara');
+
+  results = instance.getViewState('p02');
+  expect(results.focusPerson.firstname).toEqual('Barbara');
+  expect(results.wife).toBeFalsy();
+  expect(results.husband.firstname).toEqual('Andrew');
 });
 
 it('correctly passes props to TreeDisplayCore when focus person is male', () => {
