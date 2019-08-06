@@ -47,22 +47,22 @@ class TreeDisplayCore extends Component {
       <PersonDisplayTile person={this.props.focusPerson} viewRole={this.props.focusPerson.gender === 'male' ? 'focus-m' : 'focus-f'} key={this.props.focusPerson._id} />
     );
     if (this.props.husband) tags.push(
-      <PersonMini person={this.props.husband} viewRole='husband' key={this.props.husband._id} />
+      <PersonMini xmit={this.props.xmit} person={this.props.husband} viewRole='husband' key={this.props.husband._id} />
     );
     if (this.props.wife) tags.push(
-      <PersonMini person={this.props.wife} viewRole='wife' key={this.props.wife._id} />
+      <PersonMini xmit={this.props.xmit} person={this.props.wife} viewRole='wife' key={this.props.wife._id} />
     );
     if (this.props.fatherOfMale) tags.push(
-      <PersonMini person={this.props.fatherOfMale} viewRole='father-m' key={this.props.fatherOfMale._id} />
+      <PersonMini xmit={this.props.xmit} person={this.props.fatherOfMale} viewRole='father-m' key={this.props.fatherOfMale._id} />
     );
     if (this.props.motherOfMale) tags.push(
-      <PersonMini person={this.props.motherOfMale} viewRole='mother-m' key={this.props.motherOfMale._id} />
+      <PersonMini xmit={this.props.xmit} person={this.props.motherOfMale} viewRole='mother-m' key={this.props.motherOfMale._id} />
     );
     if (this.props.fatherOfFemale) tags.push(
-      <PersonMini person={this.props.fatherOfFemale} viewRole='father-f' key={this.props.fatherOfFemale._id} />
+      <PersonMini xmit={this.props.xmit} person={this.props.fatherOfFemale} viewRole='father-f' key={this.props.fatherOfFemale._id} />
     );
     if (this.props.motherOfFemale) tags.push(
-      <PersonMini person={this.props.motherOfFemale} viewRole='mother-f' key={this.props.motherOfFemale._id} />
+      <PersonMini xmit={this.props.xmit} person={this.props.motherOfFemale} viewRole='mother-f' key={this.props.motherOfFemale._id} />
     );
     tags.push(this.svgs.svgFatherMotherOfMale);
     tags.push(this.svgs.svgFatherMotherOfFemale);

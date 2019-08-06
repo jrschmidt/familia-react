@@ -83,6 +83,8 @@ const persons = [
     firstname: 'Gabby',
     father: 'p01',
     mother: 'p02',
+    husband: 'p20',
+    children: ['p21', 'p22']
   },
 
   {
@@ -92,7 +94,7 @@ const persons = [
     surname:'Green',
     firstname: 'Habby',
     father: 'p01',
-    mother: 'p02',
+    mother: 'p02'
   },
 
   {
@@ -102,7 +104,7 @@ const persons = [
     surname: 'Green',
     firstname: 'Ibby',
     father: 'p01',
-    mother: 'p02',
+    mother: 'p02'
   },
 
   {
@@ -112,7 +114,7 @@ const persons = [
     surname: 'Green',
     firstname: 'Jibby',
     father: 'p01',
-    mother: 'p02',
+    mother: 'p02'
   },
 
   {
@@ -122,7 +124,7 @@ const persons = [
     surname: 'Green',
     firstname: 'Kibby',
     father: 'p01',
-    mother: 'p02',
+    mother: 'p02'
   },
 
   {
@@ -132,7 +134,7 @@ const persons = [
     surname: 'Green',
     firstname: 'Libby',
     father: 'p01',
-    mother: 'p02',
+    mother: 'p02'
   },
 
   {
@@ -142,7 +144,7 @@ const persons = [
     surname: 'Green',
     firstname: 'Mobby',
     father: 'p01',
-    mother: 'p02',
+    mother: 'p02'
   },
 
   {
@@ -152,7 +154,7 @@ const persons = [
     surname: 'Green',
     firstname: 'Nobby',
     father: 'p01',
-    mother: 'p02',
+    mother: 'p02'
   },
 
   {
@@ -162,7 +164,7 @@ const persons = [
     surname: 'Green',
     firstname: 'Obby',
     father: 'p01',
-    mother: 'p02',
+    mother: 'p02'
   },
 
   {

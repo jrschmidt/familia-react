@@ -9,6 +9,7 @@ class TreeDisplay3Gen extends Component {
 
   constructor (props) {
     super(props);
+    this.sendMessage = this.sendMessage.bind(this);
     this.state = this.getViewState(this.props.focusPersonId);
   }
 
@@ -34,11 +35,16 @@ class TreeDisplay3Gen extends Component {
     };
   }
 
+  sendMessage (msg) {
+    this.setState(this.getViewState(msg));
+  }
+
   render() {
     const tags =
       <>
       <TreeDisplayHeader />
       <TreeDisplayCore
+        xmit={this.sendMessage}
         focusPerson={this.state.focusPerson}
         husband={this.state.husband}
         wife={this.state.wife}
@@ -47,7 +53,10 @@ class TreeDisplay3Gen extends Component {
         fatherOfFemale={this.state.fatherOfFemale}
         motherOfFemale={this.state.motherOfFemale}
       />
-      <ChildView children={this.state.children} />
+      <ChildView
+        xmit={this.sendMessage}
+        children={this.state.children}
+      />
       </>
 
     return (
