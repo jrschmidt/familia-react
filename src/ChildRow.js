@@ -83,7 +83,7 @@ class ChildRow extends Component {
         let person = people.shift();
         let key = person._id;
         let tag = viewRoleTags.shift();
-        tags.push( <PersonMini xmit={this.props.xmit} person={person} key={key} viewRole={tag} /> );
+        tags.push( <PersonMini resetViewFocus={this.props.resetViewFocus} person={person} key={key} viewRole={tag} /> );
       }
       tags.push(this.svgs[this.props.rowType]);
       return tags;

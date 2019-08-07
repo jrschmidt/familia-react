@@ -9,7 +9,7 @@ class TreeDisplay3Gen extends Component {
 
   constructor (props) {
     super(props);
-    this.sendMessage = this.sendMessage.bind(this);
+    this.resetViewFocus = this.resetViewFocus.bind(this);
     this.state = this.getViewState(this.props.focusPersonId);
   }
 
@@ -35,7 +35,7 @@ class TreeDisplay3Gen extends Component {
     };
   }
 
-  sendMessage (msg) {
+  resetViewFocus (msg) {
     this.setState(this.getViewState(msg));
   }
 
@@ -44,7 +44,7 @@ class TreeDisplay3Gen extends Component {
       <>
       <TreeDisplayHeader />
       <TreeDisplayCore
-        xmit={this.sendMessage}
+        resetViewFocus={this.resetViewFocus}
         focusPerson={this.state.focusPerson}
         husband={this.state.husband}
         wife={this.state.wife}
@@ -54,7 +54,7 @@ class TreeDisplay3Gen extends Component {
         motherOfFemale={this.state.motherOfFemale}
       />
       <ChildView
-        xmit={this.sendMessage}
+        resetViewFocus={this.resetViewFocus}
         children={this.state.children}
       />
       </>

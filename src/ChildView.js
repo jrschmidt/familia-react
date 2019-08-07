@@ -20,7 +20,7 @@ class ChildView extends Component {
     // child-3, child-4. The tags child-left, child-middle, and child-right
     // designate positions in between these 4.
     let row = <ChildRow
-      xmit={this.props.xmit}
+      resetViewFocus={this.props.resetViewFocus}
       key={this.getRowNumber()}
       people={persons}
       viewRoleTags={positionTags}
