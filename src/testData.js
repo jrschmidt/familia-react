@@ -194,7 +194,7 @@ const persons = [
     surname: 'Denton',
     firstname: 'Julia',
     father: 'p20',
-    mother: 'p7'
+    mother: 'p07'
   },
 
   {

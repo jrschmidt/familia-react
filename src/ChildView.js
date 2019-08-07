@@ -83,9 +83,12 @@ class ChildView extends Component {
 
   render() {
     return (
-      <div className="ChildView">
-      {this.getChildRows(this.props.children)}
-      </div>
+      this.props.children ?
+        <div className="ChildView">
+        {this.getChildRows(this.props.children)}
+        </div>
+      :
+        <></>
     )
   }
 

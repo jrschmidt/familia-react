@@ -31,7 +31,7 @@ class TreeDisplay3Gen extends Component {
       motherOfFemale: female && female.mother ? this.findPersonById( female.mother ) : null,
       husband: viewGender === 'female' ? male : null,
       wife: viewGender === 'male' ? female: null,
-      children: focusPerson.children.map( childId => this.findPersonById( childId ))
+      children: focusPerson.children ? focusPerson.children.map( childId => this.findPersonById( childId )) : null
     };
   }
 
