@@ -20,15 +20,15 @@ class TreeDisplay3Gen extends Component {
   getViewState (focusPersonId) {
     const focusPerson = this.findPersonById( focusPersonId );
     const viewGender = focusPerson.gender;
-    let male = viewGender === 'male' ? focusPerson : this.findPersonById( focusPerson.husband );
-    let female = viewGender === 'female' ? focusPerson : this.findPersonById( focusPerson.wife );
+    const male = viewGender === 'male' ? focusPerson : this.findPersonById( focusPerson.husband );
+    const female = viewGender === 'female' ? focusPerson : this.findPersonById( focusPerson.wife );
     return {
       focusPerson: focusPerson,
       focusPersonGender: viewGender,
-      fatherOfMale: this.findPersonById( male.father ),
-      motherOfMale: this.findPersonById( male.mother ),
-      fatherOfFemale: this.findPersonById( female.father ),
-      motherOfFemale: this.findPersonById( female.mother ),
+      fatherOfMale: male && male.father ? this.findPersonById( male.father ) : null,
+      motherOfMale: male && male.mother ? this.findPersonById( male.mother ) : null,
+      fatherOfFemale: female && female.father ? this.findPersonById( female.father ) : null,
+      motherOfFemale: female && female.mother ? this.findPersonById( female.mother ) : null,
       husband: viewGender === 'female' ? male : null,
       wife: viewGender === 'male' ? female: null,
       children: focusPerson.children.map( childId => this.findPersonById( childId ))
