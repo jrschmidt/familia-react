@@ -10,7 +10,7 @@ class TreeDisplay3Gen extends Component {
   constructor (props) {
     super(props);
     this.resetViewFocus = this.resetViewFocus.bind(this);
-    this.state = this.getViewState(this.props.focusPersonId);
+    this.state = this.getViewState(this.props.rootPersonId);
   }
 
   findPersonById (id) {
@@ -40,9 +40,16 @@ class TreeDisplay3Gen extends Component {
   }
 
   render() {
+    const tag1 = `Root person: ${this.props.rootPersonName}`;
+    const tag2 = `Focus person: ${this.state.focusPerson.firstname} ${this.state.focusPerson.surname}`;
     const tags =
       <>
-      <TreeDisplayHeader />
+      <TreeDisplayHeader
+        headline='Family Tree Display'
+        tagline1={tag1}
+        tagline2={tag2}
+        text='Click on a name to change focus person'
+      />
       <TreeDisplayCore
         resetViewFocus={this.resetViewFocus}
         focusPerson={this.state.focusPerson}

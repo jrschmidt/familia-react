@@ -8,6 +8,7 @@ class TreeDisplayHeader extends Component {
       <div className="TreeDisplayHeader">
         <h5>{this.props.headline}</h5>
         <h6>{this.props.tagline1}</h6>
+        <h6>{this.props.tagline2}</h6>
         <p>{this.props.text}</p>
       </div>
     )

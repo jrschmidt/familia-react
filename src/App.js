@@ -7,11 +7,14 @@ class App extends Component {
 
   constructor (props) {
     super(props);
+    const rootPerson = persons.find( person => person._id === rootPersonId );
+    const rootPersonName = `$(rootPerson.firstname) $(rootPerson.surname)`;
     this.state = {
       treeId: treeId,
       treeTitle: treeTitle,
-      focusPersonId: rootPersonId,
-      people: persons
+      rootPersonId: rootPersonId,
+      people: persons,
+      rootPersonName: rootPersonName
     };
 
     // fetch('/persons')
@@ -25,7 +28,7 @@ class App extends Component {
         <header className="App-header">
           <h4>familia-react v1.0.1</h4>
         </header>
-        <TreeDisplay3Gen people={this.state.people} focusPersonId={this.state.focusPersonId}/>
+        <TreeDisplay3Gen people={this.state.people} rootPersonId={this.state.rootPersonId}/>
       </div>
     );
   }

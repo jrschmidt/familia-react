@@ -44,7 +44,7 @@ beforeAll( () => {
       {_id: 'p10', surname: 'Green', firstname: 'Jibby'}
     ],
 
-    focusPersonId: null
+    rootPersonId: 'p01'
   };
 });
 
@@ -129,7 +129,7 @@ it('getViewState() generates correct state data when switching between multiple 
 });
 
 it('correctly passes props to TreeDisplayCore when focus person is male', () => {
-  props.focusPersonId = 'p01';
+  props.rootPersonId = 'p01';
   const wrapper = shallow(<TreeDisplay3Gen {...props}/>);
   const tdcWrapper = wrapper.find(TreeDisplayCore);
 
@@ -149,7 +149,7 @@ it('correctly passes props to TreeDisplayCore when focus person is male', () => 
 });
 
 it('correctly passes props to TreeDisplayCore when focus person is female', () => {
-  props.focusPersonId = 'p02';
+  props.rootPersonId = 'p02';
   const wrapper = shallow(<TreeDisplay3Gen {...props}/>);
   const tdcWrapper = wrapper.find(TreeDisplayCore);
 
