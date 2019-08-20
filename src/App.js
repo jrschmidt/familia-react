@@ -8,7 +8,7 @@ class App extends Component {
   constructor (props) {
     super(props);
     const rootPerson = persons.find( person => person._id === rootPersonId );
-    const rootPersonName = `$(rootPerson.firstname) $(rootPerson.surname)`;
+    const rootPersonName = `${rootPerson.firstname} ${rootPerson.surname}`;
     this.state = {
       treeId: treeId,
       treeTitle: treeTitle,
@@ -28,7 +28,11 @@ class App extends Component {
         <header className="App-header">
           <h4>familia-react v1.0.1</h4>
         </header>
-        <TreeDisplay3Gen people={this.state.people} rootPersonId={this.state.rootPersonId}/>
+        <TreeDisplay3Gen
+          people={this.state.people}
+          rootPersonId={this.state.rootPersonId}
+          rootPersonName={this.state.rootPersonName}
+          />
       </div>
     );
   }
