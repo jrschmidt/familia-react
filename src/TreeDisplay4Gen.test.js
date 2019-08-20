@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 
-import TreeDisplay3Gen from './TreeDisplay3Gen.js';
+import TreeDisplay4Gen from './TreeDisplay4Gen.js';
 import TreeDisplayCore from './TreeDisplayCore.js';
 import ChildView from './ChildView.js';
 
@@ -48,15 +48,15 @@ beforeAll( () => {
   };
 });
 
-it('renders TreeDisplay3Gen component', () => {
+it('renders TreeDisplay4Gen component', () => {
   props.focusPersonId = 'p01';
-  const wrapper = shallow(<TreeDisplay3Gen {...props}/>);
+  const wrapper = shallow(<TreeDisplay4Gen {...props}/>);
   expect(wrapper.find(TreeDisplayCore)).toHaveLength(1);
   expect(wrapper.find(ChildView)).toHaveLength(1);
 });
 
 it('getViewState() generates correct state data for male focus person', () => {
-  const wrapper = shallow(<TreeDisplay3Gen {...props}/>);
+  const wrapper = shallow(<TreeDisplay4Gen {...props}/>);
   const instance = wrapper.instance();
   const results = instance.getViewState('p01');
 
@@ -82,7 +82,7 @@ it('getViewState() generates correct state data for male focus person', () => {
 });
 
 it('getViewState() generates correct state data for female focus person', () => {
-  const wrapper = shallow(<TreeDisplay3Gen {...props}/>);
+  const wrapper = shallow(<TreeDisplay4Gen {...props}/>);
   const instance = wrapper.instance();
   const results = instance.getViewState('p02');
 
@@ -108,7 +108,7 @@ it('getViewState() generates correct state data for female focus person', () => 
 });
 
 it('getViewState() generates correct state data when switching between multiple focus persons', () => {
-  const wrapper = shallow(<TreeDisplay3Gen {...props}/>);
+  const wrapper = shallow(<TreeDisplay4Gen {...props}/>);
   const instance = wrapper.instance();
   let results;
 
@@ -130,7 +130,7 @@ it('getViewState() generates correct state data when switching between multiple 
 
 it('correctly passes props to TreeDisplayCore when focus person is male', () => {
   props.rootPersonId = 'p01';
-  const wrapper = shallow(<TreeDisplay3Gen {...props}/>);
+  const wrapper = shallow(<TreeDisplay4Gen {...props}/>);
   const tdcWrapper = wrapper.find(TreeDisplayCore);
 
   expect(tdcWrapper.prop('focusPerson')._id).toEqual('p01');
@@ -150,7 +150,7 @@ it('correctly passes props to TreeDisplayCore when focus person is male', () => 
 
 it('correctly passes props to TreeDisplayCore when focus person is female', () => {
   props.rootPersonId = 'p02';
-  const wrapper = shallow(<TreeDisplay3Gen {...props}/>);
+  const wrapper = shallow(<TreeDisplay4Gen {...props}/>);
   const tdcWrapper = wrapper.find(TreeDisplayCore);
 
   expect(tdcWrapper.prop('focusPerson')._id).toEqual('p02');

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import TreeDisplay3Gen from './TreeDisplay3Gen';
+import TreeDisplay4Gen from './TreeDisplay4Gen';
 import { treeId, title as treeTitle, rootPersonId, persons } from './testData';
 
 class App extends Component {
@@ -26,9 +26,9 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h4>familia-react v1.0.1</h4>
+          <h4>familia-react v1.2.1</h4>
         </header>
-        <TreeDisplay3Gen
+        <TreeDisplay4Gen
           people={this.state.people}
           rootPersonId={this.state.rootPersonId}
           rootPersonName={this.state.rootPersonName}
