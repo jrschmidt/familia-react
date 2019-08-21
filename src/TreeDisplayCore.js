@@ -25,7 +25,7 @@ class TreeDisplayCore extends Component {
       </svg>,
 
     svgFatherMother:
-      <svg className='connect-father-mother' key='c-fm' width='580' height='80'>
+      <svg className='connect-father-mother' key='c-fm' width='560' height='80'>
         <line x1='80' y1='0' x2='80' y2='40' stroke='#666666' strokeWidth='5' />
         <line x1='480' y1='0' x2='480' y2='40' stroke='#666666' strokeWidth='5' />
         <line x1='80' y1='40' x2='480' y2='40' stroke='#666666' strokeWidth='5' />
@@ -33,19 +33,19 @@ class TreeDisplayCore extends Component {
       </svg>,
 
     svgChildrenOfMale:
-      <svg className='connect-children-male' key='c-cm' width='360' height='120'>
+      <svg className='connect-children-male' key='c-cm' width='560' height='120'>
         <line x1='80' y1='40' x2='80' y2='80' stroke='#666666' strokeWidth='5' />
-        <line x1='280' y1='0' x2='280' y2='80' stroke='#666666' strokeWidth='5' />
-        <line x1='80' y1='80' x2='280' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='480' y1='0' x2='480' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='80' y1='80' x2='480' y2='80' stroke='#666666' strokeWidth='5' />
         <line x1='180' y1='80' x2='180' y2='120' stroke='#666666' strokeWidth='5' />
       </svg>,
 
     svgChildrenOfFemale:
-      <svg className='connect-children-female' key='c-cf' width='360' height='120'>
+      <svg className='connect-children-female' key='c-cf' width='560' height='120'>
         <line x1='80' y1='0' x2='80' y2='80' stroke='#666666' strokeWidth='5' />
-        <line x1='280' y1='40' x2='280' y2='80' stroke='#666666' strokeWidth='5' />
-        <line x1='80' y1='80' x2='280' y2='80' stroke='#666666' strokeWidth='5' />
-        <line x1='180' y1='80' x2='180' y2='120' stroke='#666666' strokeWidth='5' />
+        <line x1='480' y1='40' x2=' 480' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='80' y1='80' x2='480' y2='80' stroke='#666666' strokeWidth='5' />
+        <line x1='380' y1='80' x2='380' y2='120' stroke='#666666' strokeWidth='5' />
       </svg>
   };
 
