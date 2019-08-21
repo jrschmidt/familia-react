@@ -98,7 +98,6 @@ class TreeDisplayCore extends Component {
 
     if (this.props.fatherOfFather) tags.push(
       <PersonMini
-        resetViewFocus={this.props.resetViewFocus}
         person={this.props.fatherOfFather}
         viewRole='father-of-father'
         key={this.props.fatherOfFather._id}
@@ -107,7 +106,6 @@ class TreeDisplayCore extends Component {
 
     if (this.props.motherOfFather) tags.push(
       <PersonMini
-        resetViewFocus={this.props.resetViewFocus}
         person={this.props.motherOfFather}
         viewRole='mother-of-father'
         key={this.props.motherOfFather._id}
@@ -116,7 +114,6 @@ class TreeDisplayCore extends Component {
 
     if (this.props.fatherOfMother) tags.push(
       <PersonMini
-        resetViewFocus={this.props.resetViewFocus}
         person={this.props.fatherOfMother}
         viewRole='father-of-mother'
         key={this.props.fatherOfMother._id}
@@ -125,7 +122,6 @@ class TreeDisplayCore extends Component {
 
     if (this.props.motherOfMother) tags.push(
       <PersonMini
-        resetViewFocus={this.props.resetViewFocus}
         person={this.props.motherOfMother}
         viewRole='mother-of-mother'
         key={this.props.motherOfMother._id}
