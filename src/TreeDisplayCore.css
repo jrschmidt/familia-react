@@ -71,25 +71,34 @@
   grid-row-end: 3;
 }
 
-.connect-parents-of-father {
+.connect-father-mother,
+.connect-father,
+.connect-mother
+{
+  grid-column-start: 3;
+  grid-column-end: 12;
+  grid-row-start: 5;
+  grid-row-end: 6;
+}
+
+.connect-parents-of-father,
+.connect-father-of-father,
+.connect-mother-of-father
+{
   grid-column-start: 2;
   grid-column-end: 7;
   grid-row-start: 3;
   grid-row-end: 4;
 }
 
-.connect-parents-of-mother {
+.connect-parents-of-mother,
+.connect-father-of-mother,
+.connect-mother-of-mother
+ {
   grid-column-start: 8;
   grid-column-end: 13;
   grid-row-start: 3;
   grid-row-end: 4;
-}
-
-.connect-father-mother {
-  grid-column-start: 3;
-  grid-column-end: 12;
-  grid-row-start: 5;
-  grid-row-end: 6;
 }
 
 .connect-children-male {

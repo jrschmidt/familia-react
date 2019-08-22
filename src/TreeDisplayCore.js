@@ -3,51 +3,11 @@ import './TreeDisplayCore.css';
 
 import PersonDisplayTile from './PersonDisplayTile.js';
 import PersonMini from './PersonMini.js';
+import { svgs } from './treeDisplaySvgs.js';
 
 class TreeDisplayCore extends Component {
 
-  svgs = {
 
-    svgParentsOfFather:
-      <svg className='connect-parents-of-father' key='c-pf' width='360' height='80'>
-        <line x1='80' y1='0' x2='80' y2='40' stroke='#666666' strokeWidth='5' />
-        <line x1='280' y1='0' x2='280' y2='40' stroke='#666666' strokeWidth='5' />
-        <line x1='80' y1='40' x2='280' y2='40' stroke='#666666' strokeWidth='5' />
-        <line x1='180' y1='40' x2='180' y2='80' stroke='#666666' strokeWidth='5' />
-      </svg>,
-
-    svgParentsOfMother:
-      <svg className='connect-parents-of-mother' key='c-pm' width='360' height='80'>
-      <line x1='80' y1='0' x2='80' y2='40' stroke='#666666' strokeWidth='5' />
-      <line x1='280' y1='0' x2='280' y2='40' stroke='#666666' strokeWidth='5' />
-      <line x1='80' y1='40' x2='280' y2='40' stroke='#666666' strokeWidth='5' />
-      <line x1='180' y1='40' x2='180' y2='80' stroke='#666666' strokeWidth='5' />
-      </svg>,
-
-    svgFatherMother:
-      <svg className='connect-father-mother' key='c-fm' width='560' height='80'>
-        <line x1='80' y1='0' x2='80' y2='40' stroke='#666666' strokeWidth='5' />
-        <line x1='480' y1='0' x2='480' y2='40' stroke='#666666' strokeWidth='5' />
-        <line x1='80' y1='40' x2='480' y2='40' stroke='#666666' strokeWidth='5' />
-        <line x1='280' y1='40' x2='280' y2='80' stroke='#666666' strokeWidth='5' />
-      </svg>,
-
-    svgChildrenOfMale:
-      <svg className='connect-children-male' key='c-cm' width='560' height='120'>
-        <line x1='80' y1='40' x2='80' y2='80' stroke='#666666' strokeWidth='5' />
-        <line x1='480' y1='0' x2='480' y2='80' stroke='#666666' strokeWidth='5' />
-        <line x1='80' y1='80' x2='480' y2='80' stroke='#666666' strokeWidth='5' />
-        <line x1='180' y1='80' x2='180' y2='120' stroke='#666666' strokeWidth='5' />
-      </svg>,
-
-    svgChildrenOfFemale:
-      <svg className='connect-children-female' key='c-cf' width='560' height='120'>
-        <line x1='80' y1='0' x2='80' y2='80' stroke='#666666' strokeWidth='5' />
-        <line x1='480' y1='40' x2=' 480' y2='80' stroke='#666666' strokeWidth='5' />
-        <line x1='80' y1='80' x2='480' y2='80' stroke='#666666' strokeWidth='5' />
-        <line x1='380' y1='80' x2='380' y2='120' stroke='#666666' strokeWidth='5' />
-      </svg>
-  };
 
   getTags() {
     const tags = [];
@@ -128,10 +88,24 @@ class TreeDisplayCore extends Component {
       />
     );
 
-    tags.push(this.svgs.svgParentsOfFather);
-    tags.push(this.svgs.svgParentsOfMother);
-    tags.push(this.svgs.svgFatherMother);
-    tags.push(this.props.focusPerson.gender === 'male' ? this.svgs.svgChildrenOfMale : this.svgs.svgChildrenOfFemale);
+    // SVG tags to draw connector lines between 'person' components.
+
+    // Parents of focus person:
+    if (this.props.father && this.props.mother) tags.push(svgs.svgFatherMother);
+    if (this.props.father && !this.props.mother) tags.push(svgs.svgFather);
+    if (this.props.mother && !this.props.father) tags.push(svgs.svgMother);
+
+    // Paternal grandarents of focus person:
+    if (this.props.fatherOfFather && this.props.motherOfFather) tags.push(svgs.svgParentsOfFather);
+    if (this.props.fatherOfFather && !this.props.motherOfFather) tags.push(svgs.svgFatherOfFather);
+    if (this.props.motherOfFather && !this.props.fatherOfFather) tags.push(svgs.svgMotherOfFather);
+
+    // Maternal grandarents of focus person:
+    if (this.props.fatherOfMother && this.props.motherOfMother) tags.push(svgs.svgParentsOfMother);
+    if (this.props.fatherOfMother && !this.props.motherOfMother) tags.push(svgs.svgFatherOfMother);
+    if (this.props.motherOfMother && !this.props.fatherOfMother) tags.push(svgs.svgMotherOfMother);
+
+    tags.push(this.props.focusPerson.gender === 'male' ? svgs.svgChildrenOfMale : svgs.svgChildrenOfFemale);
     return tags;
   }
 

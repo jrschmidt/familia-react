@@ -36,6 +36,7 @@ const persons = [
     gender: 'male',
     surname: 'Green',
     firstname: 'James',
+    father: 'p51',
     wife: 'p04',
     children: ['p01']
   },
@@ -340,6 +341,15 @@ const persons = [
     firstname: 'Sarah',
     husband: 'p48',
     children: ['p47']
+  },
+
+  {
+    _id: 'p51',
+    generation: 2,
+    gender: 'male',
+    surname: 'Green',
+    firstname: 'Alex',
+    children: ['p03']
   },
 
 ];
