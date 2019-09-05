@@ -16,3 +16,12 @@ class TreeDisplayHeader extends Component {
 }
 
 export default TreeDisplayHeader;
+
+
+// Sample tag with props:
+// <TreeDisplayHeader
+//   headline='Family Tree Display'
+//   tagline1={tag1}
+//   tagline2={tag2}
+//   text='Click on a name to change focus person'
+// />

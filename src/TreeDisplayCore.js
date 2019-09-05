@@ -105,7 +105,11 @@ class TreeDisplayCore extends Component {
     if (this.props.fatherOfMother && !this.props.motherOfMother) tags.push(svgs.svgFatherOfMother);
     if (this.props.motherOfMother && !this.props.fatherOfMother) tags.push(svgs.svgMotherOfMother);
 
-    tags.push(this.props.focusPerson.gender === 'male' ? svgs.svgChildrenOfMale : svgs.svgChildrenOfFemale);
+    // Children of focus person:
+    if (this.props.focusPerson.children) tags.push(
+      this.props.focusPerson.gender === 'male' ?
+      svgs.svgChildrenOfMale :
+      svgs.svgChildrenOfFemale);
     return tags;
   }
 

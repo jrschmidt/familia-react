@@ -46,12 +46,6 @@ class TreeDisplay4Gen extends Component {
     const tag2 = `Focus person: ${this.state.focusPerson.firstname} ${this.state.focusPerson.surname}`;
     const tags =
       <>
-      <TreeDisplayHeader
-        headline='Family Tree Display'
-        tagline1={tag1}
-        tagline2={tag2}
-        text='Click on a name to change focus person'
-      />
       <TreeDisplayCore
         resetViewFocus={this.resetViewFocus}
         focusPerson={this.state.focusPerson}
