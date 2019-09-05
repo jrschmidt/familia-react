@@ -3,9 +3,6 @@
   display: grid;
   grid-template-columns: 20px 100px 60px 40px 60px 100px 40px 100px 60px 40px 60px 100px 20px;
   grid-template-rows: 40px 80px 80px 80px 80px 80px 40px 80px;
-
-  background-color: #99aabb;
-  color: #333399;
 }
 
 .focus {

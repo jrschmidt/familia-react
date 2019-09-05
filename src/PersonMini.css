@@ -1,7 +1,16 @@
 .PersonMini {
-  background-color: #aacccc;
+  background-color: #bbbbbb;
   padding: 8px;
   font-size: 0.9em;
+  border: 3px solid #333333;
+}
+
+.husband {
+  border: 3px solid #6699cc;
+}
+
+.wife {
+  border: 3px solid #cc6699;
 }
 
 .PersonMini * {

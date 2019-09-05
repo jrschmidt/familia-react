@@ -1,4 +1,5 @@
 .PersonDisplayTile {
-  background-color: #aacccc;
+  background-color: #bbbbbb;
   font-size: 0.9em;
+  border: 5px solid black;
 }

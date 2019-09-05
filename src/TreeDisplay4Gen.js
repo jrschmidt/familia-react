@@ -64,8 +64,10 @@ class TreeDisplay4Gen extends Component {
       />
       </>
 
+    const genderClass = this.state.focusPersonGender  === 'male' ? 'male-focus' : 'female-focus';
+
     return (
-      <div className="TreeDisplay4Gen">
+      <div className={'TreeDisplay4Gen ' + genderClass}>
         {tags}
       </div>
     )

@@ -2,7 +2,13 @@
   display: flex;
   flex-direction: column;
   width: 800px;
+  color: #333333;
+}
 
-  background-color: #e8e0c0;
-  color: #666666;
+.male-focus {
+  background-color: #99aabb;
+}
+
+.female-focus {
+  background-color: #bb99aa;
 }
