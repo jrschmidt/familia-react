@@ -2,8 +2,6 @@
   display: grid;
   grid-template-columns: 20px 100px 60px 40px 60px 40px 60px 40px 60px 40px 60px 40px 60px 100px 20px;
   grid-template-rows: 80px 80px;
-
-  background-color: #ccccff;
 }
 
 .child-left {

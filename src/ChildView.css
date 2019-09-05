@@ -2,6 +2,6 @@
   display: flex;
   flex-direction: column;
   width: 800px;
-
+  background-color: #99aabb;
   color: #333399;
 }
