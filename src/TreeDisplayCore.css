@@ -6,8 +6,8 @@
 }
 
 .focus {
-  grid-column-start: 5;
-  grid-column-end: 10;
+  grid-column-start: 6;
+  grid-column-end: 9;
   grid-row-start: 6;
   grid-row-end: 8;
 }
