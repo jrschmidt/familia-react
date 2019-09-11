@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 
 import TreeDisplayCore from './TreeDisplayCore.js';
-import PersonDisplayTile from './PersonDisplayTile.js';
+import FocusPersonDisplayTile from './FocusPersonDisplayTile.js';
 import PersonMini from './PersonMini.js';
 
 it('renders TreeDisplayCore component with male focus person', () => {
@@ -19,7 +19,7 @@ it('renders TreeDisplayCore component with male focus person', () => {
       motherOfMother: {_id: 'p09', firstname: 'Susanna', surname: 'Kirk'}
     };
     const wrapper = shallow(<TreeDisplayCore {...props}/>);
-    expect(wrapper.find(PersonDisplayTile)).toHaveLength(1);
+    expect(wrapper.find(FocusPersonDisplayTile)).toHaveLength(1);
     expect(wrapper.find(PersonMini)).toHaveLength(7);
     expect(wrapper.find('svg')).toHaveLength(3);
     expect(wrapper.find('svg').last().hasClass('connect-parents-of-mother')).toEqual(true);
@@ -38,7 +38,7 @@ it('renders TreeDisplayCore component with female focus person', () => {
       motherOfMother: {_id: 'p09', firstname: 'Lucille', surname: 'Williams'}
     };
     const wrapper = shallow(<TreeDisplayCore {...props}/>);
-    expect(wrapper.find(PersonDisplayTile)).toHaveLength(1);
+    expect(wrapper.find(FocusPersonDisplayTile)).toHaveLength(1);
     expect(wrapper.find(PersonMini)).toHaveLength(7);
     expect(wrapper.find('svg')).toHaveLength(3);
     expect(wrapper.find('svg').last().hasClass('connect-parents-of-mother')).toEqual(true);

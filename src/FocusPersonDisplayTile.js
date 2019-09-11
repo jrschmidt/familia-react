@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './PersonDisplayTile.css';
+import './FocusPersonDisplayTile.css';
 
-class PersonDisplayTile extends Component {
+class FocusPersonDisplayTile extends Component {
 
   render () {
     return (
-      <div className={'PersonDisplayTile ' + this.props.viewRole}>
+      <div className={'FocusPersonDisplayTile ' + this.props.viewRole}>
         <h3>{this.props.person.firstname} {this.props.person.surname}</h3>
         <p><span>birth</span> {this.props.person.birthdate}</p>
         <p>{this.props.person.birthPlaceName}</p>
@@ -14,4 +14,4 @@ class PersonDisplayTile extends Component {
   }
 }
 
-export default PersonDisplayTile;
+export default FocusPersonDisplayTile;
