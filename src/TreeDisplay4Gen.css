@@ -2,13 +2,6 @@
   display: flex;
   flex-direction: column;
   width: 800px;
-  color: #333333;
-}
-
-.male-focus {
   background-color: #99aabb;
-}
-
-.female-focus {
-  background-color: #bb99aa;
+  color: #333333;
 }
