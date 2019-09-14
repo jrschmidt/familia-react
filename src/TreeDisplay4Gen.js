@@ -20,19 +20,58 @@ class TreeDisplay4Gen extends Component {
   getViewState (focusPersonId) {
     const focusPerson = this.findPersonById( focusPersonId );
     const viewGender = focusPerson.gender;
-    const focusFather = focusPerson && focusPerson.father ? this.findPersonById( focusPerson.father ) : null;
-    const focusMother = focusPerson && focusPerson.mother ? this.findPersonById( focusPerson.mother ) : null;
+    const husband = focusPerson && focusPerson.husband ? this.findPersonById( focusPerson.husband ) : null;
+    const wife = focusPerson && focusPerson.wife ? this.findPersonById( focusPerson.wife ) : null;
+    const male = viewGender === 'male' ? focusPerson : husband;
+    const female = viewGender === 'female' ? focusPerson : wife;
+    let fatherOfMale, fatherOfFatherOfMale, motherOfFatherOfMale;
+    let motherOfMale, fatherOfMotherOfMale, motherOfMotherOfMale;
+    let fatherOfFemale, fatherOfFatherOfFemale, motherOfFatherOfFemale;
+    let motherOfFemale, fatherOfMotherOfFemale, motherOfMotherOfFemale;
+
+    if (male) {
+      fatherOfMale = male.father ? this.findPersonById( male.father ) : null;
+      if (fatherOfMale) {
+        fatherOfFatherOfMale = fatherOfMale.father ? this.findPersonById( fatherOfMale.father ) : null;
+        motherOfFatherOfMale = fatherOfMale.mother ? this.findPersonById( fatherOfMale.mother ) : null;
+      }
+      motherOfMale = male.mother ? this.findPersonById( male.mother ) : null;
+      if (motherOfMale) {
+        fatherOfMotherOfMale = motherOfMale.father ? this.findPersonById( motherOfMale.father ) : null;
+        motherOfMotherOfMale = motherOfMale.mother ? this.findPersonById( motherOfMale.mother ) : null;
+      }
+    }
+
+    if (female) {
+      fatherOfFemale = female.father ? this.findPersonById( female.father ) : null;
+      if (fatherOfFemale) {
+        fatherOfFatherOfFemale = fatherOfFemale.father ? this.findPersonById( fatherOfFemale.father ) : null;
+        motherOfFatherOfFemale = fatherOfFemale.mother ? this.findPersonById( fatherOfFemale.mother ) : null;
+      }
+      motherOfFemale = female.mother ? this.findPersonById( female.mother ) : null;
+      if (motherOfFemale) {
+        fatherOfMotherOfFemale = motherOfFemale.father ? this.findPersonById( motherOfFemale.father ) : null;
+        motherOfMotherOfFemale = motherOfFemale.mother ? this.findPersonById( motherOfFemale.mother ) : null;
+      }
+    }
+
     return {
       focusPerson: focusPerson,
       focusPersonGender: viewGender,
-      father: focusFather,
-      mother: focusMother,
-      husband: focusPerson && focusPerson.husband ? this.findPersonById( focusPerson.husband ) : null,
-      wife: focusPerson && focusPerson.wife ? this.findPersonById( focusPerson.wife ) : null,
-      fatherOfFather: focusFather && focusFather.father ? this.findPersonById( focusFather.father ) : null,
-      motherOfFather: focusFather && focusFather.mother ? this.findPersonById( focusFather.mother ) : null,
-      fatherOfMother: focusMother && focusMother.father ? this.findPersonById( focusMother.father ) : null,
-      motherOfMother: focusMother && focusMother.mother ? this.findPersonById( focusMother.mother ) : null,
+      husband: husband,
+      wife: wife,
+      fatherOfMale: fatherOfMale,
+      fatherOfFatherOfMale: fatherOfFatherOfMale,
+      motherOfFatherOfMale: motherOfFatherOfMale,
+      motherOfMale: motherOfMale,
+      fatherOfMotherOfMale: fatherOfMotherOfMale,
+      motherOfMotherOfMale: motherOfMotherOfMale,
+      fatherOfFemale: fatherOfFemale,
+      fatherOfFatherOfFemale: fatherOfFatherOfFemale,
+      motherOfFatherOfFemale: motherOfFatherOfFemale,
+      motherOfFemale: motherOfFemale,
+      fatherOfMotherOfFemale: fatherOfMotherOfFemale,
+      motherOfMotherOfFemale: motherOfMotherOfFemale,
       children: focusPerson.children ? focusPerson.children.map( childId => this.findPersonById( childId )) : null
     };
   }
@@ -51,12 +90,18 @@ class TreeDisplay4Gen extends Component {
         focusPerson={this.state.focusPerson}
         husband={this.state.husband}
         wife={this.state.wife}
-        father={this.state.father}
-        mother={this.state.mother}
-        fatherOfFather={this.state.fatherOfFather}
-        motherOfFather={this.state.motherOfFather}
-        fatherOfMother={this.state.fatherOfMother}
-        motherOfMother={this.state.motherOfMother}
+        fatherOfMale={this.state.fatherOfMale}
+        fatherOfFatherOfMale={this.state.fatherOfFatherOfMale}
+        motherOfFatherOfMale={this.state.motherOfFatherOfMale}
+        motherOfMale={this.state.motherOfMale}
+        fatherOfMotherOfMale={this.state.fatherOfMotherOfMale}
+        motherOfMotherOfMale={this.state.motherOfMotherOfMale}
+        fatherOfFemale={this.state.fatherOfFemale}
+        fatherOfFatherOfFemale={this.state.fatherOfFatherOfFemale}
+        motherOfFatherOfFemale={this.state.motherOfFatherOfFemale}
+        motherOfFemale={this.state.motherOfFemale}
+        fatherOfMotherOfFemale={this.state.fatherOfMotherOfFemale}
+        motherOfMotherOfFemale={this.state.motherOfMotherOfFemale}
       />
       <ChildView
         resetViewFocus={this.resetViewFocus}

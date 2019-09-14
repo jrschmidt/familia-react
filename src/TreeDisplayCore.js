@@ -11,14 +11,18 @@ class TreeDisplayCore extends Component {
 
   getTags() {
     const tags = [];
+    const male = focusPerson.gender === 'male' ? focusPerson : husband;
+    const female = focusPerson.gender === 'female' ? focusPerson : wife;
 
-    if (this.props.focusPerson) tags.push(
-      <FocusPersonDisplayTile
+    if (this.props.focusPerson) {
+      tags.push(
+        <FocusPersonDisplayTile
         person={this.props.focusPerson}
         viewRole='focus'
         key={this.props.focusPerson._id}
-      />
-    );
+        />
+      );
+    }
 
     if (this.props.husband) tags.push(
       <PersonMini
@@ -38,59 +42,114 @@ class TreeDisplayCore extends Component {
       />
     );
 
-    if (this.props.father) tags.push(
+    if (this.props.fatherOfMale) tags.push(
       <PersonMini
         resetViewFocus={this.props.resetViewFocus}
-        person={this.props.father}
-        viewRole='father'
-        key={this.props.father._id}
+        person={this.props.fatherOfMale}
+        viewRole='gen2-box1'
+        key={this.props.fatherOfMale._id}
       />
     );
 
-    if (this.props.mother) tags.push(
+    if (this.props.motherOfMale) tags.push(
       <PersonMini
         resetViewFocus={this.props.resetViewFocus}
-        person={this.props.mother}
-        viewRole='mother'
-        key={this.props.mother._id}
+        person={this.props.motherOfMale}
+        viewRole='gen2-box2'
+        key={this.props.motherOfMale._id}
       />
     );
 
-    if (this.props.fatherOfFather) tags.push(
+    if (this.props.fatherOfFatherOfMale) tags.push(
       <PersonMini
-        person={this.props.fatherOfFather}
-        viewRole='father-of-father'
-        key={this.props.fatherOfFather._id}
+        person={this.props.fatherOfFatherOfMale}
+        viewRole='gen3-box1'
+        key={this.props.fatherOfFatherOfMale._id}
       />
     );
 
-    if (this.props.motherOfFather) tags.push(
+    if (this.props.motherOfFatherOfMale) tags.push(
       <PersonMini
-        person={this.props.motherOfFather}
-        viewRole='mother-of-father'
-        key={this.props.motherOfFather._id}
+        person={this.props.motherOfFatherOfMale}
+        viewRole='gen3-box2'
+        key={this.props.motherOfFatherOfMale._id}
       />
     );
 
-    if (this.props.fatherOfMother) tags.push(
+    if (this.props.fatherOfMotherOfMale) tags.push(
       <PersonMini
-        person={this.props.fatherOfMother}
-        viewRole='father-of-mother'
-        key={this.props.fatherOfMother._id}
+        person={this.props.fatherOfMotherOfMale}
+        viewRole='gen3-box3'
+        key={this.props.fatherOfMotherOfMale._id}
       />
     );
 
-    if (this.props.motherOfMother) tags.push(
+    if (this.props.motherOfMotherOfMale) tags.push(
       <PersonMini
-        person={this.props.motherOfMother}
-        viewRole='mother-of-mother'
-        key={this.props.motherOfMother._id}
+        person={this.props.motherOfMotherOfMale}
+        viewRole='gen3-box4'
+        key={this.props.motherOfMotherOfMale._id}
+      />
+    );
+
+    if (this.props.fatherOfFemale) tags.push(
+      <PersonMini
+        resetViewFocus={this.props.resetViewFocus}
+        person={this.props.fatherOfFemale}
+        viewRole='gen2-box3'
+        key={this.props.fatherOfFemale._id}
+      />
+    );
+
+    if (this.props.motherOfFemale) tags.push(
+      <PersonMini
+        resetViewFocus={this.props.resetViewFocus}
+        person={this.props.motherOfFemale}
+        viewRole='gen2-box4'
+        key={this.props.motherOfFemale._id}
+      />
+    );
+
+    if (this.props.fatherOfFatherOfFemale) tags.push(
+      <PersonMini
+        person={this.props.fatherOfFatherOfFemale}
+        viewRole='gen3-box5'
+        key={this.props.fatherOfFatherOfFemale._id}
+      />
+    );
+
+    if (this.props.motherOfFatherOfFemale) tags.push(
+      <PersonMini
+        person={this.props.motherOfFatherOfFemale}
+        viewRole='gen3-box6'
+        key={this.props.motherOfFatherOfFemale._id}
+      />
+    );
+
+    if (this.props.fatherOfMotherOfFemale) tags.push(
+      <PersonMini
+        person={this.props.fatherOfMotherOfFemale}
+        viewRole='gen3-box7'
+        key={this.props.fatherOfMotherOfFemale._id}
+      />
+    );
+
+    if (this.props.motherOfMotherOfFemale) tags.push(
+      <PersonMini
+        person={this.props.motherOfMotherOfFemale}
+        viewRole='gen3-box8'
+        key={this.props.motherOfMotherOfFemale._id}
       />
     );
 
     // SVG tags to draw connector lines between 'person' components.
 
-    // Parents of focus person:
+    // Parents of focus person and spouse:
+    if (this.props.male) {
+      if (this.props. && this.props.) tags.push(svgs.);
+    }
+
+
     if (this.props.father && this.props.mother) tags.push(svgs.svgFatherMother);
     if (this.props.father && !this.props.mother) tags.push(svgs.svgFather);
     if (this.props.mother && !this.props.father) tags.push(svgs.svgMother);

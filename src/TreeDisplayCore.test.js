@@ -11,18 +11,26 @@ it('renders TreeDisplayCore component with male focus person', () => {
       focusPerson: {_id: 'p01', gender: 'male', firstname: 'Robert', surname: 'Green', birthdate: 'aug-07-1958', birthPlaceName: 'Mt Vernon, Illinois'},
       husband: null,
       wife: {_id: 'p03', firstname: 'Anne', surname: 'Adams'},
-      father: {_id: 'p04', firstname: 'Thomas', surname: 'Green'},
-      mother: {_id: 'p05', firstname: 'Barbara', surname: 'Johnson'},
-      fatherOfFather: {_id: 'p06', firstname: 'Michael', surname: 'Green'},
-      motherOfFather: {_id: 'p07', firstname: 'Elizabeth', surname: 'Carter'},
-      fatherOfMother: {_id: 'p08', firstname: 'Albert', surname: 'Johnson'},
-      motherOfMother: {_id: 'p09', firstname: 'Susanna', surname: 'Kirk'}
+
+      fatherOfMale: {_id: 'p04', firstname: 'Thomas', surname: 'Green'},
+      motherOfMale: {_id: 'p05', firstname: 'Barbara', surname: 'Johnson'},
+      fatherOfFatherOfMale: {_id: 'p11', firstname: 'Michael', surname: 'Green'},
+      motherOfFatherOfMale: {_id: 'p12', firstname: 'Elizabeth', surname: 'Carter'},
+      fatherOfMotherOfMale: {_id: 'p13', firstname: 'Albert', surname: 'Johnson'},
+      motherOfMotherOfMale: {_id: 'p14', firstname: 'Susanna', surname: 'Kirk'},
+
+      fatherOfFemale: {_id: 'p06', firstname: '', surname: 'Adams'},
+      motherOfFemale: {_id: 'p07', firstname: '', surname: 'Medford'},
+      fatherOfFatherOfFemale: {_id: 'p21', firstname: 'Jeremiah', surname: 'Adams'},
+      motherOfFatherOfFemale: {_id: 'p22', firstname: 'Roberta', surname: 'Vogel'},
+      fatherOfMotherOfFemale: {_id: 'p23', firstname: 'Vernon', surname: 'Medford'},
+      motherOfMotherOfFemale: {_id: 'p24', firstname: 'Lucille', surname: 'Williams'}
     };
     const wrapper = shallow(<TreeDisplayCore {...props}/>);
     expect(wrapper.find(FocusPersonDisplayTile)).toHaveLength(1);
-    expect(wrapper.find(PersonMini)).toHaveLength(7);
-    expect(wrapper.find('svg')).toHaveLength(3);
-    expect(wrapper.find('svg').last().hasClass('connect-parents-of-mother')).toEqual(true);
+    expect(wrapper.find(PersonMini)).toHaveLength(13);
+    expect(wrapper.find('svg')).toHaveLength(7);
+    expect(wrapper.find('svg').last().hasClass('connect-parents-children')).toEqual(true);
 });
 
 it('renders TreeDisplayCore component with female focus person', () => {
@@ -30,16 +38,24 @@ it('renders TreeDisplayCore component with female focus person', () => {
       focusPerson: {_id: 'p03', gender: 'female', firstname: 'Anne', surname: 'Adams', birthdate: 'may-26-1959', birthPlaceName: 'Lenexa, Kansas'},
       husband: {_id: 'p01', firstname: 'Robert', surname: 'Green'},
       wife: null,
-      father: {_id: 'p04', firstname: '', surname: 'Adams'},
-      mother: {_id: 'p05', firstname: '', surname: 'Medford'},
-      fatherOfFather: {_id: 'p06', firstname: 'Jeremiah', surname: 'Adams'},
-      motherOfFather: {_id: 'p07', firstname: 'Roberta', surname: 'Vogel'},
-      fatherOfMother: {_id: 'p08', firstname: 'Vernon', surname: 'Medford'},
-      motherOfMother: {_id: 'p09', firstname: 'Lucille', surname: 'Williams'}
+
+      fatherOfMale: {_id: 'p04', firstname: 'Thomas', surname: 'Green'},
+      motherOfMale: {_id: 'p05', firstname: 'Barbara', surname: 'Johnson'},
+      fatherOfFatherOfMale: {_id: 'p11', firstname: 'Michael', surname: 'Green'},
+      motherOfFatherOfMale: {_id: 'p12', firstname: 'Elizabeth', surname: 'Carter'},
+      fatherOfMotherOfMale: {_id: 'p13', firstname: 'Albert', surname: 'Johnson'},
+      motherOfMotherOfMale: {_id: 'p14', firstname: 'Susanna', surname: 'Kirk'},
+
+      fatherOfFemale: {_id: 'p06', firstname: '', surname: 'Adams'},
+      motherOfFemale: {_id: 'p07', firstname: '', surname: 'Medford'},
+      fatherOfFatherOfFemale: {_id: 'p21', firstname: 'Jeremiah', surname: 'Adams'},
+      motherOfFatherOfFemale: {_id: 'p22', firstname: 'Roberta', surname: 'Vogel'},
+      fatherOfMotherOfFemale: {_id: 'p23', firstname: 'Vernon', surname: 'Medford'},
+      motherOfMotherOfFemale: {_id: 'p24', firstname: 'Lucille', surname: 'Williams'}
     };
     const wrapper = shallow(<TreeDisplayCore {...props}/>);
     expect(wrapper.find(FocusPersonDisplayTile)).toHaveLength(1);
-    expect(wrapper.find(PersonMini)).toHaveLength(7);
-    expect(wrapper.find('svg')).toHaveLength(3);
-    expect(wrapper.find('svg').last().hasClass('connect-parents-of-mother')).toEqual(true);
+    expect(wrapper.find(PersonMini)).toHaveLength(13);
+    expect(wrapper.find('svg')).toHaveLength(7);
+    expect(wrapper.find('svg').last().hasClass('connect-parents-children')).toEqual(true);
 });
