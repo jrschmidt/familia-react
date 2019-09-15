@@ -3,16 +3,23 @@ import './TreeDisplayCore.css';
 
 import FocusPersonDisplayTile from './FocusPersonDisplayTile.js';
 import PersonMini from './PersonMini.js';
-import { svgs } from './treeDisplaySvgs.js';
+import { getGrandparentSvg, getParentSvg } from './treeDisplaySvgs.js';
 
 class TreeDisplayCore extends Component {
 
-
+  pushIfNotNull(arr, e) {
+    if (e) arr.push(e);
+    return arr;
+  }
 
   getTags() {
     const tags = [];
-    const male = focusPerson.gender === 'male' ? focusPerson : husband;
-    const female = focusPerson.gender === 'female' ? focusPerson : wife;
+    const male = this.props.focusPerson.gender === 'male' ?
+      this.props.focusPerson :
+      this.props.husband;
+    const female = this.props.focusPerson.gender === 'female' ?
+      this.props.focusPerson :
+      this.props.wife;
 
     if (this.props.focusPerson) {
       tags.push(
@@ -141,34 +148,30 @@ class TreeDisplayCore extends Component {
         key={this.props.motherOfMotherOfFemale._id}
       />
     );
+    console.log(`**Before SVGs: tags.length = ${tags.length}`);
 
     // SVG tags to draw connector lines between 'person' components.
 
-    // Parents of focus person and spouse:
-    if (this.props.male) {
-      if (this.props. && this.props.) tags.push(svgs.);
+    // Parents and grandparents of focus person and spouse:
+    if (male) {
+      this.pushIfNotNull(tags, getParentSvg(this.props.fatherOfMale, this.props.motherOfMale, 'p1'));
+      this.pushIfNotNull(tags, getGrandparentSvg(this.props.fatherOfFatherOfMale, this.props.motherOfFatherOfMale, 'g1'));
+      this.pushIfNotNull(tags, getGrandparentSvg(this.props.fatherOfMotherOfMale, this.props.motherOfMotherOfMale, 'g2'));
     }
 
+    if (female) {
+      this.pushIfNotNull(tags, getParentSvg(this.props.fatherOfFemale, this.props.motherOfFemale, 'p2'));
+      this.pushIfNotNull(tags, getGrandparentSvg(this.props.fatherOfFatherOfFemale, this.props.motherOfFatherOfFemale, 'g3'));
+      this.pushIfNotNull(tags, getGrandparentSvg(this.props.fatherOfMotherOfFemale, this.props.motherOfMotherOfFemale, 'g4'));
+    }
 
-    if (this.props.father && this.props.mother) tags.push(svgs.svgFatherMother);
-    if (this.props.father && !this.props.mother) tags.push(svgs.svgFather);
-    if (this.props.mother && !this.props.father) tags.push(svgs.svgMother);
+    // // Children of focus person:
+    // if (this.props.focusPerson.children) tags.push(
+    //   this.props.focusPerson.gender === 'male' ?
+    //   svgs.svgChildrenOfMale :
+    //   svgs.svgChildrenOfFemale);
+    // console.log(`**After SVGs: tags.length = ${tags.length}`);
 
-    // Paternal grandarents of focus person:
-    if (this.props.fatherOfFather && this.props.motherOfFather) tags.push(svgs.svgParentsOfFather);
-    if (this.props.fatherOfFather && !this.props.motherOfFather) tags.push(svgs.svgFatherOfFather);
-    if (this.props.motherOfFather && !this.props.fatherOfFather) tags.push(svgs.svgMotherOfFather);
-
-    // Maternal grandarents of focus person:
-    if (this.props.fatherOfMother && this.props.motherOfMother) tags.push(svgs.svgParentsOfMother);
-    if (this.props.fatherOfMother && !this.props.motherOfMother) tags.push(svgs.svgFatherOfMother);
-    if (this.props.motherOfMother && !this.props.fatherOfMother) tags.push(svgs.svgMotherOfMother);
-
-    // Children of focus person:
-    if (this.props.focusPerson.children) tags.push(
-      this.props.focusPerson.gender === 'male' ?
-      svgs.svgChildrenOfMale :
-      svgs.svgChildrenOfFemale);
     return tags;
   }
 
