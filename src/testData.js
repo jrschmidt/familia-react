@@ -15,8 +15,10 @@ const persons = [
     father: 'p03',
     mother: 'p04',
     wife: 'p02',
-    children: ['p07','p08','p09']
+    children: ['p07', 'p08', 'p09', 'p10', 'p11', 'p12', 'p13']
   },
+
+// (Add or delete any keys p07 through p15 to change number of children)
 
   {
     _id: 'p02',
