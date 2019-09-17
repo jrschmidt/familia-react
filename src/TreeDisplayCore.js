@@ -3,7 +3,7 @@ import './TreeDisplayCore.css';
 
 import FocusPersonDisplayTile from './FocusPersonDisplayTile.js';
 import PersonMini from './PersonMini.js';
-import { getGrandparentSvg, getParentSvg } from './treeDisplaySvgs.js';
+import { getGrandparentSvg, getParentSvg, getChildrenSvg } from './treeDisplaySvgs.js';
 
 class TreeDisplayCore extends Component {
 
@@ -14,10 +14,11 @@ class TreeDisplayCore extends Component {
 
   getTags() {
     const tags = [];
-    const male = this.props.focusPerson.gender === 'male' ?
+    const focusGender = this.props.focusPerson.gender;
+    const male = focusGender === 'male' ?
       this.props.focusPerson :
       this.props.husband;
-    const female = this.props.focusPerson.gender === 'female' ?
+    const female = focusGender === 'female' ?
       this.props.focusPerson :
       this.props.wife;
 
@@ -25,7 +26,7 @@ class TreeDisplayCore extends Component {
       tags.push(
         <FocusPersonDisplayTile
         person={this.props.focusPerson}
-        viewRole='focus'
+        viewRole={focusGender === 'male' ? 'focus-male' : 'focus-female'}
         key={this.props.focusPerson._id}
         />
       );
@@ -148,11 +149,9 @@ class TreeDisplayCore extends Component {
         key={this.props.motherOfMotherOfFemale._id}
       />
     );
-    console.log(`**Before SVGs: tags.length = ${tags.length}`);
 
     // SVG tags to draw connector lines between 'person' components.
 
-    // Parents and grandparents of focus person and spouse:
     if (male) {
       this.pushIfNotNull(tags, getParentSvg(this.props.fatherOfMale, this.props.motherOfMale, 'p1'));
       this.pushIfNotNull(tags, getGrandparentSvg(this.props.fatherOfFatherOfMale, this.props.motherOfFatherOfMale, 'g1'));
@@ -166,11 +165,7 @@ class TreeDisplayCore extends Component {
     }
 
     // // Children of focus person:
-    // if (this.props.focusPerson.children) tags.push(
-    //   this.props.focusPerson.gender === 'male' ?
-    //   svgs.svgChildrenOfMale :
-    //   svgs.svgChildrenOfFemale);
-    // console.log(`**After SVGs: tags.length = ${tags.length}`);
+    tags.push(getChildrenSvg(focusGender));
 
     return tags;
   }

@@ -30,7 +30,7 @@ it('renders TreeDisplayCore component with male focus person', () => {
     expect(wrapper.find(FocusPersonDisplayTile)).toHaveLength(1);
     expect(wrapper.find(PersonMini)).toHaveLength(13);
     expect(wrapper.find('svg')).toHaveLength(7);
-    expect(wrapper.find('svg').last().hasClass('connect-parents-children')).toEqual(true);
+    expect(wrapper.find('svg').last().hasClass('svg-connect-children')).toEqual(true);
 });
 
 it('renders TreeDisplayCore component with female focus person', () => {
@@ -57,5 +57,5 @@ it('renders TreeDisplayCore component with female focus person', () => {
     expect(wrapper.find(FocusPersonDisplayTile)).toHaveLength(1);
     expect(wrapper.find(PersonMini)).toHaveLength(13);
     expect(wrapper.find('svg')).toHaveLength(7);
-    expect(wrapper.find('svg').last().hasClass('connect-parents-children')).toEqual(true);
+    expect(wrapper.find('svg').last().hasClass('svg-connect-children')).toEqual(true);
 });

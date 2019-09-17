@@ -5,14 +5,6 @@
   border: 3px solid #333333;
 }
 
-.husband {
-  border: 3px solid #6699cc;
-}
-
-.wife {
-  border: 3px solid #cc6699;
-}
-
 .PersonMini * {
   margin: 0;
   padding: 2px;}

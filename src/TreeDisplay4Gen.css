@@ -1,7 +1,7 @@
 .TreeDisplay4Gen {
   display: flex;
   flex-direction: column;
-  width: 800px;
+  width: 1600px;
   background-color: #99aabb;
   color: #333333;
 }
