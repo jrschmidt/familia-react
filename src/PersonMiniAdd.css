@@ -1,0 +1,9 @@
+.PersonMiniAdd {
+  padding: 8px;
+  font-size: 0.9em;
+  border: 1px solid #800000;
+}
+
+.PersonMiniAdd * {
+  margin: 0;
+  padding: 2px;}
