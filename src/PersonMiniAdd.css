@@ -4,6 +4,14 @@
   border: 1px solid #800000;
 }
 
+.PersonMiniAdd:hover {
+  background-color: #3399ff;
+}
+
+.PersonMiniAdd:hover span {
+  color: #ff3333;
+}
+
 .PersonMiniAdd * {
   margin: 0;
   padding: 2px;}
