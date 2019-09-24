@@ -77,7 +77,10 @@ class TreeDisplayCore extends Component {
     if (this.props.fatherOfMale) {
       tags.push(
         <PersonMini
-          resetViewFocus={this.props.resetViewFocus}
+          resetViewFocus={
+            (focusGender === 'male') ?
+            this.props.resetViewFocus :
+            null}
           person={this.props.fatherOfMale}
           viewRole='gen2-box1'
           key={this.props.fatherOfMale._id}
@@ -97,7 +100,10 @@ class TreeDisplayCore extends Component {
     if (this.props.motherOfMale) {
       tags.push(
         <PersonMini
-          resetViewFocus={this.props.resetViewFocus}
+          resetViewFocus={
+            (focusGender === 'male') ?
+            this.props.resetViewFocus :
+            null}
           person={this.props.motherOfMale}
           viewRole='gen2-box2'
           key={this.props.motherOfMale._id}
@@ -117,7 +123,10 @@ class TreeDisplayCore extends Component {
     if (this.props.fatherOfFemale) {
       tags.push(
         <PersonMini
-          resetViewFocus={this.props.resetViewFocus}
+          resetViewFocus={
+            (focusGender === 'female') ?
+            this.props.resetViewFocus :
+            null}
           person={this.props.fatherOfFemale}
           viewRole='gen2-box3'
           key={this.props.fatherOfFemale._id}
@@ -137,7 +146,10 @@ class TreeDisplayCore extends Component {
     if (this.props.motherOfFemale) {
       tags.push(
         <PersonMini
-          resetViewFocus={this.props.resetViewFocus}
+          resetViewFocus={
+            (focusGender === 'female') ?
+            this.props.resetViewFocus :
+            null}
           person={this.props.motherOfFemale}
           viewRole='gen2-box4'
           key={this.props.motherOfFemale._id}
