@@ -75,4 +75,26 @@ const getChildrenSvg = (gender) => {
   }
 }
 
-export { getGrandparentSvg, getParentSvg, getChildrenSvg };
+const getPlusSignSvg = () => {
+  return (
+    <svg className='plus-sign' width='31' height='31'>
+      <line x1='15' y1='6' x2='15' y2='23' stroke='#333333' strokeWidth='3' />
+      <line x1='6' y1='15' x2='23' y2='15' stroke='#333333' strokeWidth='3' />
+      <path fill='none' stroke='#333333' strokeWidth='3'
+        d='
+          M 3 6
+          a 3 3 0 0 1 3 -3
+          l 17 0
+          a 3 3 0 0 1 3 3
+          l 0 17
+          a 3 3 0 0 1 -3 3
+          l -17 0
+          a 3 3 0 0 1 -3 -3
+          l 0 -17
+        '
+      />
+    </svg>
+  );
+}
+
+export { getGrandparentSvg, getParentSvg, getChildrenSvg, getPlusSignSvg };
