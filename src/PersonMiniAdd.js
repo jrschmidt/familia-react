@@ -7,8 +7,13 @@ class PersonMiniAdd extends Component {
   render () {
     return (
       <div className={'PersonMiniAdd ' + this.props.viewRole}>
-      {getPlusSignSvg()}
-      <span>Add Person ...</span>
+        <div className='add-box'>
+          {getPlusSignSvg()}
+          <div className='add-text'>
+            <p className='add-add'>ADD</p>
+            <p className='add-label'>{this.props.label}</p>
+          </div>
+        </div>
       </div>
     )
   }

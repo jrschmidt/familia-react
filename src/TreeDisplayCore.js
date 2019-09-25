@@ -45,6 +45,7 @@ class TreeDisplayCore extends Component {
     else if (focusGender === 'male') {
       tags.push(
         <PersonMiniAdd
+          label='wife'
           viewRole='wife'
           key='add-wife'
         />
@@ -65,6 +66,7 @@ class TreeDisplayCore extends Component {
     else if (focusGender === 'female') {
       tags.push(
         <PersonMiniAdd
+          label='husband'
           viewRole='husband'
           key='add-husband'
         />
@@ -90,6 +92,7 @@ class TreeDisplayCore extends Component {
     else if (focusGender === 'male') {
       tags.push(
         <PersonMiniAdd
+          label='father'
           viewRole='gen2-box1'
           key='add-father'
         />
@@ -113,6 +116,7 @@ class TreeDisplayCore extends Component {
     else if (focusGender === 'male') {
       tags.push(
         <PersonMiniAdd
+          label='mother'
           viewRole='gen2-box2'
           key='add-mother'
         />
@@ -136,6 +140,7 @@ class TreeDisplayCore extends Component {
     else if (focusGender === 'female') {
       tags.push(
         <PersonMiniAdd
+          label='father'
           viewRole='gen2-box3'
           key='add-father'
         />
@@ -159,6 +164,7 @@ class TreeDisplayCore extends Component {
     else if (focusGender === 'female') {
       tags.push(
         <PersonMiniAdd
+          label='mother'
           viewRole='gen2-box4'
           key='add-mother'
         />

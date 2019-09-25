@@ -1,24 +1,49 @@
 .PersonMiniAdd {
   position: relative;
-  padding: 8px;
-  font-size: 0.9em;
-  border: 1px solid #800000;
+  color: #666666;
 }
 
 .PersonMiniAdd:hover {
-  background-color: #3399ff;
+  border: 1px dashed #666666;
+  color: #800000;
 }
 
-.PersonMiniAdd:hover span {
-  color: #ff3333;
+.PersonMiniAdd .add-box {
+  position: absolute;
+  top: 17px;
+  position: absolute;
+  display: flex;
+  width: 90px;
+  height: 40px;
+  border: 1px solid #666666;
 }
 
-.PersonMiniAdd * {
+.PersonMiniAdd:hover .add-box {
+  border-color: #800000;
+  background-color: #bbbbbb;
+}
+
+.PersonMiniAdd p {
   margin: 0;
-  padding: 2px;}
+  padding: 0px;
+}
+
+.PersonMiniAdd .add-text {
+  margin-top: 5px;
+  padding: 0px;
+}
+
+.PersonMiniAdd .add-add {
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.PersonMiniAdd .add-label {
+  font-size: 0.8em;
+  font-style: italic;
+}
 
 .PersonMiniAdd .plus-sign {
-  position: absolute;
-  left: 0px;
-  top: 25px;
+  margin-top: 6px;
+  padding: 0px;
 }
