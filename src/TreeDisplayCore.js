@@ -234,15 +234,40 @@ class TreeDisplayCore extends Component {
     // SVG tags to draw connector lines between 'person' components.
 
     if (male) {
-      tags.push(getParentSvg(this.props.fatherOfMale, this.props.motherOfMale, 'p1'));
-      tags.push(getGrandparentSvg(this.props.fatherOfFatherOfMale, this.props.motherOfFatherOfMale, 'g1'));
-      tags.push(getGrandparentSvg(this.props.fatherOfMotherOfMale, this.props.motherOfMotherOfMale, 'g2'));
+      tags.push(getParentSvg(
+        (focusGender === 'male'),
+        this.props.fatherOfMale,
+        this.props.motherOfMale,
+        'p1'
+      ));
+      tags.push(getGrandparentSvg(
+        this.props.fatherOfFatherOfMale,
+        this.props.motherOfFatherOfMale,
+        'g1'
+      ));
+      tags.push(getGrandparentSvg(
+        this.props.fatherOfMotherOfMale,
+        this.props.motherOfMotherOfMale,
+        'g2'
+      ));
     }
 
     if (female) {
-      tags.push(getParentSvg(this.props.fatherOfFemale, this.props.motherOfFemale, 'p2'));
-      tags.push(getGrandparentSvg(this.props.fatherOfFatherOfFemale, this.props.motherOfFatherOfFemale, 'g3'));
-      tags.push(getGrandparentSvg(this.props.fatherOfMotherOfFemale, this.props.motherOfMotherOfFemale, 'g4'));
+      tags.push(getParentSvg(
+        (focusGender === 'female'),
+        this.props.fatherOfFemale,
+        this.props.motherOfFemale,
+        'p2'));
+      tags.push(getGrandparentSvg(
+        this.props.fatherOfFatherOfFemale,
+        this.props.motherOfFatherOfFemale,
+        'g3'
+      ));
+      tags.push(getGrandparentSvg(
+        this.props.fatherOfMotherOfFemale,
+        this.props.motherOfMotherOfFemale,
+        'g4'
+      ));
     }
 
     // // Children of focus person:

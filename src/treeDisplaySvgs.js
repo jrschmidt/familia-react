@@ -29,9 +29,9 @@ const getGrandparentSvg = (male, female, locTag) => {
   if (!male && !female) return null;
 };
 
-const getParentSvg = (male, female, locTag) => {
+const getParentSvg = (forceBoth, male, female, locTag) => {
 
-  if (male && female) return(
+  if (forceBoth || (male && female)) return(
     <svg className={'svg-connect-' + locTag} key={locTag} width='240' height='160'>
     <line x1='0' y1='40' x2='240' y2='40' stroke='#333333' strokeWidth='5' />
     <line x1='120' y1='40' x2='120' y2='160' stroke='#333333' strokeWidth='5' />
