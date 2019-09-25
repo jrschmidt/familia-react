@@ -5,8 +5,9 @@ import { getPlusSignSvg } from './treeDisplaySvgs.js';
 class PersonMiniAdd extends Component {
 
   render () {
+    const cname = `PersonMiniAdd ${this.props.connect} ${this.props.viewRole}`;
     return (
-      <div className={'PersonMiniAdd ' + this.props.viewRole}>
+      <div className={cname}>
         <div className='add-box'>
           {getPlusSignSvg()}
           <div className='add-text'>

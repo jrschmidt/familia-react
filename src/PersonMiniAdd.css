@@ -9,13 +9,21 @@
 }
 
 .PersonMiniAdd .add-box {
-  position: absolute;
-  top: 17px;
-  position: absolute;
-  display: flex;
   width: 90px;
   height: 40px;
   border: 1px solid #666666;
+}
+
+.add-right .add-box {
+  position: absolute;
+  top: 17px;
+  right: 0px;
+}
+
+.add-left .add-box {
+  position: absolute;
+  top: 17px;
+  left: 0px;
 }
 
 .PersonMiniAdd:hover .add-box {
@@ -28,9 +36,28 @@
   padding: 0px;
 }
 
-.PersonMiniAdd .add-text {
-  margin-top: 5px;
-  padding: 0px;
+.add-right .add-text {
+  position: absolute;
+  top: 5px;
+  left: 8px;
+}
+
+.add-left .add-text {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+}
+
+.add-right .plus-sign {
+  position: absolute;
+  top: 6px;
+  right: 0px;
+}
+
+.add-left .plus-sign {
+  position: absolute;
+  top: 6px;
+  left: 0px;
 }
 
 .PersonMiniAdd .add-add {
@@ -44,6 +71,4 @@
 }
 
 .PersonMiniAdd .plus-sign {
-  margin-top: 6px;
-  padding: 0px;
 }

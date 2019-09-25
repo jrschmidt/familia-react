@@ -25,8 +25,8 @@ class TreeDisplayCore extends Component {
       tags.push(
         <FocusPersonDisplayTile
           person={this.props.focusPerson}
-          viewRole={focusGender === 'male' ? 'focus-male' : 'focus-female'}
           key={this.props.focusPerson._id}
+          viewRole={focusGender === 'male' ? 'focus-male' : 'focus-female'}
         />
       );
     }
@@ -35,19 +35,20 @@ class TreeDisplayCore extends Component {
     if (this.props.wife) {
       tags.push(
         <PersonMini
-          resetViewFocus={this.props.resetViewFocus}
           person={this.props.wife}
-          viewRole='wife'
           key={this.props.wife._id}
+          resetViewFocus={this.props.resetViewFocus}
+          viewRole='wife'
         />
       );
     }
     else if (focusGender === 'male') {
       tags.push(
         <PersonMiniAdd
-          label='wife'
-          viewRole='wife'
           key='add-wife'
+          connect='add-left'
+          viewRole='wife'
+          label='wife'
         />
       );
     }
@@ -56,19 +57,20 @@ class TreeDisplayCore extends Component {
     if (this.props.husband) {
       tags.push(
         <PersonMini
-          resetViewFocus={this.props.resetViewFocus}
           person={this.props.husband}
-          viewRole='husband'
           key={this.props.husband._id}
+          resetViewFocus={this.props.resetViewFocus}
+          viewRole='husband'
         />
       );
     }
     else if (focusGender === 'female') {
       tags.push(
         <PersonMiniAdd
-          label='husband'
-          viewRole='husband'
           key='add-husband'
+          connect='add-right'
+          viewRole='husband'
+          label='husband'
         />
       );
     }
@@ -79,22 +81,23 @@ class TreeDisplayCore extends Component {
     if (this.props.fatherOfMale) {
       tags.push(
         <PersonMini
+          person={this.props.fatherOfMale}
+          key={this.props.fatherOfMale._id}
           resetViewFocus={
             (focusGender === 'male') ?
             this.props.resetViewFocus :
             null}
-          person={this.props.fatherOfMale}
           viewRole='gen2-box1'
-          key={this.props.fatherOfMale._id}
         />
       );
     }
     else if (focusGender === 'male') {
       tags.push(
         <PersonMiniAdd
-          label='father'
-          viewRole='gen2-box1'
           key='add-father'
+          connect='add-right'
+          viewRole='gen2-box1'
+          label='father'
         />
       );
     }
@@ -103,22 +106,23 @@ class TreeDisplayCore extends Component {
     if (this.props.motherOfMale) {
       tags.push(
         <PersonMini
+          person={this.props.motherOfMale}
+          key={this.props.motherOfMale._id}
           resetViewFocus={
             (focusGender === 'male') ?
             this.props.resetViewFocus :
             null}
-          person={this.props.motherOfMale}
           viewRole='gen2-box2'
-          key={this.props.motherOfMale._id}
         />
       );
     }
     else if (focusGender === 'male') {
       tags.push(
         <PersonMiniAdd
-          label='mother'
-          viewRole='gen2-box2'
           key='add-mother'
+          connect='add-left'
+          viewRole='gen2-box2'
+          label='mother'
         />
       );
     }
@@ -127,22 +131,23 @@ class TreeDisplayCore extends Component {
     if (this.props.fatherOfFemale) {
       tags.push(
         <PersonMini
+          person={this.props.fatherOfFemale}
+          key={this.props.fatherOfFemale._id}
           resetViewFocus={
             (focusGender === 'female') ?
             this.props.resetViewFocus :
             null}
-          person={this.props.fatherOfFemale}
           viewRole='gen2-box3'
-          key={this.props.fatherOfFemale._id}
         />
       );
     }
     else if (focusGender === 'female') {
       tags.push(
         <PersonMiniAdd
-          label='father'
-          viewRole='gen2-box3'
           key='add-father'
+          connect='add-right'
+          viewRole='gen2-box3'
+          label='father'
         />
       );
     }
@@ -151,22 +156,23 @@ class TreeDisplayCore extends Component {
     if (this.props.motherOfFemale) {
       tags.push(
         <PersonMini
+          person={this.props.motherOfFemale}
+          key={this.props.motherOfFemale._id}
           resetViewFocus={
             (focusGender === 'female') ?
             this.props.resetViewFocus :
             null}
-          person={this.props.motherOfFemale}
           viewRole='gen2-box4'
-          key={this.props.motherOfFemale._id}
         />
       );
     }
     else if (focusGender === 'female') {
       tags.push(
         <PersonMiniAdd
-          label='mother'
-          viewRole='gen2-box4'
           key='add-mother'
+          connect='add-left'
+          viewRole='gen2-box4'
+          label='mother'
         />
       );
     }
@@ -176,64 +182,64 @@ class TreeDisplayCore extends Component {
     if (this.props.fatherOfFatherOfMale) tags.push(
       <PersonMini
         person={this.props.fatherOfFatherOfMale}
-        viewRole='gen3-box1'
         key={this.props.fatherOfFatherOfMale._id}
+        viewRole='gen3-box1'
       />
     );
 
     if (this.props.motherOfFatherOfMale) tags.push(
       <PersonMini
         person={this.props.motherOfFatherOfMale}
-        viewRole='gen3-box2'
         key={this.props.motherOfFatherOfMale._id}
+        viewRole='gen3-box2'
       />
     );
 
     if (this.props.fatherOfMotherOfMale) tags.push(
       <PersonMini
         person={this.props.fatherOfMotherOfMale}
-        viewRole='gen3-box3'
         key={this.props.fatherOfMotherOfMale._id}
+        viewRole='gen3-box3'
       />
     );
 
     if (this.props.motherOfMotherOfMale) tags.push(
       <PersonMini
         person={this.props.motherOfMotherOfMale}
-        viewRole='gen3-box4'
         key={this.props.motherOfMotherOfMale._id}
+        viewRole='gen3-box4'
       />
     );
 
     if (this.props.fatherOfFatherOfFemale) tags.push(
       <PersonMini
         person={this.props.fatherOfFatherOfFemale}
-        viewRole='gen3-box5'
         key={this.props.fatherOfFatherOfFemale._id}
+        viewRole='gen3-box5'
       />
     );
 
     if (this.props.motherOfFatherOfFemale) tags.push(
       <PersonMini
         person={this.props.motherOfFatherOfFemale}
-        viewRole='gen3-box6'
         key={this.props.motherOfFatherOfFemale._id}
+        viewRole='gen3-box6'
       />
     );
 
     if (this.props.fatherOfMotherOfFemale) tags.push(
       <PersonMini
         person={this.props.fatherOfMotherOfFemale}
-        viewRole='gen3-box7'
         key={this.props.fatherOfMotherOfFemale._id}
+        viewRole='gen3-box7'
       />
     );
 
     if (this.props.motherOfMotherOfFemale) tags.push(
       <PersonMini
         person={this.props.motherOfMotherOfFemale}
-        viewRole='gen3-box8'
         key={this.props.motherOfMotherOfFemale._id}
+        viewRole='gen3-box8'
       />
     );
 
