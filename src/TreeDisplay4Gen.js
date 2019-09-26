@@ -10,6 +10,7 @@ class TreeDisplay4Gen extends Component {
   constructor (props) {
     super(props);
     this.resetViewFocus = this.resetViewFocus.bind(this);
+    this.addPerson = this.addPerson.bind(this);
     this.state = this.getViewState(this.props.rootPersonId);
   }
 
@@ -80,6 +81,10 @@ class TreeDisplay4Gen extends Component {
     this.setState(this.getViewState(focusId));
   }
 
+  addPerson () {
+    window.alert('Add person link was selected');
+  }
+
   render() {
     const tag1 = `Root person: ${this.props.rootPersonName}`;
     const tag2 = `Focus person: ${this.state.focusPerson.firstname} ${this.state.focusPerson.surname}`;
@@ -87,6 +92,7 @@ class TreeDisplay4Gen extends Component {
       <>
       <TreeDisplayCore
         resetViewFocus={this.resetViewFocus}
+        addPerson={this.addPerson}
         focusPerson={this.state.focusPerson}
         husband={this.state.husband}
         wife={this.state.wife}
@@ -105,6 +111,7 @@ class TreeDisplay4Gen extends Component {
       />
       <ChildView
         resetViewFocus={this.resetViewFocus}
+        addPerson={this.addPerson}
         children={this.state.children}
       />
       </>

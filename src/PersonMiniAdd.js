@@ -7,7 +7,12 @@ class PersonMiniAdd extends Component {
   render () {
     const cname = `PersonMiniAdd ${this.props.connect} ${this.props.viewRole}`;
     return (
-      <div className={cname}>
+      <div
+        className={cname}
+        onClick={ (this.props.addPerson)
+          ? () => this.props.addPerson()
+          : ''}
+      >
         <div className='add-box'>
           {getPlusSignSvg()}
           <div className='add-text'>

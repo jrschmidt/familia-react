@@ -21,6 +21,7 @@ class ChildView extends Component {
     // designate positions in between these 4.
     let row = <ChildRow
       resetViewFocus={this.props.resetViewFocus}
+      addPerson={this.props.addPerson}
       key={this.getRowNumber()}
       people={persons}
       viewRoleTags={positionTags}

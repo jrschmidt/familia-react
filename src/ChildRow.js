@@ -87,14 +87,15 @@ class ChildRow extends Component {
         tags.push( (person._id === 'child-add')
           ? <PersonMiniAdd
               key='add-child'
+              addPerson={this.props.addPerson}
               connect='add-top'
               viewRole={tag}
               label='child'
             />
           : <PersonMini
-              resetViewFocus={this.props.resetViewFocus}
               person={person}
               key={key}
+              resetViewFocus={this.props.resetViewFocus}
               viewRole={tag}
             />
         );
