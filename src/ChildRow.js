@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './ChildRow.css';
 import PersonMini from './PersonMini.js';
+import PersonMiniAdd from './PersonMiniAdd.js';
 
 class ChildRow extends Component {
 
@@ -83,7 +84,20 @@ class ChildRow extends Component {
         let person = people.shift();
         let key = person._id;
         let tag = viewRoleTags.shift();
-        tags.push( <PersonMini resetViewFocus={this.props.resetViewFocus} person={person} key={key} viewRole={tag} /> );
+        tags.push( (person._id === 'child-add')
+          ? <PersonMiniAdd
+              key='add-child'
+              connect='add-top'
+              viewRole={tag}
+              label='child'
+            />
+          : <PersonMini
+              resetViewFocus={this.props.resetViewFocus}
+              person={person}
+              key={key}
+              viewRole={tag}
+            />
+        );
       }
       tags.push(this.svgs[this.props.rowType]);
       return tags;

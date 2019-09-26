@@ -37,6 +37,7 @@ class ChildView extends Component {
 
     const rows = [];
     let kidsToAdd = Array.from(people);
+    kidsToAdd.push({_id: 'child-add'});
 
     if (kidsToAdd.length === 1) rows.push( this.makeChildRow(
         [ kidsToAdd.shift() ],

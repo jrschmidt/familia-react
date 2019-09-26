@@ -1,6 +1,13 @@
+/* Styling for the parent PersonMiniAdd component */
+
 .PersonMiniAdd {
   position: relative;
   color: #666666;
+}
+
+.PersonMiniAdd p {
+  margin: 0;
+  padding: 0px;
 }
 
 .PersonMiniAdd:hover {
@@ -8,10 +15,18 @@
   color: #800000;
 }
 
+/* The add-box class <div> contains the visible parts of the
+  PersonMiniAdd component */
+
 .PersonMiniAdd .add-box {
   width: 90px;
   height: 40px;
   border: 1px solid #666666;
+}
+
+.PersonMiniAdd:hover .add-box {
+  border-color: #800000;
+  background-color: #bbbbbb;
 }
 
 .add-right .add-box {
@@ -26,14 +41,24 @@
   left: 0px;
 }
 
-.PersonMiniAdd:hover .add-box {
-  border-color: #800000;
-  background-color: #bbbbbb;
+.add-top .add-box {
+  position: absolute;
+  width: 110px;
+  top: 0px;
+  right: 25px;
 }
 
-.PersonMiniAdd p {
-  margin: 0;
-  padding: 0px;
+/* The add-text class <div> contains the text within the PersonMiniAdd component */
+
+.add-top .add-text {
+  position: absolute;
+  width: 100%;
+  top: 10px;
+}
+
+.add-top .add-text * {
+  display: block;
+  margin: 0px;
 }
 
 .add-right .add-text {
@@ -48,6 +73,32 @@
   right: 8px;
 }
 
+/* The add-add and add-label classes are the content parts within the add-text
+  container. They have slightly different styling for the add-top option. */
+
+.PersonMiniAdd .add-add {
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.PersonMiniAdd .add-label {
+  font-size: 0.8em;
+  font-style: italic;
+}
+
+.add-top .add-add {
+  position: absolute;
+  left: 5px;
+}
+
+.add-top .add-label {
+  position: absolute;
+  right: 9px;
+}
+
+.PersonMiniAdd .plus-sign {
+}
+
 .add-right .plus-sign {
   position: absolute;
   top: 6px;
@@ -60,15 +111,8 @@
   left: 0px;
 }
 
-.PersonMiniAdd .add-add {
-  font-size: 0.9em;
-  font-weight: bold;
-}
-
-.PersonMiniAdd .add-label {
-  font-size: 0.8em;
-  font-style: italic;
-}
-
-.PersonMiniAdd .plus-sign {
+.add-top .plus-sign {
+  position: absolute;
+  top: 60x;
+  left: 40px;
 }

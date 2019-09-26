@@ -23,12 +23,13 @@ const peopleSource = [
   {key: 'p15', surname: 'Green', firstname: 'Obby'}
 ];
 
-for (let i=0; i<15; i++) {
-  let numberOfPersons = i<1 ? '1 person' : `${String(i + 1)} persons`;
-  it(`renders ChildView component with ${numberOfPersons}`, () => {
-    const props = {children: peopleSource.slice(0,i + 1)};
+for (let i=0; i<16; i++) {
+  let numberOfPersonsString = (i === 1) ? '1 person' : `${String(i)} persons`;
+  it(`renders ChildView component with ${numberOfPersonsString}`, () => {
+    const props = {children: peopleSource.slice(0,i)};
     const wrapper = shallow(<ChildView {...props}/>);
     const wrapperChildRow = wrapper.find(ChildRow);
+
     expect(wrapperChildRow).toHaveLength(Math.floor(i/4) + 1);
 
     for (let n=0; n<i; n++) {
