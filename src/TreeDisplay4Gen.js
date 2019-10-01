@@ -73,7 +73,7 @@ class TreeDisplay4Gen extends Component {
       motherOfFemale: motherOfFemale,
       fatherOfMotherOfFemale: fatherOfMotherOfFemale,
       motherOfMotherOfFemale: motherOfMotherOfFemale,
-      children: focusPerson.children ? focusPerson.children.map( childId => this.findPersonById( childId )) : null
+      children: focusPerson.children ? focusPerson.children.map( childId => this.findPersonById( childId )) : []
     };
   }
 
