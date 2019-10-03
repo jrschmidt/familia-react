@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './TreeDisplay4Gen.css';
+import './TreeDisplay.css';
 
 import TreeDisplayHeader from './TreeDisplayHeader';
 import TreeDisplayCore from './TreeDisplayCore';
 import ChildView from './ChildView';
 
-class TreeDisplay4Gen extends Component {
+class TreeDisplay extends Component {
 
   constructor (props) {
     super(props);
@@ -117,7 +117,7 @@ class TreeDisplay4Gen extends Component {
       </>
 
     return (
-      <div className='TreeDisplay4Gen'>
+      <div className='TreeDisplay'>
         {tags}
       </div>
     )
@@ -125,4 +125,4 @@ class TreeDisplay4Gen extends Component {
 
 }
 
-export default TreeDisplay4Gen;
+export default TreeDisplay;
