@@ -22,6 +22,7 @@ class ChildView extends Component {
     let row = <ChildRow
       resetViewFocus={this.props.resetViewFocus}
       addPerson={this.props.addPerson}
+      focusPerson={this.props.focusPerson}
       key={this.getRowNumber()}
       people={persons}
       viewRoleTags={positionTags}

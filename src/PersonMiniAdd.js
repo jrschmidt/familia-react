@@ -10,7 +10,7 @@ class PersonMiniAdd extends Component {
       <div
         className={cname}
         onClick={ (this.props.addPerson)
-          ? () => this.props.addPerson()
+          ? () => this.props.addPerson(this.props.label, this.props.originPerson)
           : ''}
       >
         <div className='add-box'>

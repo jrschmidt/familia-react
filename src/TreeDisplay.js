@@ -77,12 +77,14 @@ class TreeDisplay extends Component {
     };
   }
 
+  // Bound function to pass down to PersonMini component.
   resetViewFocus (focusId) {
     this.setState(this.getViewState(focusId));
   }
 
-  addPerson () {
-    window.alert('Add person link was selected');
+  // Bound function to pass down to PersonMiniAdd component.
+  addPerson (role, person) {
+    window.alert(`ADD ${role} for ${person.firstname} ${person.surname}`);
   }
 
   render() {
@@ -112,6 +114,7 @@ class TreeDisplay extends Component {
       <ChildView
         resetViewFocus={this.resetViewFocus}
         addPerson={this.addPerson}
+        focusPerson={this.state.focusPerson}
         children={this.state.children}
       />
       </>

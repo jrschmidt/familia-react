@@ -19,6 +19,7 @@ class ChildRow extends Component {
           ? <PersonMiniAdd
               key='add-child'
               addPerson={this.props.addPerson}
+              originPerson={this.props.focusPerson}
               connect='add-top'
               viewRole={tag}
               label='child'

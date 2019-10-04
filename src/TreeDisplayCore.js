@@ -47,6 +47,7 @@ class TreeDisplayCore extends Component {
         <PersonMiniAdd
           key='add-wife'
           addPerson={this.props.addPerson}
+          originPerson={this.props.focusPerson}
           connect='add-left'
           viewRole='wife'
           label='wife'
@@ -70,6 +71,7 @@ class TreeDisplayCore extends Component {
         <PersonMiniAdd
           key='add-husband'
           addPerson={this.props.addPerson}
+          originPerson={this.props.focusPerson}
           connect='add-right'
           viewRole='husband'
           label='husband'
@@ -98,6 +100,7 @@ class TreeDisplayCore extends Component {
         <PersonMiniAdd
           key='add-father'
           addPerson={this.props.addPerson}
+          originPerson={this.props.focusPerson}
           connect='add-right'
           viewRole='gen2-box1'
           label='father'
@@ -124,6 +127,7 @@ class TreeDisplayCore extends Component {
         <PersonMiniAdd
           key='add-mother'
           addPerson={this.props.addPerson}
+          originPerson={this.props.focusPerson}
           connect='add-left'
           viewRole='gen2-box2'
           label='mother'
@@ -150,6 +154,7 @@ class TreeDisplayCore extends Component {
         <PersonMiniAdd
           key='add-father'
           addPerson={this.props.addPerson}
+          originPerson={this.props.focusPerson}
           connect='add-right'
           viewRole='gen2-box3'
           label='father'
@@ -176,6 +181,7 @@ class TreeDisplayCore extends Component {
         <PersonMiniAdd
           key='add-mother'
           addPerson={this.props.addPerson}
+          originPerson={this.props.focusPerson}
           connect='add-left'
           viewRole='gen2-box4'
           label='mother'
