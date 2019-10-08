@@ -77,14 +77,25 @@ class TreeDisplay extends Component {
     };
   }
 
-  // Bound function to pass down to PersonMini component.
+  // Bound function to pass down to PersonMini component:
+
+  // This function changes the 'focus person' of the view to another person.
   resetViewFocus (focusId) {
     this.setState(this.getViewState(focusId));
   }
 
-  // Bound function to pass down to PersonMiniAdd component.
+  // Bound function to pass down to PersonMiniAdd component:
+
+  // This function adds a new person. Currently it only adds the new person to
+  // the state of the TreeDisplay component. Later we will add a commitChange()
+  // function which can be passed down from the App component which can persist
+  // the changes as desired, or merely log them as temporary local changes.
+  // Invoking this function only changes the state of the TreeDisplay component.
+  // 
   addPerson (role, person) {
-    window.alert(`ADD ${role} for ${person.firstname} ${person.surname}`);
+    console.log(`Attempting to add ${role} for ${person.firstname} ${person.surname}`);
+
+    console.log(`Successfully added ${role} for ${person.firstname} ${person.surname}`);
   }
 
   render() {
