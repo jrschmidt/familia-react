@@ -11,11 +11,14 @@ class TreeDisplay extends Component {
     super(props);
     this.resetViewFocus = this.resetViewFocus.bind(this);
     this.addPerson = this.addPerson.bind(this);
+
     this.state = this.getViewState(this.props.rootPersonId);
+    this.state.people = Array.from(props.people);
+    this.state.peopleAdded = [];
   }
 
   findPersonById (id) {
-    return this.props.people.find( person => person._id === id );
+    return this.props.people.find( person => person._id === id ) || null;
   }
 
   getViewState (focusPersonId) {
@@ -91,10 +94,11 @@ class TreeDisplay extends Component {
   // function which can be passed down from the App component which can persist
   // the changes as desired, or merely log them as temporary local changes.
   // Invoking this function only changes the state of the TreeDisplay component.
-  // 
+  //
   addPerson (role, person) {
     console.log(`Attempting to add ${role} for ${person.firstname} ${person.surname}`);
-
+    this.state.people.push(person);
+    this.state.peopleAdded.push(person);
     console.log(`Successfully added ${role} for ${person.firstname} ${person.surname}`);
   }
 
