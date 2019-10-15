@@ -177,7 +177,7 @@ it('getViewState() generates correct state data for male focus person', () => {
 
   expect(results.focusPerson._id).toEqual('p01');
   expect(results.focusPerson.firstname).toEqual('Andrew');
-  expect(results.focusPersonGender).toEqual('male');
+  expect(results.focusPerson.gender).toEqual('male');
   expect(results.husband).toBeFalsy();
   expect(results.wife._id).toEqual('p02');
   expect(results.wife.firstname).toEqual('Barbara');
@@ -223,7 +223,7 @@ it('getViewState() generates correct state data for female focus person', () => 
 
   expect(results.focusPerson._id).toEqual('p02');
   expect(results.focusPerson.firstname).toEqual('Barbara');
-  expect(results.focusPersonGender).toEqual('female');
+  expect(results.focusPerson.gender).toEqual('female');
   expect(results.wife).toBeFalsy();
   expect(results.husband._id).toEqual('p01');
   expect(results.husband.firstname).toEqual('Andrew');

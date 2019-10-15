@@ -12,13 +12,18 @@ class TreeDisplay extends Component {
     this.resetViewFocus = this.resetViewFocus.bind(this);
     this.addPerson = this.addPerson.bind(this);
 
-    this.state = this.getViewState(this.props.rootPersonId);
-    this.state.people = Array.from(props.people);
-    this.state.peopleAdded = [];
+    this.state = {
+      people: Array.from(props.people),
+      peopleChanged: [],
+      peopleAdded: [],
+      viewState: {}
+    };
+
+    this.state.viewState = this.getViewState(this.props.rootPersonId);
   }
 
   findPersonById (id) {
-    return this.props.people.find( person => person._id === id ) || null;
+    return this.state.people.find( person => person._id === id ) || null;
   }
 
   getViewState (focusPersonId) {
@@ -61,7 +66,6 @@ class TreeDisplay extends Component {
 
     return {
       focusPerson: focusPerson,
-      focusPersonGender: viewGender,
       husband: husband,
       wife: wife,
       fatherOfMale: fatherOfMale,
@@ -84,7 +88,7 @@ class TreeDisplay extends Component {
 
   // This function changes the 'focus person' of the view to another person.
   resetViewFocus (focusId) {
-    this.setState(this.getViewState(focusId));
+    this.setState( {viewState: this.getViewState(focusId)});
   }
 
   // Bound function to pass down to PersonMiniAdd component:
@@ -96,41 +100,40 @@ class TreeDisplay extends Component {
   // Invoking this function only changes the state of the TreeDisplay component.
   //
   addPerson (role, person) {
-    console.log(`Attempting to add ${role} for ${person.firstname} ${person.surname}`);
     this.state.people.push(person);
     this.state.peopleAdded.push(person);
-    console.log(`Successfully added ${role} for ${person.firstname} ${person.surname}`);
   }
 
   render() {
+    const viewState = this.state.viewState;
     const tag1 = `Root person: ${this.props.rootPersonName}`;
-    const tag2 = `Focus person: ${this.state.focusPerson.firstname} ${this.state.focusPerson.surname}`;
+    const tag2 = `Focus person: ${viewState.focusPerson.firstname} ${viewState.focusPerson.surname}`;
     const tags =
       <>
       <TreeDisplayCore
         resetViewFocus={this.resetViewFocus}
         addPerson={this.addPerson}
-        focusPerson={this.state.focusPerson}
-        husband={this.state.husband}
-        wife={this.state.wife}
-        fatherOfMale={this.state.fatherOfMale}
-        fatherOfFatherOfMale={this.state.fatherOfFatherOfMale}
-        motherOfFatherOfMale={this.state.motherOfFatherOfMale}
-        motherOfMale={this.state.motherOfMale}
-        fatherOfMotherOfMale={this.state.fatherOfMotherOfMale}
-        motherOfMotherOfMale={this.state.motherOfMotherOfMale}
-        fatherOfFemale={this.state.fatherOfFemale}
-        fatherOfFatherOfFemale={this.state.fatherOfFatherOfFemale}
-        motherOfFatherOfFemale={this.state.motherOfFatherOfFemale}
-        motherOfFemale={this.state.motherOfFemale}
-        fatherOfMotherOfFemale={this.state.fatherOfMotherOfFemale}
-        motherOfMotherOfFemale={this.state.motherOfMotherOfFemale}
+        focusPerson={viewState.focusPerson}
+        husband={viewState.husband}
+        wife={viewState.wife}
+        fatherOfMale={viewState.fatherOfMale}
+        fatherOfFatherOfMale={viewState.fatherOfFatherOfMale}
+        motherOfFatherOfMale={viewState.motherOfFatherOfMale}
+        motherOfMale={viewState.motherOfMale}
+        fatherOfMotherOfMale={viewState.fatherOfMotherOfMale}
+        motherOfMotherOfMale={viewState.motherOfMotherOfMale}
+        fatherOfFemale={viewState.fatherOfFemale}
+        fatherOfFatherOfFemale={viewState.fatherOfFatherOfFemale}
+        motherOfFatherOfFemale={viewState.motherOfFatherOfFemale}
+        motherOfFemale={viewState.motherOfFemale}
+        fatherOfMotherOfFemale={viewState.fatherOfMotherOfFemale}
+        motherOfMotherOfFemale={viewState.motherOfMotherOfFemale}
       />
       <ChildView
         resetViewFocus={this.resetViewFocus}
         addPerson={this.addPerson}
-        focusPerson={this.state.focusPerson}
-        children={this.state.children}
+        focusPerson={viewState.focusPerson}
+        children={viewState.children}
       />
       </>
 

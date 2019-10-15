@@ -86,8 +86,8 @@ it('addPerson() correctly adds a new father', () => {
 
   const newFather = {
     _id: 'p98',
-    surname: 'Stewart',
-    firstname: 'Macdonald',
+    surname: 'Wilson',
+    firstname: 'Steven',
   };
 
   const wrapper = shallow(<TreeDisplay {...props}/>);
@@ -103,7 +103,7 @@ it('addPerson() correctly adds a new father', () => {
 
   const father = instance.findPersonById('p98');
   const daughter = instance.findPersonById('p04');
-  expect(father.firstname).toEqual('Stewart');
+  expect(father.firstname).toEqual('Steven');
   expect(father.generation).toEqual(2);
   expect(father.gender).toEqual('male');
   expect(father.children.length).toEqual(1);
@@ -178,8 +178,8 @@ it('addPerson() correctly adds a new child', () => {
   const newChild = {
     _id: 'p11',
     gender: 'female',
-    surname: 'Tammy',
-    firstname: 'Green',
+    surname: 'Green',
+    firstname: 'Tammy',
   };
 
   const wrapper = shallow(<TreeDisplay {...props}/>);
