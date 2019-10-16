@@ -163,7 +163,6 @@ it('addPerson() correctly adds a new husband', () => {
 
   const husband = instance.findPersonById('p42');
   const wife = instance.findPersonById('p04');
-  expect(husband._id).toEqual('p42');
   expect(husband.firstname).toEqual('Brady');
   expect(husband.generation).toEqual(1);
   expect(husband.gender).toEqual(male);
@@ -173,10 +172,10 @@ it('addPerson() correctly adds a new husband', () => {
   expect(state.rootPersonId).toEqual('p42');
 });
 
-it('addPerson() correctly adds a new child', () => {
+it('addPerson() correctly adds a new child for childless persons', () => {
 
   const newChild = {
-    _id: 'p11',
+    _id: 'p18',
     gender: 'female',
     surname: 'Green',
     firstname: 'Tammy',
@@ -188,20 +187,75 @@ it('addPerson() correctly adds a new child', () => {
 
   const oldLength = state.people.length;
   state.focusPersonId = 'p02';
-  expect(instance.findPersonById('p11')).toEqual(null);
+  expect(instance.findPersonById('p18')).toEqual(null);
   instance.addPerson('child', newChild);
-  expect(instance.findPersonById('p11')).not.toEqual(null);
+  expect(instance.findPersonById('p18')).not.toEqual(null);
   expect(state.people.length).toEqual(oldLength + 1);
 
-  const child = instance.findPersonById('p11');
+  const child = instance.findPersonById('p18');
   const mother = instance.findPersonById('p02');
   const father = instance.findPersonById(mother.husband);
-  expect(child._id).toEqual('p11');
   expect(child.firstname).toEqual('Tammy');
   expect(child.generation).toEqual(-1);
   expect(mother.children.length).toEqual(1);
-  expect(mother.children[0]._id).toEqual('p11');
+  expect(mother.children[0]._id).toEqual('p18');
   expect(father.children.length).toEqual(1);
-  expect(father.children[0]._id).toEqual('p11');
-  expect(state.rootPersonId).toEqual('p11');
+  expect(father.children[0]._id).toEqual('p18');
+  expect(state.rootPersonId).toEqual('p18');
+});
+
+it('addPerson() correctly adds a new child for persons with existing children', () => {
+
+  const siblings = [
+    {
+      _id: 'p11',
+      gender: 'female',
+      surname: 'Green',
+      firstname: 'Greta',
+    },
+    {
+      _id: 'p11',
+      gender: 'male',
+      surname: 'Green',
+      firstname: 'Michael',
+    },
+    {
+      _id: 'p13',
+      gender: 'male',
+      surname: 'Green',
+      firstname: 'Thomas',
+    },
+  ];
+
+  const newChild = {
+    _id: 'p18',
+    gender: 'female',
+    surname: 'Green',
+    firstname: 'Tammy',
+  };
+
+  const wrapper = shallow(<TreeDisplay {...props}/>);
+  const instance = wrapper.instance();
+  let state = instance.state;
+
+  const oldLength = state.people.length;
+  state.focusPersonId = 'p02';
+  const mother = instance.findPersonById('p02');
+  const father = instance.findPersonById(mother.husband);
+  mother.children = siblings;
+  father.children = siblings;
+
+  expect(instance.findPersonById('p18')).toEqual(null);
+  instance.addPerson('child', newChild);
+  expect(instance.findPersonById('p18')).not.toEqual(null);
+  expect(state.people.length).toEqual(oldLength + 1);
+
+  const child = instance.findPersonById('p18');
+  expect(child.firstname).toEqual('Tammy');
+  expect(child.generation).toEqual(-1);
+  expect(mother.children.length).toEqual(4);
+  expect(mother.children[3]._id).toEqual('p18');
+  expect(father.children.length).toEqual(4);
+  expect(father.children[3]._id).toEqual('p18');
+  expect(state.rootPersonId).toEqual('p18');
 });
