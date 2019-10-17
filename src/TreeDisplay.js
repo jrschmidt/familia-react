@@ -99,9 +99,50 @@ class TreeDisplay extends Component {
   // the changes as desired, or merely log them as temporary local changes.
   // Invoking this function only changes the state of the TreeDisplay component.
   //
-  addPerson (role, person) {
+  addPerson (familyMember, role, person) {
+    if (!person._id) person._id =  Math.random().toString(36).slice(2,8);
+    if (role === 'father' || role === 'mother')
+      person = this.newFatherMother(familyMember, role, person);
+    if (role === 'husband' || role === 'wife')
+      person = this.newHusbandWife(familyMember, role, person);
+    if (role === 'child')
+      person = this.newChild(familyMember, person);
+
     this.state.people.push(person);
     this.state.peopleAdded.push(person);
+    this.state.focusPerson = person;
+  }
+
+  newFatherMother (familyMember, role, person) {
+    person.generation = familyMember.generation + 1;
+    person.gender = (role === 'father') ? 'male' : 'female';
+    person.children = [familyMember._id];
+    familyMember[role] = person._id;
+    return person;
+  }
+
+  newHusbandWife (familyMember, role, person) {
+    person.generation = familyMember.generation;
+    person.gender = (role === 'husband') ? 'male' : 'female';
+    if (role === 'husband') familyMember.husband = person._id;
+    if (role === 'wife') familyMember.wife = person._id;
+    person.children = familyMember.children;
+    return person;
+  }
+
+  newChild (familyMember, person) {
+    person.generation = familyMember.generation - 1;
+    const siblings = familyMember.children || [];
+    familyMember.children = [...siblings, person._id];
+    if (familyMember.husband) {
+      const husband = this.findPersonById(familyMember.husband);
+      husband.children = familyMember.children;
+    }
+    if (familyMember.wife) {
+      const wife = this.findPersonById(familyMember.wife);
+      wife.children = familyMember.children;
+    }
+    return person;
   }
 
   render() {

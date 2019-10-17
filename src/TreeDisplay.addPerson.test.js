@@ -66,20 +66,20 @@ it('addPerson() correctly adds a new mother', () => {
 
   const oldLength = state.people.length;
   state.focusPersonId = 'p03';
+  const son = instance.findPersonById('p03');
   expect(instance.findPersonById('p88')).toEqual(null);
-  instance.addPerson('mother', newMother);
+  instance.addPerson(son, 'mother', newMother);
   expect(instance.findPersonById('p88')).not.toEqual(null);
   expect(state.people.length).toEqual(oldLength + 1);
 
   const mother = instance.findPersonById('p88');
-  const son = instance.findPersonById('p03');
   expect(mother.firstname).toEqual('Mary');
   expect(mother.generation).toEqual(2);
   expect(mother.gender).toEqual('female');
   expect(mother.children.length).toEqual(1);
-  expect(mother.children[0]._id).toEqual('p03');
+  expect(mother.children[0]).toEqual('p03');
   expect(son.mother).toEqual('p88');
-  expect(state.rootPersonId).toEqual('p88');
+  expect(state.focusPerson._id).toEqual('p88');
 });
 
 it('addPerson() correctly adds a new father', () => {
@@ -96,20 +96,20 @@ it('addPerson() correctly adds a new father', () => {
 
   const oldLength = state.people.length;
   state.focusPersonId = 'p04';
+  const daughter = instance.findPersonById('p04');
   expect(instance.findPersonById('p98')).toEqual(null);
-  instance.addPerson('father', newFather);
+  instance.addPerson(daughter, 'father', newFather);
   expect(instance.findPersonById('p98')).not.toEqual(null);
   expect(state.people.length).toEqual(oldLength + 1);
 
   const father = instance.findPersonById('p98');
-  const daughter = instance.findPersonById('p04');
   expect(father.firstname).toEqual('Steven');
   expect(father.generation).toEqual(2);
   expect(father.gender).toEqual('male');
   expect(father.children.length).toEqual(1);
-  expect(father.children[0]._id).toEqual('p22');
+  expect(father.children[0]).toEqual('p04');
   expect(daughter.father).toEqual('p98');
-  expect(state.rootPersonId).toEqual('p98');
+  expect(state.focusPerson._id).toEqual('p98');
 });
 
 it('addPerson() correctly adds a new wife', () => {
@@ -126,20 +126,20 @@ it('addPerson() correctly adds a new wife', () => {
 
   const oldLength = state.people.length;
   state.focusPersonId = 'p03';
+  const husband = instance.findPersonById('p03');
   expect(instance.findPersonById('p41')).toEqual(null);
-  instance.addPerson('wife', newWife);
+  instance.addPerson(husband, 'wife', newWife);
   expect(instance.findPersonById('p41')).not.toEqual(null);
   expect(state.people.length).toEqual(oldLength + 1);
 
   const wife = instance.findPersonById('p41');
-  const husband = instance.findPersonById('p03');
   expect(wife.firstname).toEqual('Patricia');
   expect(wife.generation).toEqual(1);
-  expect(wife.gender).toEqual(female);
+  expect(wife.gender).toEqual('female');
   expect(wife.children.length).toEqual(1);
-  expect(wife.children[0]._id).toEqual('p01');
+  expect(wife.children[0]).toEqual('p01');
   expect(husband.wife).toEqual('p41');
-  expect(state.rootPersonId).toEqual('p41');
+  expect(state.focusPerson._id).toEqual('p41');
 });
 
 it('addPerson() correctly adds a new husband', () => {
@@ -156,20 +156,20 @@ it('addPerson() correctly adds a new husband', () => {
 
   const oldLength = state.people.length;
   state.focusPersonId = 'p04';
+  const wife = instance.findPersonById('p04');
   expect(instance.findPersonById('p42')).toEqual(null);
-  instance.addPerson('husband', newHusband);
+  instance.addPerson(wife, 'husband', newHusband);
   expect(instance.findPersonById('p42')).not.toEqual(null);
   expect(state.people.length).toEqual(oldLength + 1);
 
   const husband = instance.findPersonById('p42');
-  const wife = instance.findPersonById('p04');
   expect(husband.firstname).toEqual('Brady');
   expect(husband.generation).toEqual(1);
-  expect(husband.gender).toEqual(male);
+  expect(husband.gender).toEqual('male');
   expect(husband.children.length).toEqual(1);
-  expect(husband.children[0]._id).toEqual('p02');
+  expect(husband.children[0]).toEqual('p02');
   expect(wife.husband).toEqual('p42');
-  expect(state.rootPersonId).toEqual('p42');
+  expect(state.focusPerson._id).toEqual('p42');
 });
 
 it('addPerson() correctly adds a new child for childless persons', () => {
@@ -187,21 +187,21 @@ it('addPerson() correctly adds a new child for childless persons', () => {
 
   const oldLength = state.people.length;
   state.focusPersonId = 'p02';
+  const mother = instance.findPersonById('p02');
   expect(instance.findPersonById('p18')).toEqual(null);
-  instance.addPerson('child', newChild);
+  instance.addPerson(mother, 'child', newChild);
   expect(instance.findPersonById('p18')).not.toEqual(null);
   expect(state.people.length).toEqual(oldLength + 1);
 
   const child = instance.findPersonById('p18');
-  const mother = instance.findPersonById('p02');
   const father = instance.findPersonById(mother.husband);
   expect(child.firstname).toEqual('Tammy');
   expect(child.generation).toEqual(-1);
   expect(mother.children.length).toEqual(1);
-  expect(mother.children[0]._id).toEqual('p18');
+  expect(mother.children[0]).toEqual('p18');
   expect(father.children.length).toEqual(1);
-  expect(father.children[0]._id).toEqual('p18');
-  expect(state.rootPersonId).toEqual('p18');
+  expect(father.children[0]).toEqual('p18');
+  expect(state.focusPerson._id).toEqual('p18');
 });
 
 it('addPerson() correctly adds a new child for persons with existing children', () => {
@@ -246,7 +246,7 @@ it('addPerson() correctly adds a new child for persons with existing children', 
   father.children = siblings;
 
   expect(instance.findPersonById('p18')).toEqual(null);
-  instance.addPerson('child', newChild);
+  instance.addPerson(mother, 'child', newChild);
   expect(instance.findPersonById('p18')).not.toEqual(null);
   expect(state.people.length).toEqual(oldLength + 1);
 
@@ -254,8 +254,8 @@ it('addPerson() correctly adds a new child for persons with existing children', 
   expect(child.firstname).toEqual('Tammy');
   expect(child.generation).toEqual(-1);
   expect(mother.children.length).toEqual(4);
-  expect(mother.children[3]._id).toEqual('p18');
+  expect(mother.children[3]).toEqual('p18');
   expect(father.children.length).toEqual(4);
-  expect(father.children[3]._id).toEqual('p18');
-  expect(state.rootPersonId).toEqual('p18');
+  expect(father.children[3]).toEqual('p18');
+  expect(state.focusPerson._id).toEqual('p18');
 });
