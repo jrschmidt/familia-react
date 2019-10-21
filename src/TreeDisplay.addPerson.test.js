@@ -62,15 +62,14 @@ it('addPerson() correctly adds a new mother', () => {
 
   const wrapper = shallow(<TreeDisplay {...props}/>);
   const instance = wrapper.instance();
-  let state = instance.state;
 
-  const oldLength = state.people.length;
-  state.focusPersonId = 'p03';
+  const oldLength = instance.state.people.length;
+  instance.setState({focusPersonId: 'p03'});
   const son = instance.findPersonById('p03');
   expect(instance.findPersonById('p88')).toEqual(null);
   instance.addPerson(son, 'mother', newMother);
   expect(instance.findPersonById('p88')).not.toEqual(null);
-  expect(state.people.length).toEqual(oldLength + 1);
+  expect(instance.state.people.length).toEqual(oldLength + 1);
 
   const mother = instance.findPersonById('p88');
   expect(mother.firstname).toEqual('Mary');
@@ -79,7 +78,7 @@ it('addPerson() correctly adds a new mother', () => {
   expect(mother.children.length).toEqual(1);
   expect(mother.children[0]).toEqual('p03');
   expect(son.mother).toEqual('p88');
-  expect(state.focusPerson._id).toEqual('p88');
+  expect(instance.state.viewState.focusPerson._id).toEqual('p88');
 });
 
 it('addPerson() correctly adds a new father', () => {
@@ -92,15 +91,14 @@ it('addPerson() correctly adds a new father', () => {
 
   const wrapper = shallow(<TreeDisplay {...props}/>);
   const instance = wrapper.instance();
-  let state = instance.state;
 
-  const oldLength = state.people.length;
-  state.focusPersonId = 'p04';
+  const oldLength = instance.state.people.length;
+  instance.setState({focusPersonId: 'p04'});
   const daughter = instance.findPersonById('p04');
   expect(instance.findPersonById('p98')).toEqual(null);
   instance.addPerson(daughter, 'father', newFather);
   expect(instance.findPersonById('p98')).not.toEqual(null);
-  expect(state.people.length).toEqual(oldLength + 1);
+  expect(instance.state.people.length).toEqual(oldLength + 1);
 
   const father = instance.findPersonById('p98');
   expect(father.firstname).toEqual('Steven');
@@ -109,7 +107,7 @@ it('addPerson() correctly adds a new father', () => {
   expect(father.children.length).toEqual(1);
   expect(father.children[0]).toEqual('p04');
   expect(daughter.father).toEqual('p98');
-  expect(state.focusPerson._id).toEqual('p98');
+  expect(instance.state.viewState.focusPerson._id).toEqual('p98');
 });
 
 it('addPerson() correctly adds a new wife', () => {
@@ -122,15 +120,14 @@ it('addPerson() correctly adds a new wife', () => {
 
   const wrapper = shallow(<TreeDisplay {...props}/>);
   const instance = wrapper.instance();
-  let state = instance.state;
 
-  const oldLength = state.people.length;
-  state.focusPersonId = 'p03';
+  const oldLength = instance.state.people.length;
+  instance.setState({focusPersonId: 'p03'});
   const husband = instance.findPersonById('p03');
   expect(instance.findPersonById('p41')).toEqual(null);
   instance.addPerson(husband, 'wife', newWife);
   expect(instance.findPersonById('p41')).not.toEqual(null);
-  expect(state.people.length).toEqual(oldLength + 1);
+  expect(instance.state.people.length).toEqual(oldLength + 1);
 
   const wife = instance.findPersonById('p41');
   expect(wife.firstname).toEqual('Patricia');
@@ -139,7 +136,7 @@ it('addPerson() correctly adds a new wife', () => {
   expect(wife.children.length).toEqual(1);
   expect(wife.children[0]).toEqual('p01');
   expect(husband.wife).toEqual('p41');
-  expect(state.focusPerson._id).toEqual('p41');
+  expect(instance.state.viewState.focusPerson._id).toEqual('p41');
 });
 
 it('addPerson() correctly adds a new husband', () => {
@@ -152,15 +149,14 @@ it('addPerson() correctly adds a new husband', () => {
 
   const wrapper = shallow(<TreeDisplay {...props}/>);
   const instance = wrapper.instance();
-  let state = instance.state;
 
-  const oldLength = state.people.length;
-  state.focusPersonId = 'p04';
+  const oldLength = instance.state.people.length;
+  instance.setState({focusPersonId: 'p04'});
   const wife = instance.findPersonById('p04');
   expect(instance.findPersonById('p42')).toEqual(null);
   instance.addPerson(wife, 'husband', newHusband);
   expect(instance.findPersonById('p42')).not.toEqual(null);
-  expect(state.people.length).toEqual(oldLength + 1);
+  expect(instance.state.people.length).toEqual(oldLength + 1);
 
   const husband = instance.findPersonById('p42');
   expect(husband.firstname).toEqual('Brady');
@@ -169,7 +165,7 @@ it('addPerson() correctly adds a new husband', () => {
   expect(husband.children.length).toEqual(1);
   expect(husband.children[0]).toEqual('p02');
   expect(wife.husband).toEqual('p42');
-  expect(state.focusPerson._id).toEqual('p42');
+  expect(instance.state.viewState.focusPerson._id).toEqual('p42');
 });
 
 it('addPerson() correctly adds a new child for childless persons', () => {
@@ -183,15 +179,14 @@ it('addPerson() correctly adds a new child for childless persons', () => {
 
   const wrapper = shallow(<TreeDisplay {...props}/>);
   const instance = wrapper.instance();
-  let state = instance.state;
 
-  const oldLength = state.people.length;
-  state.focusPersonId = 'p02';
+  const oldLength = instance.state.people.length;
+  instance.setState({focusPersonId: 'p02'});
   const mother = instance.findPersonById('p02');
   expect(instance.findPersonById('p18')).toEqual(null);
   instance.addPerson(mother, 'child', newChild);
   expect(instance.findPersonById('p18')).not.toEqual(null);
-  expect(state.people.length).toEqual(oldLength + 1);
+  expect(instance.state.people.length).toEqual(oldLength + 1);
 
   const child = instance.findPersonById('p18');
   const father = instance.findPersonById(mother.husband);
@@ -201,7 +196,7 @@ it('addPerson() correctly adds a new child for childless persons', () => {
   expect(mother.children[0]).toEqual('p18');
   expect(father.children.length).toEqual(1);
   expect(father.children[0]).toEqual('p18');
-  expect(state.focusPerson._id).toEqual('p18');
+  expect(instance.state.viewState.focusPerson._id).toEqual('p18');
 });
 
 it('addPerson() correctly adds a new child for persons with existing children', () => {
@@ -236,10 +231,9 @@ it('addPerson() correctly adds a new child for persons with existing children', 
 
   const wrapper = shallow(<TreeDisplay {...props}/>);
   const instance = wrapper.instance();
-  let state = instance.state;
 
-  const oldLength = state.people.length;
-  state.focusPersonId = 'p02';
+  const oldLength = instance.state.people.length;
+  instance.setState({focusPersonId: 'p02'});
   const mother = instance.findPersonById('p02');
   const father = instance.findPersonById(mother.husband);
   mother.children = siblings;
@@ -248,7 +242,7 @@ it('addPerson() correctly adds a new child for persons with existing children', 
   expect(instance.findPersonById('p18')).toEqual(null);
   instance.addPerson(mother, 'child', newChild);
   expect(instance.findPersonById('p18')).not.toEqual(null);
-  expect(state.people.length).toEqual(oldLength + 1);
+  expect(instance.state.people.length).toEqual(oldLength + 1);
 
   const child = instance.findPersonById('p18');
   expect(child.firstname).toEqual('Tammy');
@@ -257,5 +251,5 @@ it('addPerson() correctly adds a new child for persons with existing children', 
   expect(mother.children[3]).toEqual('p18');
   expect(father.children.length).toEqual(4);
   expect(father.children[3]).toEqual('p18');
-  expect(state.focusPerson._id).toEqual('p18');
+  expect(instance.state.viewState.focusPerson._id).toEqual('p18');
 });

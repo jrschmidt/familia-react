@@ -19,15 +19,15 @@ class TreeDisplay extends Component {
       viewState: {}
     };
 
-    this.state.viewState = this.getViewState(this.props.rootPersonId);
+    const focusPerson = this.findPersonById(this.props.rootPersonId);
+    this.state.viewState = this.getViewState(focusPerson);
   }
 
   findPersonById (id) {
     return this.state.people.find( person => person._id === id ) || null;
   }
 
-  getViewState (focusPersonId) {
-    const focusPerson = this.findPersonById( focusPersonId );
+  getViewState (focusPerson) {
     const viewGender = focusPerson.gender;
     const husband = focusPerson && focusPerson.husband ? this.findPersonById( focusPerson.husband ) : null;
     const wife = focusPerson && focusPerson.wife ? this.findPersonById( focusPerson.wife ) : null;
@@ -88,7 +88,8 @@ class TreeDisplay extends Component {
 
   // This function changes the 'focus person' of the view to another person.
   resetViewFocus (focusId) {
-    this.setState( {viewState: this.getViewState(focusId)});
+    const focusPerson = this.findPersonById(focusId);
+    this.setState( {viewState: this.getViewState(focusPerson)});
   }
 
   // Bound function to pass down to PersonMiniAdd component:
@@ -108,9 +109,13 @@ class TreeDisplay extends Component {
     if (role === 'child')
       person = this.newChild(familyMember, person);
 
-    this.state.people.push(person);
-    this.state.peopleAdded.push(person);
-    this.state.focusPerson = person;
+    this.setState( (state, props) => {
+      return {
+        people: [...state.people, person],
+        peopleAdded: [...state.peopleAdded, person],
+        viewState: this.getViewState(person)
+      };
+    });
   }
 
   newFatherMother (familyMember, role, person) {

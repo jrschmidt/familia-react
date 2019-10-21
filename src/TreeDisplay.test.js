@@ -173,7 +173,8 @@ it('renders TreeDisplay component', () => {
 it('getViewState() generates correct state data for male focus person', () => {
   const wrapper = shallow(<TreeDisplay {...props}/>);
   const instance = wrapper.instance();
-  const results = instance.getViewState('p01');
+  const focusPerson = instance.findPersonById('p01');
+  const results = instance.getViewState(focusPerson);
 
   expect(results.focusPerson._id).toEqual('p01');
   expect(results.focusPerson.firstname).toEqual('Andrew');
@@ -219,7 +220,8 @@ it('getViewState() generates correct state data for male focus person', () => {
 it('getViewState() generates correct state data for female focus person', () => {
   const wrapper = shallow(<TreeDisplay {...props}/>);
   const instance = wrapper.instance();
-  const results = instance.getViewState('p02');
+  const focusPerson = instance.findPersonById('p02');
+  const results = instance.getViewState(focusPerson);
 
   expect(results.focusPerson._id).toEqual('p02');
   expect(results.focusPerson.firstname).toEqual('Barbara');
@@ -265,9 +267,11 @@ it('getViewState() generates correct state data for female focus person', () => 
 it('getViewState() generates correct state data when switching between multiple focus persons', () => {
   const wrapper = shallow(<TreeDisplay {...props}/>);
   const instance = wrapper.instance();
+  const focusPersonA = instance.findPersonById('p01');
+  const focusPersonB = instance.findPersonById('p02');
   let results;
 
-  results = instance.getViewState('p02');
+  results = instance.getViewState(focusPersonB);
   expect(results.focusPerson.firstname).toEqual('Barbara');
   expect(results.wife).toBeFalsy();
   expect(results.husband.firstname).toEqual('Andrew');
@@ -276,7 +280,7 @@ it('getViewState() generates correct state data when switching between multiple 
   expect(results.fatherOfFemale.firstname).toEqual('Edward');
   expect(results.motherOfFemale.firstname).toEqual('Flora');
 
-  results = instance.getViewState('p01');
+  results = instance.getViewState(focusPersonA);
   expect(results.focusPerson.firstname).toEqual('Andrew');
   expect(results.husband).toBeFalsy();
   expect(results.wife.firstname).toEqual('Barbara');
@@ -285,7 +289,7 @@ it('getViewState() generates correct state data when switching between multiple 
   expect(results.fatherOfFemale.firstname).toEqual('Edward');
   expect(results.motherOfFemale.firstname).toEqual('Flora');
 
-  results = instance.getViewState('p02');
+  results = instance.getViewState(focusPersonB);
   expect(results.focusPerson.firstname).toEqual('Barbara');
   expect(results.wife).toBeFalsy();
   expect(results.husband.firstname).toEqual('Andrew');

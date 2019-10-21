@@ -6,11 +6,16 @@ class PersonMiniAdd extends Component {
 
   render () {
     const cname = `PersonMiniAdd ${this.props.connect} ${this.props.viewRole}`;
+    const newPerson = {
+      firstname: 'Test',
+      surname: 'Person',
+      gender: (this.props.label === 'child') ? 'female' : null
+    };
     return (
       <div
         className={cname}
         onClick={ (this.props.addPerson)
-          ? () => this.props.addPerson(this.props.label, this.props.originPerson)
+          ? () => this.props.addPerson(this.props.originPerson, this.props.label, newPerson)
           : ''}
       >
         <div className='add-box'>
