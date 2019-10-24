@@ -1,5 +1,6 @@
 .FocusPersonDisplayTile {
   background-color: #bbbbbb;
+  color: #000000;
   font-size: 0.9em;
-  border: 5px solid black;
+  border: 7px outset #6699cc;
 }

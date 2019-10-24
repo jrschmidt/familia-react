@@ -2,8 +2,20 @@
   background-color: #bbbbbb;
   padding: 8px;
   font-size: 0.9em;
-  border: 3px solid #333333;
+  border: 3px solid #666666;
 }
+
+.PersonMini.selectable:hover {
+  color: #3366cc;
+  border: 5px outset #4d6680;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.PersonMini.selectable {
+  color: #000000;
+  border-color: #6699cc;
+};
 
 .PersonMini * {
   margin: 0;

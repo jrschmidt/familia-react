@@ -5,8 +5,14 @@ class PersonMini extends Component {
 
   render () {
     const name = `${this.props.person.firstname} ${this.props.person.surname}`;
+    const classArray = ['PersonMini', this.props.viewRole];
+    if (this.props.resetViewFocus) {
+      classArray.push('selectable');
+    }
+    const classString = classArray.join(' ');
+
     return (
-      <div className={'PersonMini ' + this.props.viewRole}>
+      <div className={classString}>
         { this.props.resetViewFocus ?
           <span onClick={() => this.props.resetViewFocus(this.props.person._id)} >{name}</span> :
           <span>{name}</span>
