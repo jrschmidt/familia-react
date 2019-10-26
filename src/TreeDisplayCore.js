@@ -195,6 +195,7 @@ class TreeDisplayCore extends Component {
       <PersonMini
         person={this.props.fatherOfFatherOfMale}
         key={this.props.fatherOfFatherOfMale._id}
+        resetViewFocus={null}
         viewRole='gen3-box1'
       />
     );
@@ -203,6 +204,7 @@ class TreeDisplayCore extends Component {
       <PersonMini
         person={this.props.motherOfFatherOfMale}
         key={this.props.motherOfFatherOfMale._id}
+        resetViewFocus={null}
         viewRole='gen3-box2'
       />
     );
@@ -211,6 +213,7 @@ class TreeDisplayCore extends Component {
       <PersonMini
         person={this.props.fatherOfMotherOfMale}
         key={this.props.fatherOfMotherOfMale._id}
+        resetViewFocus={null}
         viewRole='gen3-box3'
       />
     );
@@ -219,6 +222,7 @@ class TreeDisplayCore extends Component {
       <PersonMini
         person={this.props.motherOfMotherOfMale}
         key={this.props.motherOfMotherOfMale._id}
+        resetViewFocus={null}
         viewRole='gen3-box4'
       />
     );
@@ -227,6 +231,7 @@ class TreeDisplayCore extends Component {
       <PersonMini
         person={this.props.fatherOfFatherOfFemale}
         key={this.props.fatherOfFatherOfFemale._id}
+        resetViewFocus={null}
         viewRole='gen3-box5'
       />
     );
@@ -235,6 +240,7 @@ class TreeDisplayCore extends Component {
       <PersonMini
         person={this.props.motherOfFatherOfFemale}
         key={this.props.motherOfFatherOfFemale._id}
+        resetViewFocus={null}
         viewRole='gen3-box6'
       />
     );
@@ -243,6 +249,7 @@ class TreeDisplayCore extends Component {
       <PersonMini
         person={this.props.fatherOfMotherOfFemale}
         key={this.props.fatherOfMotherOfFemale._id}
+        resetViewFocus={null}
         viewRole='gen3-box7'
       />
     );
@@ -251,6 +258,7 @@ class TreeDisplayCore extends Component {
       <PersonMini
         person={this.props.motherOfMotherOfFemale}
         key={this.props.motherOfMotherOfFemale._id}
+        resetViewFocus={null}
         viewRole='gen3-box8'
       />
     );

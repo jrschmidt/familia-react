@@ -5,7 +5,7 @@
   border: 3px solid #666666;
 }
 
-.PersonMini.selectable:hover {
+.PersonMini.selectable-hover {
   color: #3366cc;
   border: 5px outset #4d6680;
   font-weight: bold;
