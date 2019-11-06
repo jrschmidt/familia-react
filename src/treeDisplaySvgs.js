@@ -39,11 +39,14 @@ const getParentSvg = () => {
   );
 }
 
-const getChildrenSvg = () => {
+const getChildrenSvg = (focusGender) => {
+  const className = (focusGender === 'male')
+    ? 'svg-connect-children-m'
+    : 'svg-connect-children-f';
   return (
-    <svg className='svg-connect-children' key='c1' width='640' height='120'>
-    <line x1='40' y1='40' x2='640' y2='40' stroke='#333333' strokeWidth='5' />
-    <line x1='320' y1='40' x2='320' y2='120' stroke='#333333' strokeWidth='5' />
+    <svg className={className} key='c1' width='640' height='120'>
+    <line x1='0' y1='40' x2='100' y2='40' stroke='#333333' strokeWidth='5' />
+    <line x1='50' y1='40' x2='50' y2='120' stroke='#333333' strokeWidth='5' />
     </svg>
   );
 }

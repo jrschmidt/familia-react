@@ -1,7 +1,7 @@
 .TreeDisplayCore {
 
   display: grid;
-  grid-template-columns: 20px 100px 60px 40px 60px 40px 60px 40px 60px 40px 60px 40px 60px 100px 40px 100px 60px 40px 60px 40px 60px 40px 60px 40px 60px 40px 60px 100px 20px;
+  grid-template-columns: 20px 100px 60px 40px 60px 40px 60px 40px 60px 40px 60px 40px 60px 100px 20px;
   grid-template-rows: 40px 80px 80px 80px 80px 80px 40px;
 }
 
@@ -13,15 +13,15 @@
 }
 
 .husband {
-  grid-column-start: 7;
-  grid-column-end: 10;
+  grid-column-start: 2;
+  grid-column-end: 4;
   grid-row-start: 6;
   grid-row-end: 7;
 }
 
 .wife {
-  grid-column-start: 21;
-  grid-column-end: 24;
+  grid-column-start: 13;
+  grid-column-end: 15;
   grid-row-start: 6;
   grid-row-end: 7;
 }
@@ -89,9 +89,16 @@
   grid-row-end: 4;
 }
 
-.svg-connect-children {
-  grid-column-start: 10;
-  grid-column-end: 20;
+.svg-connect-children-m {
+  grid-column-start: 11;
+  grid-column-end: 13;
+  grid-row-start: 6;
+  grid-row-end: 8;
+}
+
+.svg-connect-children-f {
+  grid-column-start: 4;
+  grid-column-end: 6;
   grid-row-start: 6;
   grid-row-end: 8;
 }
