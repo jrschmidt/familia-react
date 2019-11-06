@@ -10,18 +10,13 @@ class PersonMini extends Component {
   }
 
   render () {
-    console.log('PersonMini render()');
     const name = `${this.props.person.firstname} ${this.props.person.surname}`;
-    console.log(`name = ${name}`);
     const classArray = ['PersonMini', this.props.viewRole];
-    console.log(`hoverActive = ${this.state.hoverActive}`);
     if (this.state.hoverActive !== 'never') {
       const hoverClass = (this.state.hoverActive === 'no') ? 'selectable' : 'selectable-hover';
-      console.log(`hoverClass = ${hoverClass}`);
       classArray.push(hoverClass);
     }
     const classString = classArray.join(' ');
-    console.log(`classString = ${classString}`);
 
     const mouseEnter =
       (this.state.hoverActive !== 'never')

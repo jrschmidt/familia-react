@@ -183,31 +183,18 @@ it('getViewState() generates correct state data for male focus person', () => {
   expect(results.wife._id).toEqual('p02');
   expect(results.wife.firstname).toEqual('Barbara');
 
-  expect(results.fatherOfMale._id).toEqual('p03');
-  expect(results.fatherOfMale.firstname).toEqual('Charles');
-  expect(results.motherOfMale._id).toEqual('p04');
-  expect(results.motherOfMale.firstname).toEqual('Debby');
-  expect(results.fatherOfFatherOfMale._id).toEqual('p21');
-  expect(results.fatherOfFatherOfMale.firstname).toEqual('James');
-  expect(results.motherOfFatherOfMale._id).toEqual('p22');
-  expect(results.motherOfFatherOfMale.firstname).toEqual('Teresa');
-  expect(results.fatherOfMotherOfMale._id).toEqual('p23');
-  expect(results.fatherOfMotherOfMale.firstname).toEqual('Herbert');
-  expect(results.motherOfMotherOfMale._id).toEqual('p24');
-  expect(results.motherOfMotherOfMale.firstname).toEqual('Melissa');
-
-  expect(results.fatherOfFemale._id).toEqual('p05');
-  expect(results.fatherOfFemale.firstname).toEqual('Edward');
-  expect(results.motherOfFemale._id).toEqual('p06');
-  expect(results.motherOfFemale.firstname).toEqual('Flora');
-  expect(results.fatherOfFatherOfFemale._id).toEqual('p31');
-  expect(results.fatherOfFatherOfFemale.firstname).toEqual('Carl');
-  expect(results.motherOfFatherOfFemale._id).toEqual('p32');
-  expect(results.motherOfFatherOfFemale.firstname).toEqual('Wilma');
-  expect(results.fatherOfMotherOfFemale._id).toEqual('p33');
-  expect(results.fatherOfMotherOfFemale.firstname).toEqual('Steven');
-  expect(results.motherOfMotherOfFemale._id).toEqual('p34');
-  expect(results.motherOfMotherOfFemale.firstname).toEqual('Nancy');
+  expect(results.father._id).toEqual('p03');
+  expect(results.father.firstname).toEqual('Charles');
+  expect(results.mother._id).toEqual('p04');
+  expect(results.mother.firstname).toEqual('Debby');
+  expect(results.fatherOfFather._id).toEqual('p21');
+  expect(results.fatherOfFather.firstname).toEqual('James');
+  expect(results.motherOfFather._id).toEqual('p22');
+  expect(results.motherOfFather.firstname).toEqual('Teresa');
+  expect(results.fatherOfMother._id).toEqual('p23');
+  expect(results.fatherOfMother.firstname).toEqual('Herbert');
+  expect(results.motherOfMother._id).toEqual('p24');
+  expect(results.motherOfMother.firstname).toEqual('Melissa');
 
   expect(results.children.length).toEqual(4);
   expect(results.children[0].firstname).toEqual('Gabby');
@@ -230,31 +217,18 @@ it('getViewState() generates correct state data for female focus person', () => 
   expect(results.husband._id).toEqual('p01');
   expect(results.husband.firstname).toEqual('Andrew');
 
-  expect(results.fatherOfMale._id).toEqual('p03');
-  expect(results.fatherOfMale.firstname).toEqual('Charles');
-  expect(results.motherOfMale._id).toEqual('p04');
-  expect(results.motherOfMale.firstname).toEqual('Debby');
-  expect(results.fatherOfFatherOfMale._id).toEqual('p21');
-  expect(results.fatherOfFatherOfMale.firstname).toEqual('James');
-  expect(results.motherOfFatherOfMale._id).toEqual('p22');
-  expect(results.motherOfFatherOfMale.firstname).toEqual('Teresa');
-  expect(results.fatherOfMotherOfMale._id).toEqual('p23');
-  expect(results.fatherOfMotherOfMale.firstname).toEqual('Herbert');
-  expect(results.motherOfMotherOfMale._id).toEqual('p24');
-  expect(results.motherOfMotherOfMale.firstname).toEqual('Melissa');
-
-  expect(results.fatherOfFemale._id).toEqual('p05');
-  expect(results.fatherOfFemale.firstname).toEqual('Edward');
-  expect(results.motherOfFemale._id).toEqual('p06');
-  expect(results.motherOfFemale.firstname).toEqual('Flora');
-  expect(results.fatherOfFatherOfFemale._id).toEqual('p31');
-  expect(results.fatherOfFatherOfFemale.firstname).toEqual('Carl');
-  expect(results.motherOfFatherOfFemale._id).toEqual('p32');
-  expect(results.motherOfFatherOfFemale.firstname).toEqual('Wilma');
-  expect(results.fatherOfMotherOfFemale._id).toEqual('p33');
-  expect(results.fatherOfMotherOfFemale.firstname).toEqual('Steven');
-  expect(results.motherOfMotherOfFemale._id).toEqual('p34');
-  expect(results.motherOfMotherOfFemale.firstname).toEqual('Nancy');
+  expect(results.father._id).toEqual('p05');
+  expect(results.father.firstname).toEqual('Edward');
+  expect(results.mother._id).toEqual('p06');
+  expect(results.mother.firstname).toEqual('Flora');
+  expect(results.fatherOfFather._id).toEqual('p31');
+  expect(results.fatherOfFather.firstname).toEqual('Carl');
+  expect(results.motherOfFather._id).toEqual('p32');
+  expect(results.motherOfFather.firstname).toEqual('Wilma');
+  expect(results.fatherOfMother._id).toEqual('p33');
+  expect(results.fatherOfMother.firstname).toEqual('Steven');
+  expect(results.motherOfMother._id).toEqual('p34');
+  expect(results.motherOfMother.firstname).toEqual('Nancy');
 
   expect(results.children.length).toEqual(4);
   expect(results.children[0].firstname).toEqual('Gabby');
@@ -275,28 +249,22 @@ it('getViewState() generates correct state data when switching between multiple 
   expect(results.focusPerson.firstname).toEqual('Barbara');
   expect(results.wife).toBeFalsy();
   expect(results.husband.firstname).toEqual('Andrew');
-  expect(results.fatherOfMale.firstname).toEqual('Charles');
-  expect(results.motherOfMale.firstname).toEqual('Debby');
-  expect(results.fatherOfFemale.firstname).toEqual('Edward');
-  expect(results.motherOfFemale.firstname).toEqual('Flora');
+  expect(results.father.firstname).toEqual('Edward');
+  expect(results.mother.firstname).toEqual('Flora');
 
   results = instance.getViewState(focusPersonA);
   expect(results.focusPerson.firstname).toEqual('Andrew');
   expect(results.husband).toBeFalsy();
   expect(results.wife.firstname).toEqual('Barbara');
-  expect(results.fatherOfMale.firstname).toEqual('Charles');
-  expect(results.motherOfMale.firstname).toEqual('Debby');
-  expect(results.fatherOfFemale.firstname).toEqual('Edward');
-  expect(results.motherOfFemale.firstname).toEqual('Flora');
+  expect(results.father.firstname).toEqual('Charles');
+  expect(results.mother.firstname).toEqual('Debby');
 
   results = instance.getViewState(focusPersonB);
   expect(results.focusPerson.firstname).toEqual('Barbara');
   expect(results.wife).toBeFalsy();
   expect(results.husband.firstname).toEqual('Andrew');
-  expect(results.fatherOfMale.firstname).toEqual('Charles');
-  expect(results.motherOfMale.firstname).toEqual('Debby');
-  expect(results.fatherOfFemale.firstname).toEqual('Edward');
-  expect(results.motherOfFemale.firstname).toEqual('Flora');
+  expect(results.father.firstname).toEqual('Edward');
+  expect(results.mother.firstname).toEqual('Flora');
 });
 
 
@@ -311,31 +279,18 @@ it('correctly passes props to TreeDisplayCore when focus person is male', () => 
   expect(tdcWrapper.prop('wife')._id).toEqual('p02');
   expect(tdcWrapper.prop('wife').firstname).toEqual('Barbara');
 
-  expect(tdcWrapper.prop('fatherOfMale')._id).toEqual('p03');
-  expect(tdcWrapper.prop('fatherOfMale').firstname).toEqual('Charles');
-  expect(tdcWrapper.prop('motherOfMale')._id).toEqual('p04');
-  expect(tdcWrapper.prop('motherOfMale').firstname).toEqual('Debby');
-  expect(tdcWrapper.prop('fatherOfFatherOfMale')._id).toEqual('p21');
-  expect(tdcWrapper.prop('fatherOfFatherOfMale').firstname).toEqual('James');
-  expect(tdcWrapper.prop('motherOfFatherOfMale')._id).toEqual('p22');
-  expect(tdcWrapper.prop('motherOfFatherOfMale').firstname).toEqual('Teresa');
-  expect(tdcWrapper.prop('fatherOfMotherOfMale')._id).toEqual('p23');
-  expect(tdcWrapper.prop('fatherOfMotherOfMale').firstname).toEqual('Herbert');
-  expect(tdcWrapper.prop('motherOfMotherOfMale')._id).toEqual('p24');
-  expect(tdcWrapper.prop('motherOfMotherOfMale').firstname).toEqual('Melissa');
-
-  expect(tdcWrapper.prop('fatherOfFemale')._id).toEqual('p05');
-  expect(tdcWrapper.prop('fatherOfFemale').firstname).toEqual('Edward');
-  expect(tdcWrapper.prop('motherOfFemale')._id).toEqual('p06');
-  expect(tdcWrapper.prop('motherOfFemale').firstname).toEqual('Flora');
-  expect(tdcWrapper.prop('fatherOfFatherOfFemale')._id).toEqual('p31');
-  expect(tdcWrapper.prop('fatherOfFatherOfFemale').firstname).toEqual('Carl');
-  expect(tdcWrapper.prop('motherOfFatherOfFemale')._id).toEqual('p32');
-  expect(tdcWrapper.prop('motherOfFatherOfFemale').firstname).toEqual('Wilma');
-  expect(tdcWrapper.prop('fatherOfMotherOfFemale')._id).toEqual('p33');
-  expect(tdcWrapper.prop('fatherOfMotherOfFemale').firstname).toEqual('Steven');
-  expect(tdcWrapper.prop('motherOfMotherOfFemale')._id).toEqual('p34');
-  expect(tdcWrapper.prop('motherOfMotherOfFemale').firstname).toEqual('Nancy');
+  expect(tdcWrapper.prop('father')._id).toEqual('p03');
+  expect(tdcWrapper.prop('father').firstname).toEqual('Charles');
+  expect(tdcWrapper.prop('mother')._id).toEqual('p04');
+  expect(tdcWrapper.prop('mother').firstname).toEqual('Debby');
+  expect(tdcWrapper.prop('fatherOfFather')._id).toEqual('p21');
+  expect(tdcWrapper.prop('fatherOfFather').firstname).toEqual('James');
+  expect(tdcWrapper.prop('motherOfFather')._id).toEqual('p22');
+  expect(tdcWrapper.prop('motherOfFather').firstname).toEqual('Teresa');
+  expect(tdcWrapper.prop('fatherOfMother')._id).toEqual('p23');
+  expect(tdcWrapper.prop('fatherOfMother').firstname).toEqual('Herbert');
+  expect(tdcWrapper.prop('motherOfMother')._id).toEqual('p24');
+  expect(tdcWrapper.prop('motherOfMother').firstname).toEqual('Melissa');
 });
 
 
@@ -350,29 +305,16 @@ it('correctly passes props to TreeDisplayCore when focus person is female', () =
   expect(tdcWrapper.prop('husband').firstname).toEqual('Andrew');
   expect(tdcWrapper.prop('wife')).toEqual(null);
 
-  expect(tdcWrapper.prop('fatherOfMale')._id).toEqual('p03');
-  expect(tdcWrapper.prop('fatherOfMale').firstname).toEqual('Charles');
-  expect(tdcWrapper.prop('motherOfMale')._id).toEqual('p04');
-  expect(tdcWrapper.prop('motherOfMale').firstname).toEqual('Debby');
-  expect(tdcWrapper.prop('fatherOfFatherOfMale')._id).toEqual('p21');
-  expect(tdcWrapper.prop('fatherOfFatherOfMale').firstname).toEqual('James');
-  expect(tdcWrapper.prop('motherOfFatherOfMale')._id).toEqual('p22');
-  expect(tdcWrapper.prop('motherOfFatherOfMale').firstname).toEqual('Teresa');
-  expect(tdcWrapper.prop('fatherOfMotherOfMale')._id).toEqual('p23');
-  expect(tdcWrapper.prop('fatherOfMotherOfMale').firstname).toEqual('Herbert');
-  expect(tdcWrapper.prop('motherOfMotherOfMale')._id).toEqual('p24');
-  expect(tdcWrapper.prop('motherOfMotherOfMale').firstname).toEqual('Melissa');
-
-  expect(tdcWrapper.prop('fatherOfFemale')._id).toEqual('p05');
-  expect(tdcWrapper.prop('fatherOfFemale').firstname).toEqual('Edward');
-  expect(tdcWrapper.prop('motherOfFemale')._id).toEqual('p06');
-  expect(tdcWrapper.prop('motherOfFemale').firstname).toEqual('Flora');
-  expect(tdcWrapper.prop('fatherOfFatherOfFemale')._id).toEqual('p31');
-  expect(tdcWrapper.prop('fatherOfFatherOfFemale').firstname).toEqual('Carl');
-  expect(tdcWrapper.prop('motherOfFatherOfFemale')._id).toEqual('p32');
-  expect(tdcWrapper.prop('motherOfFatherOfFemale').firstname).toEqual('Wilma');
-  expect(tdcWrapper.prop('fatherOfMotherOfFemale')._id).toEqual('p33');
-  expect(tdcWrapper.prop('fatherOfMotherOfFemale').firstname).toEqual('Steven');
-  expect(tdcWrapper.prop('motherOfMotherOfFemale')._id).toEqual('p34');
-  expect(tdcWrapper.prop('motherOfMotherOfFemale').firstname).toEqual('Nancy');
+  expect(tdcWrapper.prop('father')._id).toEqual('p05');
+  expect(tdcWrapper.prop('father').firstname).toEqual('Edward');
+  expect(tdcWrapper.prop('mother')._id).toEqual('p06');
+  expect(tdcWrapper.prop('mother').firstname).toEqual('Flora');
+  expect(tdcWrapper.prop('fatherOfFather')._id).toEqual('p31');
+  expect(tdcWrapper.prop('fatherOfFather').firstname).toEqual('Carl');
+  expect(tdcWrapper.prop('motherOfFather')._id).toEqual('p32');
+  expect(tdcWrapper.prop('motherOfFather').firstname).toEqual('Wilma');
+  expect(tdcWrapper.prop('fatherOfMother')._id).toEqual('p33');
+  expect(tdcWrapper.prop('fatherOfMother').firstname).toEqual('Steven');
+  expect(tdcWrapper.prop('motherOfMother')._id).toEqual('p34');
+  expect(tdcWrapper.prop('motherOfMother').firstname).toEqual('Nancy');
 });

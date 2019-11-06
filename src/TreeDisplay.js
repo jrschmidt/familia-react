@@ -33,34 +33,32 @@ class TreeDisplay extends Component {
     const wife = focusPerson && focusPerson.wife ? this.findPersonById( focusPerson.wife ) : null;
     const male = viewGender === 'male' ? focusPerson : husband;
     const female = viewGender === 'female' ? focusPerson : wife;
-    let fatherOfMale, fatherOfFatherOfMale, motherOfFatherOfMale;
-    let motherOfMale, fatherOfMotherOfMale, motherOfMotherOfMale;
-    let fatherOfFemale, fatherOfFatherOfFemale, motherOfFatherOfFemale;
-    let motherOfFemale, fatherOfMotherOfFemale, motherOfMotherOfFemale;
+    let father, fatherOfFather, motherOfFather;
+    let mother, fatherOfMother, motherOfMother;
 
-    if (male) {
-      fatherOfMale = male.father ? this.findPersonById( male.father ) : null;
-      if (fatherOfMale) {
-        fatherOfFatherOfMale = fatherOfMale.father ? this.findPersonById( fatherOfMale.father ) : null;
-        motherOfFatherOfMale = fatherOfMale.mother ? this.findPersonById( fatherOfMale.mother ) : null;
+    if (viewGender === 'male') {
+      father = male.father ? this.findPersonById( male.father ) : null;
+      if (father) {
+        fatherOfFather = father.father ? this.findPersonById( father.father ) : null;
+        motherOfFather = father.mother ? this.findPersonById( father.mother ) : null;
       }
-      motherOfMale = male.mother ? this.findPersonById( male.mother ) : null;
-      if (motherOfMale) {
-        fatherOfMotherOfMale = motherOfMale.father ? this.findPersonById( motherOfMale.father ) : null;
-        motherOfMotherOfMale = motherOfMale.mother ? this.findPersonById( motherOfMale.mother ) : null;
+      mother = male.mother ? this.findPersonById( male.mother ) : null;
+      if (mother) {
+        fatherOfMother = mother.father ? this.findPersonById( mother.father ) : null;
+        motherOfMother = mother.mother ? this.findPersonById( mother.mother ) : null;
       }
     }
 
-    if (female) {
-      fatherOfFemale = female.father ? this.findPersonById( female.father ) : null;
-      if (fatherOfFemale) {
-        fatherOfFatherOfFemale = fatherOfFemale.father ? this.findPersonById( fatherOfFemale.father ) : null;
-        motherOfFatherOfFemale = fatherOfFemale.mother ? this.findPersonById( fatherOfFemale.mother ) : null;
+    else {
+      father = female.father ? this.findPersonById( female.father ) : null;
+      if (father) {
+        fatherOfFather = father.father ? this.findPersonById( father.father ) : null;
+        motherOfFather = father.mother ? this.findPersonById( father.mother ) : null;
       }
-      motherOfFemale = female.mother ? this.findPersonById( female.mother ) : null;
-      if (motherOfFemale) {
-        fatherOfMotherOfFemale = motherOfFemale.father ? this.findPersonById( motherOfFemale.father ) : null;
-        motherOfMotherOfFemale = motherOfFemale.mother ? this.findPersonById( motherOfFemale.mother ) : null;
+      mother = female.mother ? this.findPersonById( female.mother ) : null;
+      if (mother) {
+        fatherOfMother = mother.father ? this.findPersonById( mother.father ) : null;
+        motherOfMother = mother.mother ? this.findPersonById( mother.mother ) : null;
       }
     }
 
@@ -68,18 +66,12 @@ class TreeDisplay extends Component {
       focusPerson: focusPerson,
       husband: husband,
       wife: wife,
-      fatherOfMale: fatherOfMale,
-      fatherOfFatherOfMale: fatherOfFatherOfMale,
-      motherOfFatherOfMale: motherOfFatherOfMale,
-      motherOfMale: motherOfMale,
-      fatherOfMotherOfMale: fatherOfMotherOfMale,
-      motherOfMotherOfMale: motherOfMotherOfMale,
-      fatherOfFemale: fatherOfFemale,
-      fatherOfFatherOfFemale: fatherOfFatherOfFemale,
-      motherOfFatherOfFemale: motherOfFatherOfFemale,
-      motherOfFemale: motherOfFemale,
-      fatherOfMotherOfFemale: fatherOfMotherOfFemale,
-      motherOfMotherOfFemale: motherOfMotherOfFemale,
+      father: father,
+      fatherOfFather: fatherOfFather,
+      motherOfFather: motherOfFather,
+      mother: mother,
+      fatherOfMother: fatherOfMother,
+      motherOfMother: motherOfMother,
       children: focusPerson.children ? focusPerson.children.map( childId => this.findPersonById( childId )) : []
     };
   }
@@ -162,18 +154,12 @@ class TreeDisplay extends Component {
         focusPerson={viewState.focusPerson}
         husband={viewState.husband}
         wife={viewState.wife}
-        fatherOfMale={viewState.fatherOfMale}
-        fatherOfFatherOfMale={viewState.fatherOfFatherOfMale}
-        motherOfFatherOfMale={viewState.motherOfFatherOfMale}
-        motherOfMale={viewState.motherOfMale}
-        fatherOfMotherOfMale={viewState.fatherOfMotherOfMale}
-        motherOfMotherOfMale={viewState.motherOfMotherOfMale}
-        fatherOfFemale={viewState.fatherOfFemale}
-        fatherOfFatherOfFemale={viewState.fatherOfFatherOfFemale}
-        motherOfFatherOfFemale={viewState.motherOfFatherOfFemale}
-        motherOfFemale={viewState.motherOfFemale}
-        fatherOfMotherOfFemale={viewState.fatherOfMotherOfFemale}
-        motherOfMotherOfFemale={viewState.motherOfMotherOfFemale}
+        father={viewState.father}
+        fatherOfFather={viewState.fatherOfFather}
+        motherOfFather={viewState.motherOfFather}
+        mother={viewState.mother}
+        fatherOfMother={viewState.fatherOfMother}
+        motherOfMother={viewState.motherOfMother}
       />
       <ChildView
         resetViewFocus={this.resetViewFocus}
