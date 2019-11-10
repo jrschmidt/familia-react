@@ -31,6 +31,7 @@ class TreeDisplayCore extends Component {
         <PersonMini
           person={this.props.wife}
           key={this.props.wife._id}
+          selectable={true}
           resetViewFocus={this.props.resetViewFocus}
           viewRole='wife'
         />
@@ -55,6 +56,7 @@ class TreeDisplayCore extends Component {
         <PersonMini
           person={this.props.husband}
           key={this.props.husband._id}
+          selectable={true}
           resetViewFocus={this.props.resetViewFocus}
           viewRole='husband'
         />
@@ -81,6 +83,7 @@ class TreeDisplayCore extends Component {
         <PersonMini
           person={this.props.father}
           key={this.props.father._id}
+          selectable={true}
           resetViewFocus={this.props.resetViewFocus}
           viewRole='father'
         />
@@ -105,6 +108,7 @@ class TreeDisplayCore extends Component {
         <PersonMini
           person={this.props.mother}
           key={this.props.mother._id}
+          selectable={true}
           resetViewFocus={this.props.resetViewFocus}
           viewRole='mother'
         />
@@ -129,6 +133,7 @@ class TreeDisplayCore extends Component {
       <PersonMini
         person={this.props.fatherOfFather}
         key={this.props.fatherOfFather._id}
+        selectable={false}
         resetViewFocus={null}
         viewRole='gen3-box1'
       />
@@ -138,6 +143,7 @@ class TreeDisplayCore extends Component {
       <PersonMini
         person={this.props.motherOfFather}
         key={this.props.motherOfFather._id}
+        selectable={false}
         resetViewFocus={null}
         viewRole='gen3-box2'
       />
@@ -147,6 +153,7 @@ class TreeDisplayCore extends Component {
       <PersonMini
         person={this.props.fatherOfMother}
         key={this.props.fatherOfMother._id}
+        selectable={false}
         resetViewFocus={null}
         viewRole='gen3-box3'
       />
@@ -156,6 +163,7 @@ class TreeDisplayCore extends Component {
       <PersonMini
         person={this.props.motherOfMother}
         key={this.props.motherOfMother._id}
+        selectable={false}
         resetViewFocus={null}
         viewRole='gen3-box4'
       />

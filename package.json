@@ -1,7 +1,7 @@
 {
   "name": "familia-react",
-  "version": "5.0.4",
-  "date": "06-nov-2019",
+  "version": "5.0.5",
+  "date": "08-nov-2019",
   "private": true,
   "dependencies": {
     "react": "^16.8.4",

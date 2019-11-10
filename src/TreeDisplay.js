@@ -11,6 +11,7 @@ class TreeDisplay extends Component {
     super(props);
     this.resetViewFocus = this.resetViewFocus.bind(this);
     this.addPerson = this.addPerson.bind(this);
+    this.renderCount = 0;
 
     this.state = {
       people: Array.from(props.people),

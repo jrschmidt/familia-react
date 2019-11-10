@@ -5,18 +5,21 @@ class PersonMini extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hoverActive: (this.props.resetViewFocus) ? 'no' : 'never'
+      hoverActive: (this.props.selectable) ? 'no' : 'never'
     };
   }
 
   render () {
     const name = `${this.props.person.firstname} ${this.props.person.surname}`;
-    const classArray = ['PersonMini', this.props.viewRole];
-    if (this.state.hoverActive !== 'never') {
-      const hoverClass = (this.state.hoverActive === 'no') ? 'selectable' : 'selectable-hover';
-      classArray.push(hoverClass);
+
+    let classString = `PersonMini ${this.props.viewRole}`;
+    // if (this.props.selectable) classString += ' selectable';
+    if (this.props.selectable) {
+      classString +=
+      (this.state.hoverActive === 'no')
+      ? ' selectable'
+      :' selectable-hover';
     }
-    const classString = classArray.join(' ');
 
     const mouseEnter =
       (this.state.hoverActive !== 'never')

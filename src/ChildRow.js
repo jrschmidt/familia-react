@@ -27,6 +27,7 @@ class ChildRow extends Component {
           : <PersonMini
               person={person}
               key={key}
+              selectable={true}
               resetViewFocus={this.props.resetViewFocus}
               viewRole={tag}
             />
