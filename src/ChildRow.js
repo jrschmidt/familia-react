@@ -29,6 +29,7 @@ class ChildRow extends Component {
               key={key}
               selectable={true}
               resetViewFocus={this.props.resetViewFocus}
+              setConnectorHighlight={null}
               viewRole={tag}
             />
         );

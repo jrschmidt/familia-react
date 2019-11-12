@@ -30,36 +30,102 @@ const getGrandparentSvg = (male, female, locTag) => {
 
 };
 
-const getParentSvg = () => {
-  return(
-    <svg className={'svg-connect-p1'} key='p1' width='240' height='160'>
-    <line x1='0' y1='40' x2='240' y2='40' stroke='#333333' strokeWidth='5' />
-    <line x1='120' y1='40' x2='120' y2='160' stroke='#333333' strokeWidth='5' />
-    </svg>
-  );
+const getParentSvg = (highlight) => {
+
+    if (highlight === 'father')
+      return(
+        <svg className={'svg-connect-p1'} key='p1' width='240' height='160'>
+        <line x1='0' y1='40' x2='120' y2='40' stroke='#cccccc' strokeWidth='5' />
+        <line x1='120' y1='40' x2='240' y2='40' stroke='#333333' strokeWidth='5' />
+        <line x1='120' y1='40' x2='120' y2='160' stroke='#cccccc' strokeWidth='5' />
+        </svg>
+      );
+
+    else if (highlight === 'mother')
+      return (
+        <svg className={'svg-connect-p1'} key='p1' width='240' height='160'>
+        <line x1='0' y1='40' x2='120' y2='40' stroke='#333333' strokeWidth='5' />
+        <line x1='120' y1='40' x2='240' y2='40' stroke='#cccccc' strokeWidth='5' />
+        <line x1='120' y1='40' x2='120' y2='160' stroke='#cccccc' strokeWidth='5' />
+        </svg>
+      );
+
+    else
+      return(
+        <svg className={'svg-connect-p1'} key='p1' width='240' height='160'>
+        <line x1='0' y1='40' x2='240' y2='40' stroke='#333333' strokeWidth='5' />
+        <line x1='120' y1='40' x2='120' y2='160' stroke='#333333' strokeWidth='5' />
+        </svg>
+      );
 }
 
-const getChildrenSvg = (focusGender) => {
+const getChildrenSvg = (focusGender, highlight) => {
 
   if (focusGender === 'male')
-    return (
-      <svg className='svg-connect-children-m' key='c1' width='240' height='160'>
-      <line x1='140' y1='40' x2='240' y2='40' stroke='#333333' strokeWidth='5' />
-      <line x1='200' y1='40' x2='200' y2='140' stroke='#333333' strokeWidth='5' />
-      <line x1='20' y1='140' x2='200' y2='140' stroke='#333333' strokeWidth='5' />
-      <line x1='20' y1='140' x2='20' y2='160' stroke='#333333' strokeWidth='5' />
-      </svg>
-    );
+    // spouse & children connectors for male focus person
+
+    if (highlight === 'wife')
+      return (
+        <svg className='svg-connect-children-m' key='c1' width='240' height='160'>
+        <line x1='140' y1='40' x2='240' y2='40' stroke='#cccccc' strokeWidth='5' />
+        <line x1='200' y1='40' x2='200' y2='140' stroke='#333333' strokeWidth='5' />
+        <line x1='20' y1='140' x2='200' y2='140' stroke='#333333' strokeWidth='5' />
+        <line x1='20' y1='140' x2='20' y2='160' stroke='#333333' strokeWidth='5' />
+        </svg>
+      );
+
+    else if (highlight === 'child')
+      return (
+        <svg className='svg-connect-children-m' key='c1' width='240' height='160'>
+        <line x1='140' y1='40' x2='240' y2='40' stroke='#333333' strokeWidth='5' />
+        <line x1='200' y1='40' x2='200' y2='140' stroke='#333333' strokeWidth='5' />
+        <line x1='20' y1='140' x2='200' y2='140' stroke='#333333' strokeWidth='5' />
+        <line x1='20' y1='140' x2='20' y2='160' stroke='#333333' strokeWidth='5' />
+        </svg>
+      );
+
+    else
+      return (
+        <svg className='svg-connect-children-m' key='c1' width='240' height='160'>
+        <line x1='140' y1='40' x2='240' y2='40' stroke='#333333' strokeWidth='5' />
+        <line x1='200' y1='40' x2='200' y2='140' stroke='#333333' strokeWidth='5' />
+        <line x1='20' y1='140' x2='200' y2='140' stroke='#333333' strokeWidth='5' />
+        <line x1='20' y1='140' x2='20' y2='160' stroke='#333333' strokeWidth='5' />
+        </svg>
+      );
 
   else
-    return (
-      <svg className='svg-connect-children-f' key='c1' width='240' height='160'>
-      <line x1='0' y1='40' x2='100' y2='40' stroke='#333333' strokeWidth='5' />
-      <line x1='40' y1='40' x2='40' y2='140' stroke='#333333' strokeWidth='5' />
-      <line x1='40' y1='140' x2='220' y2='140' stroke='#333333' strokeWidth='5' />
-      <line x1='220' y1='140' x2='220' y2='160' stroke='#333333' strokeWidth='5' />
-      </svg>
-    );
+    // spouse & children connectors for female focus person
+
+    if (highlight === 'husband')
+      return (
+        <svg className='svg-connect-children-f' key='c1' width='240' height='160'>
+        <line x1='0' y1='40' x2='100' y2='40' stroke='#cccccc' strokeWidth='5' />
+        <line x1='40' y1='40' x2='40' y2='140' stroke='#333333' strokeWidth='5' />
+        <line x1='40' y1='140' x2='220' y2='140' stroke='#333333' strokeWidth='5' />
+        <line x1='220' y1='140' x2='220' y2='160' stroke='#333333' strokeWidth='5' />
+        </svg>
+      );
+
+    else if (highlight === 'child')
+      return (
+        <svg className='svg-connect-children-f' key='c1' width='240' height='160'>
+        <line x1='0' y1='40' x2='100' y2='40' stroke='#333333' strokeWidth='5' />
+        <line x1='40' y1='40' x2='40' y2='140' stroke='#333333' strokeWidth='5' />
+        <line x1='40' y1='140' x2='220' y2='140' stroke='#333333' strokeWidth='5' />
+        <line x1='220' y1='140' x2='220' y2='160' stroke='#333333' strokeWidth='5' />
+        </svg>
+      );
+
+    else
+      return (
+        <svg className='svg-connect-children-f' key='c1' width='240' height='160'>
+        <line x1='0' y1='40' x2='100' y2='40' stroke='#333333' strokeWidth='5' />
+        <line x1='40' y1='40' x2='40' y2='140' stroke='#333333' strokeWidth='5' />
+        <line x1='40' y1='140' x2='220' y2='140' stroke='#333333' strokeWidth='5' />
+        <line x1='220' y1='140' x2='220' y2='160' stroke='#333333' strokeWidth='5' />
+        </svg>
+      );
 }
 
 const getSiblingsSvg = (rowType) => {

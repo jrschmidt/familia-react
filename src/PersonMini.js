@@ -21,15 +21,27 @@ class PersonMini extends Component {
       :' selectable-hover';
     }
 
-    const mouseEnter =
-      (this.state.hoverActive !== 'never')
-      ? () => this.setState({hoverActive: 'active'})
-      : null;
+    let mouseEnter;
+    if (this.state.hoverActive === 'never' || this.props.setConnectorHighlight === null) {
+      mouseEnter = null;
+    }
+    else {
+      mouseEnter = () => {
+        this.setState({hoverActive: 'active'});
+        this.props.setConnectorHighlight(this.props.viewRole);
+      };
+    }
 
-    const mouseLeave =
-      (this.state.hoverActive !== 'never')
-      ? () => this.setState({hoverActive: 'no'})
-      : null;
+    let mouseLeave;
+    if (this.state.hoverActive === 'never' || this.props.setConnectorHighlight === null) {
+      mouseLeave = null;
+    }
+    else {
+      mouseLeave = () => {
+        this.setState({hoverActive: 'no'});
+        this.props.setConnectorHighlight('none');
+      };
+    }
 
     const reset = (this.props.resetViewFocus)
       ? () => this.props.resetViewFocus(this.props.person._id)

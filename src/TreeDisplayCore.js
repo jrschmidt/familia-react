@@ -8,6 +8,24 @@ import { getGrandparentSvg, getParentSvg, getChildrenSvg } from './treeDisplaySv
 
 class TreeDisplayCore extends Component {
 
+  constructor (props) {
+    super(props);
+    this.setConnectorHighlight = this.setConnectorHighlight.bind(this);
+    this.state = {
+      connectHighlight: 'none'
+    };
+  }
+
+  // Bound function to pass down to PersonMini component:
+
+  // This function causes a different connctor SVG to be displayed by changing
+  // the value of this.state.connectHighlight.
+
+  setConnectorHighlight (highlight) {
+    this.setState({ connectHighlight: highlight});
+  }
+
+
   getTags() {
     let tags = [];
     const focusGender = this.props.focusPerson.gender;
@@ -33,6 +51,7 @@ class TreeDisplayCore extends Component {
           key={this.props.wife._id}
           selectable={true}
           resetViewFocus={this.props.resetViewFocus}
+          setConnectorHighlight={this.setConnectorHighlight}
           viewRole='wife'
         />
       );
@@ -58,6 +77,7 @@ class TreeDisplayCore extends Component {
           key={this.props.husband._id}
           selectable={true}
           resetViewFocus={this.props.resetViewFocus}
+          setConnectorHighlight={this.setConnectorHighlight}
           viewRole='husband'
         />
       );
@@ -85,6 +105,7 @@ class TreeDisplayCore extends Component {
           key={this.props.father._id}
           selectable={true}
           resetViewFocus={this.props.resetViewFocus}
+          setConnectorHighlight={this.setConnectorHighlight}
           viewRole='father'
         />
       );
@@ -110,6 +131,7 @@ class TreeDisplayCore extends Component {
           key={this.props.mother._id}
           selectable={true}
           resetViewFocus={this.props.resetViewFocus}
+          setConnectorHighlight={this.setConnectorHighlight}
           viewRole='mother'
         />
       );
@@ -135,6 +157,7 @@ class TreeDisplayCore extends Component {
         key={this.props.fatherOfFather._id}
         selectable={false}
         resetViewFocus={null}
+        setConnectorHighlight={null}
         viewRole='gen3-box1'
       />
     );
@@ -145,6 +168,7 @@ class TreeDisplayCore extends Component {
         key={this.props.motherOfFather._id}
         selectable={false}
         resetViewFocus={null}
+        setConnectorHighlight={null}
         viewRole='gen3-box2'
       />
     );
@@ -155,6 +179,7 @@ class TreeDisplayCore extends Component {
         key={this.props.fatherOfMother._id}
         selectable={false}
         resetViewFocus={null}
+        setConnectorHighlight={null}
         viewRole='gen3-box3'
       />
     );
@@ -165,13 +190,14 @@ class TreeDisplayCore extends Component {
         key={this.props.motherOfMother._id}
         selectable={false}
         resetViewFocus={null}
+        setConnectorHighlight={null}
         viewRole='gen3-box4'
       />
     );
 
     // SVG tags to draw connector lines between 'person' components.
 
-    tags.push(getParentSvg());
+    tags.push(getParentSvg(this.state.connectHighlight));
 
     if (this.props.father)
       tags.push(getGrandparentSvg(
@@ -187,8 +213,8 @@ class TreeDisplayCore extends Component {
         'g2'
       ));
 
-    // // Children of focus person:
-    tags.push(getChildrenSvg(focusGender));
+    // // Connect to spouse and children of focus person:
+    tags.push(getChildrenSvg(focusGender, this.state.connectHighlight));
 
     tags = tags.filter(tag=>!!tag);
     return tags;
