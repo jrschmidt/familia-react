@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './TreeDisplayCore.css';
 
-import FocusPersonDisplayTile from './FocusPersonDisplayTile.js';
+import FocusPersonDisplay from './FocusPersonDisplay.js';
 import PersonMini from './PersonMini.js';
 import PersonMiniAdd from './PersonMiniAdd.js';
 import { getGrandparentSvg, getParentSvg, getChildrenSvg } from './treeDisplaySvgs.js';
@@ -35,7 +35,7 @@ class TreeDisplayCore extends Component {
     // Add focus person
     if (this.props.focusPerson) {
       tags.push(
-        <FocusPersonDisplayTile
+        <FocusPersonDisplay
           person={this.props.focusPerson}
           key={this.props.focusPerson._id}
           viewRole={'focus'}
