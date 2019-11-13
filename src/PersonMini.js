@@ -54,7 +54,7 @@ class PersonMini extends Component {
         onMouseLeave={mouseLeave}
         onClick={reset}
       >
-        <span>{name}</span>
+        <span className='person-name'>{name}</span>
         <p>b1917 d1997</p>
       </div>
     )

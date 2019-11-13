@@ -9,5 +9,5 @@ it('renders PersonMini component', () => {
     person: {firstname: 'Albert', surname: 'Adams'}
   };
   const wrapper = shallow(<PersonMini {...props}/>);
-  expect(wrapper.find('span').html()).toEqual('<span>Albert Adams</span>');
+  expect(wrapper.find('span').html()).toEqual('<span class=\"person-name\">Albert Adams</span>');
 });
