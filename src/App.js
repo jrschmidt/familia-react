@@ -26,7 +26,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h4>familia-react v5.0.8</h4>
+          <h4>familia-react v5.0.12</h4>
         </header>
         <TreeDisplay
           people={this.state.people}
