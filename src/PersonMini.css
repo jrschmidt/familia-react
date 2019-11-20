@@ -2,7 +2,7 @@
   background-color: #ccc0a3;
   padding: 8px;
   font-size: 0.9em;
-  border: 3px solid #333333;
+  border: 5px outset #666666;
 }
 
 .PersonMini.selectable-hover .person-name {
