@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './TreeDisplay.css';
 
-import TreeDisplayHeader from './TreeDisplayHeader';
+import Breadcrumbs from './Breadcrumbs';
 import TreeDisplayCore from './TreeDisplayCore';
 import ChildView from './ChildView';
 
@@ -64,6 +64,7 @@ class TreeDisplay extends Component {
     }
 
     return {
+      pathToRoot: ['Aa Smith', 'Bb Smith', 'Cc Smith'],
       focusPerson: focusPerson,
       husband: husband,
       wife: wife,
@@ -145,10 +146,11 @@ class TreeDisplay extends Component {
 
   render() {
     const viewState = this.state.viewState;
-    const tag1 = `Root person: ${this.props.rootPersonName}`;
-    const tag2 = `Focus person: ${viewState.focusPerson.firstname} ${viewState.focusPerson.surname}`;
     const tags =
       <>
+      <Breadcrumbs
+        names={viewState.pathToRoot}
+      />
       <TreeDisplayCore
         resetViewFocus={this.resetViewFocus}
         addPerson={this.addPerson}
