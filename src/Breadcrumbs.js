@@ -8,10 +8,13 @@ class Breadcrumbs extends Component {
   }
 
   render () {
-    const crumbString = 'ROOT: ' + this.props.names.join(' >> ');
+    const crumbString = '  ' + this.props.names.join(' >> ');
     return (
       <div className="Breadcrumbs">
-      <p>{crumbString}</p>
+      <p>
+        <span className='root-tag'>(root)</span>
+        {crumbString}
+      </p>
       </div>
     )
   }

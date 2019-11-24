@@ -64,7 +64,7 @@ class TreeDisplay extends Component {
     }
 
     return {
-      pathToRoot: ['Aa Smith', 'Bb Smith', 'Cc Smith'],
+      pathNames: ['Aa Smith', 'Bb Smith', 'Cc Smith'],
       focusPerson: focusPerson,
       husband: husband,
       wife: wife,
@@ -149,7 +149,7 @@ class TreeDisplay extends Component {
     const tags =
       <>
       <Breadcrumbs
-        names={viewState.pathToRoot}
+        names={viewState.pathNames}
       />
       <TreeDisplayCore
         resetViewFocus={this.resetViewFocus}

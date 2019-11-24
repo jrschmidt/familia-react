@@ -4,3 +4,7 @@
   grid-row-start: 1;
   grid-row-end: 2;
 }
+
+.root-tag {
+  font-size: 80%;
+}
