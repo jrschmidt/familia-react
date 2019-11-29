@@ -39,6 +39,11 @@ class TreeDisplayCore extends Component {
           person={this.props.focusPerson}
           key={this.props.focusPerson._id}
           viewRole={'focus'}
+          focusState={
+            (this.state.connectHighlight === 'none')
+            ? 'full'
+            : 'partial'
+          }
         />
       );
     }

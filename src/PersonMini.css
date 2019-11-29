@@ -5,6 +5,10 @@
   border: 5px outset #666666;
 }
 
+.PersonMini.selectable-hover {
+  background-color: #ccc8c0;
+}
+
 .PersonMini.selectable-hover .person-name {
   font-weight: bold;
   text-decoration: underline #339999;

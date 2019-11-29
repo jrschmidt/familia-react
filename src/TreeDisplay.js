@@ -17,15 +17,43 @@ class TreeDisplay extends Component {
       people: Array.from(props.people),
       peopleChanged: [],
       peopleAdded: [],
-      viewState: {}
+      viewState: {},
+      path: {
+        ids: [this.props.rootPersonId],
+        names: [this.props.rootPersonName]
+      },
     };
 
     const focusPerson = this.findPersonById(this.props.rootPersonId);
     this.state.viewState = this.getViewState(focusPerson);
   }
 
+  // (For better readability, bound functions to pass down to other components
+  //  are located after the render() funcion.)
+
   findPersonById (id) {
     return this.state.people.find( person => person._id === id ) || null;
+  }
+
+  updatePath (newPerson) {
+    let ids = this.state.path.ids;
+    let names = ids.map( id => {
+      const person = this.findPersonById(id);
+      return `${person.firstname} ${person.surname}`;
+    });
+
+    if (ids[ids.length - 2] === newPerson._id) {
+      ids.pop();
+      names.pop();
+    }
+    else {
+      ids.push(newPerson._id);
+      names.push(`${newPerson.firstname} ${newPerson.surname}`);
+    }
+    return {
+      ids: ids,
+      names: names
+    };
   }
 
   getViewState (focusPerson) {
@@ -64,7 +92,6 @@ class TreeDisplay extends Component {
     }
 
     return {
-      pathNames: ['Aa Smith', 'Bb Smith', 'Cc Smith'],
       focusPerson: focusPerson,
       husband: husband,
       wife: wife,
@@ -76,40 +103,6 @@ class TreeDisplay extends Component {
       motherOfMother: motherOfMother,
       children: focusPerson.children ? focusPerson.children.map( childId => this.findPersonById( childId )) : []
     };
-  }
-
-  // Bound function to pass down to PersonMini component:
-
-  // This function changes the 'focus person' of the view to another person.
-  resetViewFocus (focusId) {
-    const focusPerson = this.findPersonById(focusId);
-    this.setState( {viewState: this.getViewState(focusPerson)});
-  }
-
-  // Bound function to pass down to PersonMiniAdd component:
-
-  // This function adds a new person. Currently it only adds the new person to
-  // the state of the TreeDisplay component. Later we will add a commitChange()
-  // function which can be passed down from the App component which can persist
-  // the changes as desired, or merely log them as temporary local changes.
-  // Invoking this function only changes the state of the TreeDisplay component.
-  //
-  addPerson (familyMember, role, person) {
-    if (!person._id) person._id =  Math.random().toString(36).slice(2,8);
-    if (role === 'father' || role === 'mother')
-      person = this.newFatherMother(familyMember, role, person);
-    if (role === 'husband' || role === 'wife')
-      person = this.newHusbandWife(familyMember, role, person);
-    if (role === 'child')
-      person = this.newChild(familyMember, person);
-
-    this.setState( (state, props) => {
-      return {
-        people: [...state.people, person],
-        peopleAdded: [...state.peopleAdded, person],
-        viewState: this.getViewState(person)
-      };
-    });
   }
 
   newFatherMother (familyMember, role, person) {
@@ -149,7 +142,7 @@ class TreeDisplay extends Component {
     const tags =
       <>
       <Breadcrumbs
-        names={viewState.pathNames}
+        names={this.state.path.names}
       />
       <TreeDisplayCore
         resetViewFocus={this.resetViewFocus}
@@ -177,6 +170,54 @@ class TreeDisplay extends Component {
         {tags}
       </div>
     )
+  }
+
+
+
+  // Bound functions to pass down to other components
+
+
+  // Bound function to pass down to PersonMini component:
+
+  // This function changes the 'focus person' of the view to another person.
+  resetViewFocus (focusId) {
+    const focusPerson = this.findPersonById(focusId);
+    this.setState({
+      viewState: this.getViewState(focusPerson),
+      path: this.updatePath(focusPerson)
+    });
+  }
+
+
+  // Bound function to pass down to PersonMiniAdd component:
+
+  // This function adds a new person. Currently it only adds the new person to
+  // the state of the TreeDisplay component. Later we will add a commitChange()
+  // function which can be passed down from the App component which can persist
+  // the changes as desired, or merely log them as temporary local changes.
+  // Invoking this function only changes the state of the TreeDisplay component.
+  addPerson (familyMember, role, person) {
+    if (!person._id) person._id =  Math.random().toString(36).slice(2,8);
+    if (role === 'father' || role === 'mother')
+      person = this.newFatherMother(familyMember, role, person);
+    if (role === 'husband' || role === 'wife')
+      person = this.newHusbandWife(familyMember, role, person);
+    if (role === 'child')
+      person = this.newChild(familyMember, person);
+
+    if (!person.firstname) person.firstname = 'New';
+    if (!person.surname) person.surname = 'Person';
+
+    this.setState( (state, props) => {
+      const ppeople = [...state.people, person];
+      const ppeopleAdded = [...state.peopleAdded, person];
+      return {
+        people: ppeople,
+        peopleAdded: ppeopleAdded,
+        viewState: this.getViewState(person),
+        path: this.updatePath(person)
+      };
+    });
   }
 
 }
