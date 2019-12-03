@@ -156,6 +156,7 @@ class TreeDisplay extends Component {
         mother={viewState.mother}
         fatherOfMother={viewState.fatherOfMother}
         motherOfMother={viewState.motherOfMother}
+        children={viewState.children}
       />
       <ChildView
         resetViewFocus={this.resetViewFocus}

@@ -3,10 +3,6 @@ import './Breadcrumbs.css';
 
 class Breadcrumbs extends Component {
 
-  constructor (props) {
-    super(props);
-  }
-
   render () {
     const crumbString = '  ' + this.props.names.join(' >> ');
     return (

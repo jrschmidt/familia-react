@@ -4,7 +4,7 @@ import './TreeDisplayCore.css';
 import FocusPersonDisplay from './FocusPersonDisplay.js';
 import PersonMini from './PersonMini.js';
 import PersonMiniAdd from './PersonMiniAdd.js';
-import { getGrandparentSvg, getParentSvg, getChildrenSvg } from './treeDisplaySvgs.js';
+import { getGrandparentSvg, getParentSvg, getSpouseChildrenConnector } from './treeDisplaySvgs.js';
 
 class TreeDisplayCore extends Component {
 
@@ -18,7 +18,7 @@ class TreeDisplayCore extends Component {
 
   // Bound function to pass down to PersonMini component:
 
-  // This function causes a different connctor SVG to be displayed by changing
+  // This function causes a different connector SVG to be displayed by changing
   // the value of this.state.connectHighlight.
 
   setConnectorHighlight (highlight) {
@@ -219,7 +219,7 @@ class TreeDisplayCore extends Component {
       ));
 
     // // Connect to spouse and children of focus person:
-    tags.push(getChildrenSvg(focusGender, this.state.connectHighlight));
+    tags.push(getSpouseChildrenConnector(focusGender, this.state.connectHighlight));
 
     tags = tags.filter(tag=>!!tag);
     return tags;

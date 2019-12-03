@@ -63,7 +63,7 @@ const getParentSvg = (highlight) => {
       );
 }
 
-const getChildrenSvg = (focusGender, highlight) => {
+const getSpouseChildrenConnector = (focusGender, highlight) => {
 
   if (focusGender === 'male')
     // spouse & children connectors for male focus person
@@ -135,6 +135,103 @@ const getChildrenSvg = (focusGender, highlight) => {
         </svg>
       );
 }
+
+
+const getChildrenSvgs = (numberOfChildren, highlight) => {
+  const plainColor = '#666666';
+  const highlightColor = '#669999';
+
+  const xxyy = {
+    t: [400, 0, 400, 40],
+    h1: [100, 40, 200, 40],
+    h2: [200, 40, 300, 40],
+    h3: [300, 40, 400, 40],
+    h4: [400, 40, 500, 40],
+    h5: [500, 40, 600, 40],
+    h6: [600, 40, 700, 40],
+    v1: [100, 40, 100, 80],
+    v2: [200, 40, 200, 80],
+    v3: [300, 40, 300, 80],
+    v4: [400, 40, 400, 80],
+    v5: [500, 40, 500, 80],
+    v6: [600, 40, 600, 80],
+    v7: [700, 40, 700, 80],
+  };
+
+  const getLineSegment = (id, color) => {
+    const xy = xxyy[id];
+    return (
+      <line
+        x1={xy[0]}
+        y1={xy[1]}
+        x2={xy[2]}
+        y2={xy[3]}
+        stroke={color}
+        strokeWidth='4'
+      />
+    );
+  }
+
+  const getSegmentsList =  (numberOfChildren) => {
+    const segments = [
+      ['t', 'v4'],
+      ['t', 'h3', 'h4', 'v3', 'v5'],
+      ['t', 'h2', 'h3', 'h4', 'h5', 'v2', 'v4', 'v6'],
+      ['t', 'h1', 'h2', 'h3', 'h4', 'h6', 'v1', 'v3', 'v5', 'v7'],
+      ['t', 'h1', 'h2', 'h3', 'v1'],
+      ['t', 'h1', 'h2', 'h3', 'v1', 'v3'],
+      ['t', 'h1', 'h2', 'h3', 'h4', 'v1', 'v3', 'v5'],
+      ['t', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'v1', 'v3', 'v5', 'v7']
+    ];
+
+  const extension = ['t', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'v1', 'v3', 'v4', 'v5', 'v7'];
+
+  return (numberOfChildren > 4)
+    ? [ segments[numberOfChildren] ]
+    : [ extension, segments[numberOfChildren]];
+  }
+
+  const getHighlightedSegmentsList =  (numberOfChildren, hoveredChild) => {
+    const hlsLists = [
+      [],
+      ['t', 'h1', 'h2', 'h3', 'v1'],
+      ['t', 'h3', 'v3'],
+      ['t', 'h4', 'v5'],
+      ['t', 'h4', 'h5', 'h6', 'v7'],
+      ['t', 'h1', 'h2', 'h3', 'v1'],
+      ['t', 'h3', 'v3'],
+      ['t', 'h4', 'v5']
+    ];
+
+    let segs = [];
+    if (numberOfChildren === 1 && hoveredChild === 1)
+      return ['t', 'h3', 'v3'];
+    if (numberOfChildren === 2) {
+      if (hoveredChild === 1) return ['t', 'h2', 'h3', 'v2'];
+      if (hoveredChild === 2) return ['t', 'v4'];
+    }
+    if (numberOfChildren > 2)
+      return hlsLists[numberOfChildren];
+  }
+
+  const getSegments = (numberOfChildren, highlight) => {
+    const segmentList = this.getSegmentsList(numberOfChildren);
+    const highlightedSegmentsList = this.getHighlightedSegmentsList(numberOfChildren, highlight);
+    return segmentList.map( (segId) => {
+      const color = ( highlightedSegmentsList.includes(segId) )
+        ? highlightColor
+        : plainColor;
+      return this.getLineSegment(segId, color);
+    });
+  }
+
+  return (<svg>
+    <>{this.getSegments()}< />
+  </svg>);
+
+// className='connect' key='svg-single-1' width='720' height='160'
+}
+
 
 const getSiblingsSvg = (rowType) => {
   const svgs = {
@@ -235,7 +332,8 @@ const getPlusSignSvg = () => {
 export {
   getGrandparentSvg,
   getParentSvg,
-  getChildrenSvg,
+  getSpouseChildrenConnector,
+  getChildrenSvgs,
   getSiblingsSvg,
   getPlusSignSvg
 };
