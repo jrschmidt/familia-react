@@ -4,7 +4,6 @@ import { shallow } from 'enzyme';
 
 import TreeDisplay from './TreeDisplay.js';
 import TreeDisplayCore from './TreeDisplayCore.js';
-import ChildView from './ChildView.js';
 
 let props = {}
 
@@ -166,7 +165,6 @@ it('renders TreeDisplay component', () => {
   props.focusPersonId = 'p01';
   const wrapper = shallow(<TreeDisplay {...props}/>);
   expect(wrapper.find(TreeDisplayCore)).toHaveLength(1);
-  expect(wrapper.find(ChildView)).toHaveLength(1);
 });
 
 

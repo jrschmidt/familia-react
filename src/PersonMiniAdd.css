@@ -73,7 +73,7 @@
   right: 8px;
 }
 
-/* The add-add and add-label classes are the content parts within the add-text
+/* The add-add and add-title classes are the content parts within the add-text
   container. They have slightly different styling for the add-top option. */
 
 .PersonMiniAdd .add-add {
@@ -81,7 +81,7 @@
   font-weight: bold;
 }
 
-.PersonMiniAdd .add-label {
+.PersonMiniAdd .add-title {
   font-size: 0.8em;
   font-style: italic;
 }
@@ -91,7 +91,7 @@
   left: 5px;
 }
 
-.add-top .add-label {
+.add-top .add-title {
   position: absolute;
   right: 9px;
 }

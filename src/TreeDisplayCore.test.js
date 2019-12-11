@@ -17,10 +17,14 @@ it('renders TreeDisplayCore component with male focus person', () => {
       motherOfFather: {_id: 'p12', firstname: 'Elizabeth', surname: 'Carter'},
       fatherOfMother: {_id: 'p13', firstname: 'Albert', surname: 'Johnson'},
       motherOfMother: {_id: 'p14', firstname: 'Susanna', surname: 'Kirk'},
+      children: [
+        {_id: 'p98', firstname: 'Melissa', surname: 'Green'},
+        {_id: 'p99', firstname: 'Jordan', surname: 'Green'}
+      ]
     };
     const wrapper = shallow(<TreeDisplayCore {...props}/>);
     expect(wrapper.find(FocusPersonDisplay)).toHaveLength(1);
-    expect(wrapper.find(PersonMini)).toHaveLength(7);
+    expect(wrapper.find(PersonMini)).toHaveLength(9);
     expect(wrapper.find('svg')).toHaveLength(4);
     expect(wrapper.find('svg').last().hasClass('svg-connect-children-m')).toEqual(true);
 });
@@ -30,16 +34,20 @@ it('renders TreeDisplayCore component with female focus person', () => {
       focusPerson: {_id: 'p03', gender: 'female', firstname: 'Anne', surname: 'Adams', birthdate: 'may-26-1959', birthPlaceName: 'Lenexa, Kansas'},
       husband: {_id: 'p01', firstname: 'Robert', surname: 'Green'},
       wife: null,
-      father: {_id: 'p06', firstname: '', surname: 'Adams'},
-      mother: {_id: 'p07', firstname: '', surname: 'Medford'},
+      father: {_id: 'p06', firstname: 'Zane', surname: 'Adams'},
+      mother: {_id: 'p07', firstname: 'Allison', surname: 'Medford'},
       fatherOfFather: {_id: 'p21', firstname: 'Jeremiah', surname: 'Adams'},
       motherOfFather: {_id: 'p22', firstname: 'Roberta', surname: 'Vogel'},
       fatherOfMother: {_id: 'p23', firstname: 'Vernon', surname: 'Medford'},
-      motherOfMother: {_id: 'p24', firstname: 'Lucille', surname: 'Williams'}
+      motherOfMother: {_id: 'p24', firstname: 'Lucille', surname: 'Williams'},
+      children: [
+        {_id: 'p98', firstname: 'Melissa', surname: 'Green'},
+        {_id: 'p99', firstname: 'Jordan', surname: 'Green'}
+      ]
     };
     const wrapper = shallow(<TreeDisplayCore {...props}/>);
     expect(wrapper.find(FocusPersonDisplay)).toHaveLength(1);
-    expect(wrapper.find(PersonMini)).toHaveLength(7);
+    expect(wrapper.find(PersonMini)).toHaveLength(9);
     expect(wrapper.find('svg')).toHaveLength(4);
     expect(wrapper.find('svg').last().hasClass('svg-connect-children-f')).toEqual(true);
 });

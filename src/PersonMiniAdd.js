@@ -9,20 +9,20 @@ class PersonMiniAdd extends Component {
     const newPerson = {
       firstname: 'Test',
       surname: 'Person',
-      gender: (this.props.label === 'child') ? 'female' : null
+      gender: (this.props.title === 'child') ? 'female' : null
     };
     return (
       <div
         className={cname}
         onClick={ (this.props.addPerson)
-          ? () => this.props.addPerson(this.props.originPerson, this.props.label, newPerson)
+          ? () => this.props.addPerson(this.props.originPerson, this.props.title, newPerson)
           : ''}
       >
         <div className='add-box'>
           {getPlusSignSvg()}
           <div className='add-text'>
             <p className='add-add'>ADD</p>
-            <p className='add-label'>{this.props.label}</p>
+            <p className='add-title'>{this.props.title}</p>
           </div>
         </div>
       </div>

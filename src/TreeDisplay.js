@@ -3,7 +3,6 @@ import './TreeDisplay.css';
 
 import Breadcrumbs from './Breadcrumbs';
 import TreeDisplayCore from './TreeDisplayCore';
-import ChildView from './ChildView';
 
 class TreeDisplay extends Component {
 
@@ -141,30 +140,24 @@ class TreeDisplay extends Component {
     const viewState = this.state.viewState;
     const tags =
       <>
-      <Breadcrumbs
-        names={this.state.path.names}
-      />
-      <TreeDisplayCore
-        resetViewFocus={this.resetViewFocus}
-        addPerson={this.addPerson}
-        focusPerson={viewState.focusPerson}
-        husband={viewState.husband}
-        wife={viewState.wife}
-        father={viewState.father}
-        fatherOfFather={viewState.fatherOfFather}
-        motherOfFather={viewState.motherOfFather}
-        mother={viewState.mother}
-        fatherOfMother={viewState.fatherOfMother}
-        motherOfMother={viewState.motherOfMother}
-        children={viewState.children}
-      />
-      <ChildView
-        resetViewFocus={this.resetViewFocus}
-        addPerson={this.addPerson}
-        focusPerson={viewState.focusPerson}
-        children={viewState.children}
-      />
-      </>
+        <Breadcrumbs
+          names={this.state.path.names}
+        />
+        <TreeDisplayCore
+          resetViewFocus={this.resetViewFocus}
+          addPerson={this.addPerson}
+          focusPerson={viewState.focusPerson}
+          husband={viewState.husband}
+          wife={viewState.wife}
+          father={viewState.father}
+          fatherOfFather={viewState.fatherOfFather}
+          motherOfFather={viewState.motherOfFather}
+          mother={viewState.mother}
+          fatherOfMother={viewState.fatherOfMother}
+          motherOfMother={viewState.motherOfMother}
+          children={viewState.children}
+        />
+      < />
 
     return (
       <div className='TreeDisplay'>
