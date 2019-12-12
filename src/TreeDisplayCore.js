@@ -242,7 +242,7 @@ class TreeDisplayCore extends Component {
               key={key}
               selectable={true}
               resetViewFocus={this.props.resetViewFocus}
-              setConnectorHighlight={null}
+              setConnectorHighlight={this.setConnectorHighlight}
               viewRole={label}
             />
         );
