@@ -136,8 +136,7 @@ const getSpouseChildrenConnector = (focusGender, highlight) => {
       );
 }
 
-
-const getChildrenSvgs = (numberOfChildren, highlight) => {
+const getChildrenSvg = (numberOfChildren, highlight) => {
   const plainColor = '#666666';
   const highlightColor = '#669999';
 
@@ -156,10 +155,19 @@ const getChildrenSvgs = (numberOfChildren, highlight) => {
     v5: [500, 40, 500, 80],
     v6: [600, 40, 600, 80],
     v7: [700, 40, 700, 80],
+    vxx: [400, 80, 400, 200],
+    hx1: [100, 200, 300, 200],
+    hx2: [300, 200, 400, 200],
+    hx3: [400, 200, 500, 200],
+    hx4: [500, 200, 700, 200],
+    vx1: [100, 200, 100, 240],
+    vx2: [300, 200, 300, 240],
+    vx3: [500, 200, 500, 240],
+    vx4: [700, 200, 700, 240]
   };
 
   const getLineSegment = (id, color) => {
-    const xy = xxyy[id];
+    let xy = xxyy.id;
     return (
       <line
         x1={xy[0]}
@@ -172,138 +180,71 @@ const getChildrenSvgs = (numberOfChildren, highlight) => {
     );
   }
 
-  const getSegmentsList =  (numberOfChildren) => {
+  const getSegmentsList = (numberOfChildren) => {
     const segments = [
       ['t', 'v4'],
       ['t', 'h3', 'h4', 'v3', 'v5'],
       ['t', 'h2', 'h3', 'h4', 'h5', 'v2', 'v4', 'v6'],
       ['t', 'h1', 'h2', 'h3', 'h4', 'h6', 'v1', 'v3', 'v5', 'v7'],
-      ['t', 'h1', 'h2', 'h3', 'v1'],
-      ['t', 'h1', 'h2', 'h3', 'v1', 'v3'],
-      ['t', 'h1', 'h2', 'h3', 'h4', 'v1', 'v3', 'v5'],
-      ['t', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'v1', 'v3', 'v5', 'v7']
+      ['t', 'h1', 'h2', 'h3', 'h4', 'h6', 'v1', 'v3', 'v4', 'v5', 'v7', 'vxx', 'hx1', 'hx2', 'vx1']
+      ['t', 'h1', 'h2', 'h3', 'h4', 'h6', 'v1', 'v3', 'v4', 'v5', 'v7', 'vxx', 'hx1', 'hx2', 'vx1', 'vx2'],
+      ['t', 'h1', 'h2', 'h3', 'h4', 'h6', 'v1', 'v3', 'v4', 'v5', 'v7', 'vxx', 'hx1', 'hx2', 'hx3', 'vx1', 'vx2', 'vx3'],
+      ['t', 'h1', 'h2', 'h3', 'h4', 'h6', 'v1', 'v3', 'v4', 'v5', 'v7', 'vxx', 'hx1', 'hx2', 'hx3', 'hx4', 'vx1', 'vx2', 'vx3', 'vx4']
     ];
 
-  const extension = ['t', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'v1', 'v3', 'v4', 'v5', 'v7'];
-
-  return (numberOfChildren > 4)
-    ? [ segments[numberOfChildren] ]
-    : [ extension, segments[numberOfChildren]];
+  return [ segments[numberOfChildren] ];
   }
 
   const getHighlightedSegmentsList =  (numberOfChildren, hoveredChild) => {
-    const hlsLists = [
-      [],
-      ['t', 'h1', 'h2', 'h3', 'v1'],
-      ['t', 'h3', 'v3'],
-      ['t', 'h4', 'v5'],
-      ['t', 'h4', 'h5', 'h6', 'v7'],
-      ['t', 'h1', 'h2', 'h3', 'v1'],
-      ['t', 'h3', 'v3'],
-      ['t', 'h4', 'v5']
-    ];
-
     let segs = [];
-    if (numberOfChildren === 1 && hoveredChild === 1)
-      return ['t', 'h3', 'v3'];
-    if (numberOfChildren === 2) {
-      if (hoveredChild === 1) return ['t', 'h2', 'h3', 'v2'];
-      if (hoveredChild === 2) return ['t', 'v4'];
-    }
-    if (numberOfChildren > 2)
-      return hlsLists[numberOfChildren];
+    return segs;
   }
+
+
+
+  // const getHighlightedSegmentsList =  (numberOfChildren, hoveredChild) => {
+  //   const hlsLists = [
+  //     [],
+  //     ['t', 'h1', 'h2', 'h3', 'v1'],
+  //     ['t', 'h3', 'v3'],
+  //     ['t', 'h4', 'v5'],
+  //     ['t', 'h4', 'h5', 'h6', 'v7'],
+  //     ['t', 'h1', 'h2', 'h3', 'v1'],
+  //     ['t', 'h3', 'v3'],
+  //     ['t', 'h4', 'v5']
+  //   ];
+  //
+  //   let segs = [];
+  //   if (numberOfChildren === 1 && hoveredChild === 1)
+  //     segs = ['t', 'h3', 'v3'];
+  //   if (numberOfChildren === 2) {
+  //     if (hoveredChild === 1) segs = ['t', 'h2', 'h3', 'v2'];
+  //     if (hoveredChild === 2) segs = ['t', 'v4'];
+  //   }
+  //   if (numberOfChildren > 2)
+  //     segs = hlsLists[numberOfChildren];
+  //   return segs;
+  // }
 
   const getSegments = (numberOfChildren, highlight) => {
-    const segmentList = this.getSegmentsList(numberOfChildren);
-    const highlightedSegmentsList = this.getHighlightedSegmentsList(numberOfChildren, highlight);
-    return segmentList.map( (segId) => {
-      const color = ( highlightedSegmentsList.includes(segId) )
-        ? highlightColor
-        : plainColor;
-      return this.getLineSegment(segId, color);
+    const segmentList = getSegmentsList(numberOfChildren);
+    const highlightedSegmentsList = getHighlightedSegmentsList(numberOfChildren, highlight);
+    let segs = [];
+    segmentList.forEach( segId => {
+      console.log(`segId = ${{segId}}`);
+      // const color = ( highlightedSegmentsList.includes(segId) )
+      //   ? highlightColor
+      //   : plainColor;
+      // segs.push(getLineSegment(segId, color));
     });
+    return segs;
   }
 
-  return (<svg>
-    <>{this.getSegments()}< />
-  </svg>);
-
-// className='connect' key='svg-single-1' width='720' height='160'
-}
-
-
-const getSiblingsSvg = (rowType) => {
-  const svgs = {
-
-    'single-1':
-      <svg className='connect' key='svg-single-1' width='720' height='160'>
-        <line x1='400' y1='0' x2='400' y2='80' stroke='#666666' strokeWidth='4' />
-      </svg>,
-
-    'single-2':
-      <svg className='connect' key='svg-single-2' width='720' height='160'>
-        <line x1='400' y1='0' x2='400' y2='40' stroke='#666666' strokeWidth='4' />
-        <line x1='300' y1='40' x2='500' y2='40' stroke='#666666' strokeWidth='4' />
-        <line x1='300' y1='40' x2='300' y2='80' stroke='#666666' strokeWidth='4' />
-        <line x1='500' y1='40' x2='500' y2='80' stroke='#666666' strokeWidth='4' />
-      </svg>,
-
-    'single-3':
-      <svg className='connect' key='svg-single-3' width='720' height='160'>
-        <line x1='400' y1='0' x2='400' y2='40' stroke='#666666' strokeWidth='4' />
-        <line x1='200' y1='40' x2='600' y2='40' stroke='#666666' strokeWidth='4' />
-        <line x1='200' y1='40' x2='200' y2='80' stroke='#666666' strokeWidth='4' />
-        <line x1='400' y1='40' x2='400' y2='80' stroke='#666666' strokeWidth='4' />
-        <line x1='600' y1='40' x2='600' y2='80' stroke='#666666' strokeWidth='4' />
-      </svg>,
-
-    'final-1':
-      <svg className='connect' key='svg-final-1' width='720' height='160'>
-        <line x1='400' y1='0' x2='400' y2='40' stroke='#666666' strokeWidth='4' />
-        <line x1='100' y1='40' x2='400' y2='40' stroke='#666666' strokeWidth='4' />
-        <line x1='100' y1='40' x2='100' y2='80' stroke='#666666' strokeWidth='4' />
-      </svg>,
-
-    'final-2':
-      <svg className='connect' key='svg-final-2' width='720' height='160'>
-        <line x1='400' y1='0' x2='400' y2='40' stroke='#666666' strokeWidth='4' />
-        <line x1='100' y1='40' x2='400' y2='40' stroke='#666666' strokeWidth='4' />
-        <line x1='100' y1='40' x2='100' y2='80' stroke='#666666' strokeWidth='4' />
-        <line x1='300' y1='40' x2='300' y2='80' stroke='#666666' strokeWidth='4' />
-      </svg>,
-
-    'final-3':
-      <svg className='connect' key='svg-final-3' width='720' height='160'>
-        <line x1='400' y1='0' x2='400' y2='40' stroke='#666666' strokeWidth='4' />
-        <line x1='100' y1='40' x2='500' y2='40' stroke='#666666' strokeWidth='4' />
-        <line x1='100' y1='40' x2='100' y2='80' stroke='#666666' strokeWidth='4' />
-        <line x1='300' y1='40' x2='300' y2='80' stroke='#666666' strokeWidth='4' />
-        <line x1='500' y1='40' x2='500' y2='80' stroke='#666666' strokeWidth='4' />
-      </svg>,
-
-    'final-4':
-      <svg className='connect' key='svg-final-4' width='720' height='160'>
-        <line x1='400' y1='0' x2='400' y2='40' stroke='#666666' strokeWidth='4' />
-        <line x1='100' y1='40' x2='700' y2='40' stroke='#666666' strokeWidth='4' />
-        <line x1='100' y1='40' x2='100' y2='80' stroke='#666666' strokeWidth='4' />
-        <line x1='300' y1='40' x2='300' y2='80' stroke='#666666' strokeWidth='4' />
-        <line x1='500' y1='40' x2='500' y2='80' stroke='#666666' strokeWidth='4' />
-        <line x1='700' y1='40' x2='700' y2='80' stroke='#666666' strokeWidth='4' />
-      </svg>,
-
-    'extend-4':
-      <svg className='connect' key='svg-extend-4' width='720' height='160'>
-        <line x1='400' y1='0' x2='400' y2='160' stroke='#666666' strokeWidth='4' />
-        <line x1='100' y1='40' x2='700' y2='40' stroke='#666666' strokeWidth='4' />
-        <line x1='100' y1='40' x2='100' y2='80' stroke='#666666' strokeWidth='4' />
-        <line x1='300' y1='40' x2='300' y2='80' stroke='#666666' strokeWidth='4' />
-        <line x1='500' y1='40' x2='500' y2='80' stroke='#666666' strokeWidth='4' />
-        <line x1='700' y1='40' x2='700' y2='80' stroke='#666666' strokeWidth='4' />
-      </svg>
-
-  };
-  return svgs[rowType];
+  return (
+    <svg>
+      <>{getSegments(numberOfChildren, highlight)}< />
+    </svg>
+  );
 
 }
 
@@ -333,7 +274,6 @@ export {
   getGrandparentSvg,
   getParentSvg,
   getSpouseChildrenConnector,
-  getChildrenSvgs,
-  getSiblingsSvg,
+  getChildrenSvg,
   getPlusSignSvg
 };

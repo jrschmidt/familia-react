@@ -4,7 +4,7 @@ import './TreeDisplayCore.css';
 import FocusPersonDisplay from './FocusPersonDisplay.js';
 import PersonMini from './PersonMini.js';
 import PersonMiniAdd from './PersonMiniAdd.js';
-import { getGrandparentSvg, getParentSvg, getSpouseChildrenConnector } from './treeDisplaySvgs.js';
+import { getGrandparentSvg, getParentSvg, getSpouseChildrenConnector, getChildrenSvgs } from './treeDisplaySvgs.js';
 
 class TreeDisplayCore extends Component {
 
@@ -203,7 +203,7 @@ class TreeDisplayCore extends Component {
     // CHILDREN OF FOCUS PERSON
 
     const size = this.props.children.length;
-    const childlabels = ( size < 3 )
+    const childLabels = ( size < 3 )
 
       ? [
           ['child-middle'],
@@ -227,7 +227,7 @@ class TreeDisplayCore extends Component {
       while (kidsToAdd.length > 0) {
         let person = kidsToAdd.shift();
         let key = person._id;
-        let label = childlabels.shift();
+        let label = childLabels.shift();
         tags.push( (person._id === 'child-add')
           ? <PersonMiniAdd
               key='add-child'
@@ -266,10 +266,9 @@ class TreeDisplayCore extends Component {
         'g2'
       ));
 
-    // // Connect to spouse and children of focus person:
     tags.push(getSpouseChildrenConnector(focusGender, this.state.connectHighlight));
 
-    tags = tags.filter(tag=>!!tag);
+    tags = tags.filter(tag => !!tag);
     return tags;
   }
 
