@@ -4,7 +4,7 @@ import './TreeDisplayCore.css';
 import FocusPersonDisplay from './FocusPersonDisplay.js';
 import PersonMini from './PersonMini.js';
 import PersonMiniAdd from './PersonMiniAdd.js';
-import { getGrandparentSvg, getParentSvg, getSpouseChildrenConnector, getChildrenSvgs } from './treeDisplaySvgs.js';
+import { getGrandparentSvg, getParentSvg, getSpouseChildrenConnector, getChildrenSvg } from './treeDisplaySvgs.js';
 
 class TreeDisplayCore extends Component {
 
@@ -267,6 +267,8 @@ class TreeDisplayCore extends Component {
       ));
 
     tags.push(getSpouseChildrenConnector(focusGender, this.state.connectHighlight));
+
+    tags.push(getChildrenSvg(this.props.children.length, this.state.connectHighlight));
 
     tags = tags.filter(tag => !!tag);
     return tags;

@@ -25,8 +25,8 @@ it('renders TreeDisplayCore component with male focus person', () => {
     const wrapper = shallow(<TreeDisplayCore {...props}/>);
     expect(wrapper.find(FocusPersonDisplay)).toHaveLength(1);
     expect(wrapper.find(PersonMini)).toHaveLength(9);
-    expect(wrapper.find('svg')).toHaveLength(4);
-    expect(wrapper.find('svg').last().hasClass('svg-connect-children-m')).toEqual(true);
+    expect(wrapper.find('svg')).toHaveLength(5);
+    expect(wrapper.find('svg').last().hasClass('svg-children')).toEqual(true);
 });
 
 it('renders TreeDisplayCore component with female focus person', () => {
@@ -48,6 +48,6 @@ it('renders TreeDisplayCore component with female focus person', () => {
     const wrapper = shallow(<TreeDisplayCore {...props}/>);
     expect(wrapper.find(FocusPersonDisplay)).toHaveLength(1);
     expect(wrapper.find(PersonMini)).toHaveLength(9);
-    expect(wrapper.find('svg')).toHaveLength(4);
-    expect(wrapper.find('svg').last().hasClass('svg-connect-children-f')).toEqual(true);
+    expect(wrapper.find('svg')).toHaveLength(5);
+    expect(wrapper.find('svg').last().hasClass('svg-children')).toEqual(true);
 });
