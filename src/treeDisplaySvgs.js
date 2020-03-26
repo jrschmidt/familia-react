@@ -197,17 +197,39 @@ const getChildrenSvg = (numberOfChildren, highlight) => {
   return segments[numberOfChildren];
   }
 
-  const getHighlightedSegmentsList =  (numberOfChildren, hoveredChild) => {
-    let segs = [];
-    return segs;
+  const getHighlightedSegmentsList =  (highlight) => {
+    const segmentsHighlighted = {
+      'child-1' : ['t', 'h1', 'h2', 'h3', 'v1'],
+      'child-2' : ['t', 'h3', 'v3'],
+      'child-3' : ['t', 'h4', 'v5'],
+      'child-4' : ['t', 'h4', 'h5', 'h6', 'v7'],
+      'child-5' : ['t', 'v4', 'vxx', 'hx1', 'hx2', 'vx1'],
+      'child-6' : ['t', 'v4', 'vxx', 'hx2', 'vx2'],
+      'child-7' : ['t', 'v4', 'vxx', 'hx3', 'vx3'],
+      'child-left' : ['t', 'h2', 'h3', 'v2'],
+      'child-middle' : ['t', 'v4'],
+      'child-right' : ['t', 'h4', 'h5', 'v6']
+    };
+
+    if (segmentsHighlighted.hasOwnProperty(highlight)) {
+      return segmentsHighlighted[highlight];
+    }
+    else {
+      return [];
+    }
   }
 
   const getSegments = (numberOfChildren, highlight) => {
     const segmentList = getSegmentsList(numberOfChildren);
-    const highlightedSegmentsList = [];
+    const highlightedSegmentsList = getHighlightedSegmentsList(highlight);
     let segs = [];
     segmentList.forEach( segId => {
-      segs.push(getLineSegment(segId, plainColor));
+      if (highlightedSegmentsList.includes(segId)) {
+        segs.push(getLineSegment(segId, highlightColor));
+      }
+      else {
+        segs.push(getLineSegment(segId, plainColor));
+      }
     });
     return segs;
   }
